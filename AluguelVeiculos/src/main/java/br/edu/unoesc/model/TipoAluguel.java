@@ -1,17 +1,27 @@
 package br.edu.unoesc.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TipoAluguel")
 public class TipoAluguel {
 
-	private Integer codigo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
 	private String descricao;
 	private Double valor;
 	private Double taxa;
 
-	public Integer getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -43,7 +53,7 @@ public class TipoAluguel {
 
 	}
 
-	public TipoAluguel(Integer codigo, String descricao, Double valor, Double taxa) {
+	public TipoAluguel(long codigo, String descricao, Double valor, Double taxa) {
 		super();
 		this.codigo = codigo;
 		this.descricao = descricao;

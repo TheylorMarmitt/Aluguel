@@ -1,12 +1,22 @@
 package br.edu.unoesc.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TipoPagamento")
 public class TipoPagamento {
 
-	private Integer codigo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
 	private String descricao;
 	private Double desconto;
 
-	public Integer getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
@@ -30,7 +40,7 @@ public class TipoPagamento {
 		this.desconto = desconto;
 	}
 
-	public TipoPagamento(Integer codigo, String descricao, Double desconto) {
+	public TipoPagamento(long codigo, String descricao, Double desconto) {
 		super();
 		this.codigo = codigo;
 		this.descricao = descricao;
