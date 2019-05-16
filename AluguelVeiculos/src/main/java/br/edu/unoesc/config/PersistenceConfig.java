@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = "br.edu.unoesc.dao", entityManagerFactoryRef = "entityManagerFactory", transactionManagerRef = "transactionManager")
 public class PersistenceConfig {
 
+	
 	@Bean
 	public DataSource datasource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
