@@ -2,29 +2,45 @@ package br.edu.unoesc.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Carro")
 public class Carro {
-	private Integer codigo;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
 	private String marca;
 	private String modelo;
 	private Double valor;
 	private String cor;
-	private LocalDate ano;
+	private Integer ano;
 	private String placa;
 	private boolean disponivel;
 	
 	private LocalDate dataDeAquisicao;
 	private LocalDate dataDeDesapropriacao = null;
+	
+	@ManyToOne
+	@JoinColumn(name = "filial_id")
 	private Filial filial;
 
 	public Carro() {
 
 	}
 
-	public Integer getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -60,11 +76,11 @@ public class Carro {
 		this.cor = cor;
 	}
 
-	public LocalDate getAno() {
+	public Integer getAno() {
 		return ano;
 	}
 
-	public void setAno(LocalDate ano) {
+	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
 
@@ -84,7 +100,7 @@ public class Carro {
 		this.disponivel = disponivel;
 	}
 
-	public Carro(Integer codigo, String marca, String modelo, Double valor, String cor, LocalDate ano, String placa,
+	public Carro(long codigo, String marca, String modelo, Double valor, String cor, Integer ano, String placa,
 			boolean disponivel) {
 		super();
 		this.codigo = codigo;

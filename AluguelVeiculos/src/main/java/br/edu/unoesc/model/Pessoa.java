@@ -1,16 +1,48 @@
 package br.edu.unoesc.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "Pessoa")
 public abstract class Pessoa {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
 	private String nome;
 	private String sobrenome;
-	private LocalDate dataNascimento;
+	private Date dataNascimento;
 	private String telefone;
 	private String cpf;
 	private String email;
 	
+	
+	public Pessoa() {
+
+	}
+
+	public Pessoa(long codigo, String nome, String sobrenome, Date dataNascimento, String telefone, String cpf,
+			String email) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.dataNascimento = dataNascimento;
+		this.telefone = telefone;
+		this.cpf = cpf;
+		this.email = email;
+	}
+
+
 	/**
 	 * 
 	 * @return true se cpf for valido
@@ -87,11 +119,11 @@ public abstract class Pessoa {
 		this.sobrenome = sobrenome;
 	}
 
-	public LocalDate getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

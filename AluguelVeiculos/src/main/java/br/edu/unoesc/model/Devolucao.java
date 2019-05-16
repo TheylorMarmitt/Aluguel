@@ -1,15 +1,32 @@
 package br.edu.unoesc.model;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Devolucao")
 public class Devolucao {
 
-	private Integer codigo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
 	private LocalDate dataChegada;
 	private Double quilometroChegada;
-	private Aluguel aluguel;
 	private Double valorTotal;
+	
+	@ManyToOne
+	@JoinColumn(name = "aluguel_id")	
+	private Aluguel aluguel;
+	
+	@ManyToOne
+	@JoinColumn(name = "tipoAluguel_id")
 	private TipoPagamento tipoPagamento;
 	
 	
@@ -36,20 +53,20 @@ public class Devolucao {
 	 * (dias * taxa) + (valor * km/1000) 
 	 * atualiza valorTotal
 	 */
-	public void calculaValor() {
-		long dias = ChronoUnit.DAYS.between(this.aluguel.getDataAluguel(), this.dataChegada);
-		this.valorTotal =(dias * this.aluguel.getTipoAluguel().getTaxa()) + (this.aluguel.getTipoAluguel().getValor() * calculaQuilometros()/1000);
-	}
+//	public void calculaValor() {
+//		long dias = ChronoUnit.DAYS.between(this.aluguel.getDataAluguel(), this.dataChegada);
+//		this.valorTotal =(dias * this.aluguel.getTipoAluguel().getTaxa()) + (this.aluguel.getTipoAluguel().getValor() * calculaQuilometros()/1000);
+//	}
 	
 	public void disponibilizaCarro() {
 		this.aluguel.getCarro().setDisponivel(true);
 	}
 	
-	public Integer getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 

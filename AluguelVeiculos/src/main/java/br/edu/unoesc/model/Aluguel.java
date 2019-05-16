@@ -1,16 +1,43 @@
 package br.edu.unoesc.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Aluguel")
 public class Aluguel {
 
-	private Integer codigo;
-	private LocalDate dataAluguel;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
+	private Date dataAluguel;
 	private Double kmSaida;
+	
+	@ManyToOne
+	@JoinColumn(name = "carro_id")
 	private Carro carro;
+	
+	@ManyToOne
+	@JoinColumn(name = "filial_id")
 	private Filial filial;
+	
+	@ManyToOne
+	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
+	
+	@ManyToOne
+	@JoinColumn(name = "tipoAluguel_id")
 	private TipoAluguel tipoAluguel;
+	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
 	public boolean confirmaAluguel() {
@@ -27,7 +54,7 @@ public class Aluguel {
 		
 	}
 
-	public Aluguel(Integer codigo, LocalDate dataAluguel, Double kmSaida, Carro carro, Filial filial,
+	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, Carro carro, Filial filial,
 			Funcionario funcionario, TipoAluguel tipoAluguel, Cliente cliente) {
 		super();
 		this.codigo = codigo;
@@ -40,19 +67,19 @@ public class Aluguel {
 		this.cliente = cliente;
 	}
 
-	public Integer getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
-	public LocalDate getDataAluguel() {
+	public Date getDataAluguel() {
 		return dataAluguel;
 	}
 
-	public void setDataAluguel(LocalDate dataAluguel) {
+	public void setDataAluguel(Date dataAluguel) {
 		this.dataAluguel = dataAluguel;
 	}
 

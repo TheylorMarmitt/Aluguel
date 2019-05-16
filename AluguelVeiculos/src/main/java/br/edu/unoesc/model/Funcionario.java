@@ -1,21 +1,36 @@
 package br.edu.unoesc.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Funcionario")
 public class Funcionario extends Pessoa {
 
-	private Integer codigo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
 	private String senha;
 	private Double salario;
-	private LocalDate dataAdmissao;
-	private LocalDate dataDemissao;
+	private Date dataAdmissao;
+	private Date dataDemissao;
+	
+	@ManyToOne
+	@JoinColumn(name = "filial_id")
 	private Filial filial;
 	
 	public Funcionario() {
 
 	}
 
-	public Funcionario(Integer codigo, String senha, Double salario, LocalDate dataAdmissao, LocalDate dataDemissao,
+	public Funcionario(long codigo, String senha, Double salario, Date dataAdmissao, Date dataDemissao,
 			Filial filial) {
 		this.codigo = codigo;
 		this.senha = senha;
@@ -26,26 +41,25 @@ public class Funcionario extends Pessoa {
 	}
 
 
-
-	public Integer getCodigo() {
-		return codigo;
-	}
-	public void setDataAdmissao(LocalDate dataAdmissao) {
-		this.dataAdmissao = dataAdmissao;
-	}
-	public LocalDate getDataAdmissao() {
-		return dataAdmissao;
-	}
-	public void setDataDemissao(LocalDate dataDemissao) {
-		this.dataDemissao = dataDemissao;
-	}
-	public LocalDate getDataDemissao() {
-		return dataDemissao;
-	}
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
-
+	public long getCodigo() {
+		return codigo;
+	}
+	public void setDataAdmissao(Date dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+	public Date getDataAdmissao() {
+		return dataAdmissao;
+	}
+	public void setDataDemissao(Date dataDemissao) {
+		this.dataDemissao = dataDemissao;
+	}
+	public Date getDataDemissao() {
+		return dataDemissao;
+	}
+	
 	public String getSenha() {
 		return senha;
 	}

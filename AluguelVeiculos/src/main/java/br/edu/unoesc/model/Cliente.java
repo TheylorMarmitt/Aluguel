@@ -1,47 +1,35 @@
 package br.edu.unoesc.model;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Cliente")
+@PrimaryKeyJoinColumn(name = "codigo")
 public class Cliente extends Pessoa {
 
-	private Integer codigo;
-	private LocalDate dataDeCadastro;
+	private Date dataDeCadastro;
 	private String cnh;
 
-	
-	/**
-	 * 
-	 * @return idade inteiro
-	 */
-	public Integer idade() {
-		return (int) ChronoUnit.YEARS.between(LocalDate.now(), this.getDataNascimento());
-	}
 
 	public Cliente() {
 
 	}
 
-	public Cliente(Integer codigo, LocalDate dataDeCadastro, String cnh) {
-		super();
-		this.codigo = codigo;
+	public Cliente(Date dataDeCadastro, String cnh) {
 		this.dataDeCadastro = dataDeCadastro;
 		this.cnh = cnh;
 	}
 
-	public Integer getCodigo() {
-		return codigo;
-	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
-
-	public LocalDate getDataDeCadastro() {
+	public Date getDataDeCadastro() {
 		return dataDeCadastro;
 	}
 
-	public void setDataDeCadastro(LocalDate dataDeCadastro) {
+	public void setDataDeCadastro(Date dataDeCadastro) {
 		this.dataDeCadastro = dataDeCadastro;
 	}
 

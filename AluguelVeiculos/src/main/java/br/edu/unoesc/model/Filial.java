@@ -1,8 +1,18 @@
 package br.edu.unoesc.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Filial")
 public class Filial {
 
-	private Integer codigo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
 	private String nome;
 	private String cidade;
 	private String uf;
@@ -10,11 +20,11 @@ public class Filial {
 	public Filial() {
 	}
 
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -42,7 +52,7 @@ public class Filial {
 		this.uf = uf;
 	}
 
-	public Filial(int codigo, String nome, String cidade, String uf) {
+	public Filial(long codigo, String nome, String cidade, String uf) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
