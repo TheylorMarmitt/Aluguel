@@ -3,18 +3,14 @@ package br.edu.unoesc.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Funcionario")
+@PrimaryKeyJoinColumn(name = "codigo")
 public class Funcionario extends Pessoa {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigo;
 	private String senha;
 	private Double salario;
 	private Date dataAdmissao;
@@ -24,21 +20,13 @@ public class Funcionario extends Pessoa {
 
 	}
 
-	public Funcionario(long codigo, String senha, Double salario, Date dataAdmissao, Date dataDemissao) {
-		this.codigo = codigo;
+	public Funcionario(String senha, Double salario, Date dataAdmissao, Date dataDemissao) {
 		this.senha = senha;
 		this.salario = salario;
 		this.dataAdmissao = dataAdmissao;
 		this.dataDemissao = dataDemissao;
 	}
 
-
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
-	}
-	public long getCodigo() {
-		return codigo;
-	}
 	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
@@ -68,11 +56,5 @@ public class Funcionario extends Pessoa {
 		this.salario = salario;
 	}
 
-	@Override
-	public String toString() {
-		return this.codigo + " : " + this.getNome();
-	}
-
-	
 
 }

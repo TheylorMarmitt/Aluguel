@@ -36,18 +36,17 @@ public class ClienteController {
 	
 	@RequestMapping(path = "/atualizar")
 	public String atualizar(String filtroCPF, Model model) {
-		Cliente c = new Cliente();
-		c = this.clienteDao.findByCpf(filtroCPF);
-		model.addAttribute("cliente", c);
+		model.addAttribute("cliente", this.clienteDao.findByCpf(filtroCPF));
 		return "cliente/atualizar";
 	}
 	
-	@RequestMapping(path = "/editar")
+	@RequestMapping(path = "/editar", method = RequestMethod.POST)
 	public String editar(Cliente cliente, String dataNasc, Model model) throws ParseException {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date parsed = format.parse(dataNasc);
+		cliente = this.clienteDao.findByCpf(cliente.getCpf());
 		cliente.setDataNascimento(parsed);
-		this.clienteDao.save(cliente);
+		this.clienteDao.saveAndFlush(cliente);
 		return "index/login";
 	}
 }

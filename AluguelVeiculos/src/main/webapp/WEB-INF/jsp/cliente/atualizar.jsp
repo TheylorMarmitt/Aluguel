@@ -31,7 +31,7 @@
 		</form>
 	</div>
 	<form class="well form-horizontal"
-		action='<c:url value="/cliente/editar"></c:url>' method="get">
+		action='<c:url value="/cliente/editar"></c:url>' method="post">
 		<fieldset>
 			<div class="form-group">
 				<label class="col-md-3 control-label">Nome</label>
@@ -64,7 +64,7 @@
 							class="glyphicon glyphicon-calendar"></i></span><input
 							id="dataNascimento" name="dataNasc" placeholder="Data"
 							class="form-control" required="required"
-							value="<c:out value="${dataNasc}"/>" type="date">
+							value="<c:out value="${cliente.dataNascimento}"/>" type="date">
 					</div>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-earphone"></i></span><input id="telefone"
-							name="telelefone" placeholder="49 9 9999-9999"
+							name="telefone" placeholder="49 9 9999-9999"
 							class="form-control" required="required"
 							value="<c:out value="${cliente.telefone}"/>" type="text">
 					</div>
