@@ -34,4 +34,12 @@ public class ClienteController {
 		return "index/login";
 	}
 	
+	@RequestMapping(path = "/atualizar")
+	public String atualizar(String filtroCPF, Model model) {
+		Cliente c = new Cliente();
+		c = this.clienteDao.findByCpf(filtroCPF);
+		model.addAttribute("cliente", c);
+		return "cliente/atualizar";
+	}
+	
 }
