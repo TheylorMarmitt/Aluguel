@@ -26,7 +26,7 @@ public class PersistenceConfig {
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://localhost:3306/aluguel");
 		ds.setUsername("root");
-		ds.setPassword("12345");
+		ds.setPassword("root");
 		return ds;
 	}
 
