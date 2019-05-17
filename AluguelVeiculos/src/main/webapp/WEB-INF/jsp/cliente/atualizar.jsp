@@ -90,7 +90,7 @@
 							class="glyphicon glyphicon-user"></i></span><input id="cpf" name="cpf"
 							placeholder="112.234.567-89" class="form-control"
 							required="required" value="<c:out value="${cliente.cpf}"/>"
-							type="text">
+							type="text" disabled>
 					</div>
 				</div>
 			</div>

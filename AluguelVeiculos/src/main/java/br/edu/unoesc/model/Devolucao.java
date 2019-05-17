@@ -1,6 +1,6 @@
 package br.edu.unoesc.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ public class Devolucao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
-	private LocalDate dataChegada;
+	private Date dataChegada;
 	private Double quilometroChegada;
 	private Double valorTotal;
 	
@@ -65,11 +65,11 @@ public class Devolucao {
 		this.codigo = codigo;
 	}
 
-	public LocalDate getDataChegada() {
+	public Date getDataChegada() {
 		return dataChegada;
 	}
 
-	public void setDataChegada(LocalDate dataChegada) {
+	public void setDataChegada(Date dataChegada) {
 		this.dataChegada = dataChegada;
 	}
 
@@ -97,7 +97,7 @@ public class Devolucao {
 		this.valorTotal = valorTotal;
 	}
 
-	public Devolucao(Integer codigo, LocalDate dataChegada, Double quilometroChegada, Aluguel aluguel,
+	public Devolucao(Integer codigo, Date dataChegada, Double quilometroChegada, Aluguel aluguel,
 			Double valorTotal) {
 		super();
 		this.codigo = codigo;
