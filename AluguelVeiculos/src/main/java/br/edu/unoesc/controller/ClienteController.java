@@ -42,4 +42,12 @@ public class ClienteController {
 		return "cliente/atualizar";
 	}
 	
+	@RequestMapping(path = "/editar")
+	public String editar(Cliente cliente, String dataNasc, Model model) throws ParseException {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date parsed = format.parse(dataNasc);
+		cliente.setDataNascimento(parsed);
+		this.clienteDao.save(cliente);
+		return "index/login";
+	}
 }

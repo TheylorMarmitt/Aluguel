@@ -15,25 +15,7 @@
 	rel="stylesheet">
 </head>
 <body>
-	<div class="navbar-wrapper">
-		<div class="container-fluid">
-			<nav class="navbar navbar-fixed-top ">
-				<div class="container">
-					<a class="navbar-brand" href="#"><img src=""></a>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav ">
-							<li><a href="#" class="">Cadastro</a></li>
-							<li><a href="#" class="">Listagem</a></li>
-							<li><a href="#" class="">Outros</a></li>
-						</ul>
-						<ul class="nav navbar-nav pull-right">
-							<li class="active"><a href="#">Logout</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</div>
+	<%@ include file="/WEB-INF/template/menu.jsp" %>
 	<div class= "container-fluid busca">
 		<h1>Atualizar Cliente</h1>
 		<form action='<c:url value="/cliente/atualizar"></c:url>' method="get">
@@ -49,7 +31,7 @@
 		</form>
 	</div>
 	<form class="well form-horizontal"
-		action='<c:url value="/cliente/enviar"></c:url>' method="post">
+		action='<c:url value="/cliente/editar"></c:url>' method="get">
 		<fieldset>
 			<div class="form-group">
 				<label class="col-md-3 control-label">Nome</label>
@@ -82,7 +64,7 @@
 							class="glyphicon glyphicon-calendar"></i></span><input
 							id="dataNascimento" name="dataNasc" placeholder="Data"
 							class="form-control" required="required"
-							value="<c:out value="${cliente.dataNascimento}"/>" type="date">
+							value="<c:out value="${dataNasc}"/>" type="date">
 					</div>
 				</div>
 			</div>
@@ -94,7 +76,7 @@
 							class="glyphicon glyphicon-earphone"></i></span><input id="telefone"
 							name="telelefone" placeholder="49 9 9999-9999"
 							class="form-control" required="required"
-							value="<c:out value="${cliente.telefone}"/>" type="tel">
+							value="<c:out value="${cliente.telefone}"/>" type="text">
 					</div>
 				</div>
 			</div>

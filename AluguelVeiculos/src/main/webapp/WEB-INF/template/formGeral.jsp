@@ -36,9 +36,9 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-earphone"></i></span><input id="telefone" name="telelefone"
+							class="glyphicon glyphicon-earphone"></i></span><input id="telefone" name="telefone"
 							placeholder="49 9 9999-9999" class="form-control"
-							required="required" value="" type="tel">
+							required="required" value="" type="text">
 					</div>
 				</div>
 			</div>
