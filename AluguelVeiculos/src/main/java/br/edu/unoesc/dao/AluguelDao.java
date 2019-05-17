@@ -11,6 +11,6 @@ public interface AluguelDao extends JpaRepository<Aluguel, Long>{
 
 	List<Aluguel> findByAtivoTrue();
 	
-	@Query("select * from Aluguel where codCarro = ?1%")
-	Aluguel buscaPorCarro(String filtro);
+//	@Query("select a from Aluguel a where codCarro = ?1%")
+//	Aluguel buscaPorCarro(String filtro);
 }
