@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>AC Cliente</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/style.css">
+<link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 </head>
@@ -17,8 +18,7 @@
 		<div class="container-fluid">
 			<nav class="navbar navbar-fixed-top">
 				<div class="container">
-					<a class="navbar-brand" href="#"><img
-						src=""></a>
+					<a class="navbar-brand" href="#"><img src=""></a>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li><a href="#" class="">Cadastro</a></li>
@@ -34,15 +34,17 @@
 		</div>
 	</div>
 	<h1>Atualizar Cliente</h1>
-	<div class="form-group">
-		<form action= '<c:url value="/cliente/atualizar"></c:url>'  method= "get" >
+	<form action='<c:url value="/cliente/atualizar"></c:url>' method="get">
 		<div class="form-group">
-		<label>Buscar por cpf</label>
-			<input type="text" name="filtroCPF">
-			<input class="btn btn-default"	 type="submit" value="filtrar"/>
+				<label class= "control-label"> Buscar por cpf</label>
+			<div class="col-md-9 inputGroupContainer">
+				<div class="input-group">
+					 <input type="text" name="filtroCPF">
+					 <input class="btn btn-default btn-small" type="submit" value="filtrar" />
+				</div>
+			</div>
 		</div>
-		</form>
-	</div>	
+	</form>
 	<form class="well form-horizontal"
 		action='<c:url value="/cliente/enviar"></c:url>' method="post">
 		<fieldset>
@@ -64,7 +66,8 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="sobrenome"
 							name="sobrenome" placeholder="Doe" class="form-control"
-							required="required" value="<c:out value="${cliente.sobrenome}"/>" type="text">
+							required="required" value="<c:out value="${cliente.sobrenome}"/>"
+							type="text">
 					</div>
 				</div>
 			</div>
@@ -73,9 +76,10 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-calendar"></i></span><input id="dataNascimento" name="dataNasc"
-							placeholder="Data" class="form-control"
-							required="required" value="<c:out value="${cliente.dataNascimento}"/>" type="date">
+							class="glyphicon glyphicon-calendar"></i></span><input
+							id="dataNascimento" name="dataNasc" placeholder="Data"
+							class="form-control" required="required"
+							value="<c:out value="${cliente.dataNascimento}"/>" type="date">
 					</div>
 				</div>
 			</div>
@@ -84,9 +88,10 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-earphone"></i></span><input id="telefone" name="telelefone"
-							placeholder="49 9 9999-9999" class="form-control"
-							required="required" value="<c:out value="${cliente.telefone}"/>" type="tel">
+							class="glyphicon glyphicon-earphone"></i></span><input id="telefone"
+							name="telelefone" placeholder="49 9 9999-9999"
+							class="form-control" required="required"
+							value="<c:out value="${cliente.telefone}"/>" type="tel">
 					</div>
 				</div>
 			</div>
@@ -97,7 +102,8 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpf" name="cpf"
 							placeholder="112.234.567-89" class="form-control"
-							required="required" value="<c:out value="${cliente.cpf}"/>" type="text">
+							required="required" value="<c:out value="${cliente.cpf}"/>"
+							type="text">
 					</div>
 				</div>
 			</div>
@@ -106,9 +112,10 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email"
-							placeholder="joe@doe.com" class="form-control"
-							required="required" value="<c:out value="${cliente.email}"/>" type="email">
+							class="glyphicon glyphicon-envelope"></i></span><input id="email"
+							name="email" placeholder="joe@doe.com" class="form-control"
+							required="required" value="<c:out value="${cliente.email}"/>"
+							type="email">
 					</div>
 				</div>
 			</div>
@@ -118,13 +125,14 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cnh" name="cnh"
-							placeholder="62786985474" class="form-control" required="required"
-							value="<c:out value="${cliente.cnh}"/>" type="text">
+							placeholder="62786985474" class="form-control"
+							required="required" value="<c:out value="${cliente.cnh}"/>"
+							type="text">
 					</div>
 				</div>
 			</div>
-			<input type="submit" class="btn btn-primary col-md-1 col-md-offset-11"
-				name="Enviar" />
+			<input type="submit"
+				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>
 	</form>
 </body>
