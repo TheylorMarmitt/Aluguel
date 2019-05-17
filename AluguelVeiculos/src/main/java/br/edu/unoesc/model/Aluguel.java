@@ -19,6 +19,7 @@ public class Aluguel {
 	private long codigo;
 	private Date dataAluguel;
 	private Double kmSaida;
+	private boolean ativo;
 	
 	@ManyToOne
 	@JoinColumn(name = "carro_id")
@@ -54,12 +55,13 @@ public class Aluguel {
 		
 	}
 
-	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, Carro carro, Filial filial,
+	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, boolean ativo, Carro carro, Filial filial,
 			Funcionario funcionario, TipoAluguel tipoAluguel, Cliente cliente) {
 		super();
 		this.codigo = codigo;
 		this.dataAluguel = dataAluguel;
 		this.kmSaida = kmSaida;
+		this.ativo = ativo;
 		this.carro = carro;
 		this.filial = filial;
 		this.funcionario = funcionario;
@@ -81,6 +83,15 @@ public class Aluguel {
 
 	public void setDataAluguel(Date dataAluguel) {
 		this.dataAluguel = dataAluguel;
+	}
+	
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public Double getQuilometrosSaida() {
@@ -138,5 +149,8 @@ public class Aluguel {
 				+ ", carro=" + carro + ", filial=" + filial + ", funcionario=" + funcionario + ", tipoAluguel="
 				+ tipoAluguel + ", cliente=" + cliente + "]";
 	}
+
+
+
 
 }
