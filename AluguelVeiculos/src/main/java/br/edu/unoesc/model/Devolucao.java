@@ -25,11 +25,6 @@ public class Devolucao {
 	@JoinColumn(name = "aluguel_id")	
 	private Aluguel aluguel;
 	
-	@ManyToOne
-	@JoinColumn(name = "tipoAluguel_id")
-	private TipoPagamento tipoPagamento;
-	
-	
 	/**
 	 * 
 	 * @return quilometros percorridos durante o aluguel do veiculo
@@ -102,23 +97,14 @@ public class Devolucao {
 		this.valorTotal = valorTotal;
 	}
 
-	public TipoPagamento getTipoPagamento() {
-		return tipoPagamento;
-	}
-
-	public void setTipoPagamento(TipoPagamento tipoPagamento) {
-		this.tipoPagamento = tipoPagamento;
-	}
-
 	public Devolucao(Integer codigo, LocalDate dataChegada, Double quilometroChegada, Aluguel aluguel,
-			Double valorTotal, TipoPagamento tipoPagamento) {
+			Double valorTotal) {
 		super();
 		this.codigo = codigo;
 		this.dataChegada = dataChegada;
 		this.quilometroChegada = quilometroChegada;
 		this.aluguel = aluguel;
 		this.valorTotal = valorTotal;
-		this.tipoPagamento = tipoPagamento;
 	}
 
 	public Devolucao() {
@@ -128,8 +114,7 @@ public class Devolucao {
 	@Override
 	public String toString() {
 		return "Devolucao [codigo=" + codigo + ", dataChegada=" + dataChegada + ", quilometroChegada="
-				+ quilometroChegada + ", aluguel=" + aluguel + ", valorTotal=" + valorTotal + ", tipoPagamento="
-				+ tipoPagamento + "]";
+				+ quilometroChegada + ", aluguel=" + aluguel + ", valorTotal=" + valorTotal + "]";
 	}
 
 }

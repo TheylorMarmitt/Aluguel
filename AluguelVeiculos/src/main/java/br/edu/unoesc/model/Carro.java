@@ -28,9 +28,7 @@ public class Carro {
 	private LocalDate dataDeAquisicao;
 	private LocalDate dataDeDesapropriacao = null;
 	
-	@ManyToOne
-	@JoinColumn(name = "filial_id")
-	private Filial filial;
+	
 
 	public Carro() {
 
@@ -132,14 +130,6 @@ public class Carro {
 
 	public void setDataDeDesapropriacao(LocalDate dataDeDesapropriacao) {
 		this.dataDeDesapropriacao = dataDeDesapropriacao;
-	}
-
-	public Filial getFilial() {
-		return filial;
-	}
-
-	public void setFilial(Filial filial) {
-		this.filial = filial;
 	}
 
 }

@@ -10,9 +10,8 @@ public interface CarroDao extends JpaRepository<Carro, Long>{
 
 	List<Carro> findByDisponivelTrue();
 	
-	List<Carro> findByFilialNome(String nome);
 	
 	
 	// caso não der certo
-	//select * from Carro c where c.dataDesapropriacao IS null and disponivel = true and codFilial = ?
+	//select * from Carro c where c.dataDesapropriacao IS null and disponivel = true
 }

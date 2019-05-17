@@ -26,16 +26,9 @@ public class Aluguel {
 	private Carro carro;
 	
 	@ManyToOne
-	@JoinColumn(name = "filial_id")
-	private Filial filial;
-	
-	@ManyToOne
 	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
 	
-	@ManyToOne
-	@JoinColumn(name = "tipoAluguel_id")
-	private TipoAluguel tipoAluguel;
 	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
@@ -55,17 +48,15 @@ public class Aluguel {
 		
 	}
 
-	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, boolean ativo, Carro carro, Filial filial,
-			Funcionario funcionario, TipoAluguel tipoAluguel, Cliente cliente) {
+	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, boolean ativo, Carro carro,
+			Funcionario funcionario, Cliente cliente) {
 		super();
 		this.codigo = codigo;
 		this.dataAluguel = dataAluguel;
 		this.kmSaida = kmSaida;
 		this.ativo = ativo;
 		this.carro = carro;
-		this.filial = filial;
 		this.funcionario = funcionario;
-		this.tipoAluguel = tipoAluguel;
 		this.cliente = cliente;
 	}
 
@@ -110,28 +101,12 @@ public class Aluguel {
 		this.carro = carro;
 	}
 
-	public Filial getFilial() {
-		return filial;
-	}
-
-	public void setFilial(Filial filial) {
-		this.filial = filial;
-	}
-
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
-	}
-
-	public TipoAluguel getTipoAluguel() {
-		return tipoAluguel;
-	}
-
-	public void setTipoAluguel(TipoAluguel tipoAluguel) {
-		this.tipoAluguel = tipoAluguel;
 	}
 
 	public Cliente getCliente() {
@@ -146,8 +121,7 @@ public class Aluguel {
 	@Override
 	public String toString() {
 		return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", quilometrosSaida=" + kmSaida
-				+ ", carro=" + carro + ", filial=" + filial + ", funcionario=" + funcionario + ", tipoAluguel="
-				+ tipoAluguel + ", cliente=" + cliente + "]";
+				+ ", carro=" + carro + ", funcionario=" + funcionario + ", cliente=" + cliente + "]";
 	}
 
 

@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,22 +20,16 @@ public class Funcionario extends Pessoa {
 	private Date dataAdmissao;
 	private Date dataDemissao;
 	
-	@ManyToOne
-	@JoinColumn(name = "filial_id")
-	private Filial filial;
-	
 	public Funcionario() {
 
 	}
 
-	public Funcionario(long codigo, String senha, Double salario, Date dataAdmissao, Date dataDemissao,
-			Filial filial) {
+	public Funcionario(long codigo, String senha, Double salario, Date dataAdmissao, Date dataDemissao) {
 		this.codigo = codigo;
 		this.senha = senha;
 		this.salario = salario;
 		this.dataAdmissao = dataAdmissao;
 		this.dataDemissao = dataDemissao;
-		this.filial = filial;
 	}
 
 
@@ -66,14 +58,6 @@ public class Funcionario extends Pessoa {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public Filial getFilial() {
-		return filial;
-	}
-
-	public void setFilial(Filial filial) {
-		this.filial = filial;
 	}
 
 	public Double getSalario() {
