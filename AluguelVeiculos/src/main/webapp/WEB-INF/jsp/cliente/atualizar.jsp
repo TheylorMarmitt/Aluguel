@@ -9,18 +9,19 @@
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/clienteAssets/style.css" />"
+	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 </head>
 <body>
 	<div class="navbar-wrapper">
 		<div class="container-fluid">
-			<nav class="navbar navbar-fixed-top">
+			<nav class="navbar navbar-fixed-top ">
 				<div class="container">
 					<a class="navbar-brand" href="#"><img src=""></a>
 					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
+						<ul class="nav navbar-nav ">
 							<li><a href="#" class="">Cadastro</a></li>
 							<li><a href="#" class="">Listagem</a></li>
 							<li><a href="#" class="">Outros</a></li>
@@ -33,18 +34,20 @@
 			</nav>
 		</div>
 	</div>
-	<h1>Atualizar Cliente</h1>
-	<form action='<c:url value="/cliente/atualizar"></c:url>' method="get">
-		<div class="form-group">
-				<label class= "control-label"> Buscar por cpf</label>
-			<div class="col-md-9 inputGroupContainer">
-				<div class="input-group">
-					 <input type="text" name="filtroCPF">
-					 <input class="btn btn-default btn-small" type="submit" value="filtrar" />
+	<div class= "container-fluid busca">
+		<h1>Atualizar Cliente</h1>
+		<form action='<c:url value="/cliente/atualizar"></c:url>' method="get">
+			<div class="form-group">
+				<label class="pull-left control-label  cpf"> Buscar por cpf</label>
+				<div class="inputGroupContainer">
+					<div class="input-group">
+						<input type="text" name="filtroCPF"> <input
+							class="btn btn-default" type="submit" value="filtrar" />
+					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 	<form class="well form-horizontal"
 		action='<c:url value="/cliente/enviar"></c:url>' method="post">
 		<fieldset>

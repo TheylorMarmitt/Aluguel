@@ -34,7 +34,9 @@
 			</nav>
 		</div>
 	</div>
-	<h1>Cadastro Cliente</h1>
+	<div class= "container-fluid busca">
+		<h1>Cadastro Cliente</h1>
+	</div>
 	<form class="well form-horizontal"
 		action='<c:url value="/cliente/enviar"></c:url>' method="post">
 		<fieldset>
