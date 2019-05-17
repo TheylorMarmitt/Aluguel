@@ -7,15 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <title>AC Cliente</title>
- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
- <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
- <link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
+ <link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
+	<link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/menu/style.css" />"
+	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp" %>
-	<div class= "container-fluid busca">
+	<div class= "container-fluid cont">
 		<h1>Cadastro Cliente</h1>
 	</div>
 	<form class="well form-horizontal"

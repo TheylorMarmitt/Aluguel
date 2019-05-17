@@ -1,15 +1,14 @@
-body {
-	font-family: 'Delius', cursive;
-}
 
-.cont{
+
+.busca{
 	margin-top: 50px;	
 }
-.cpf{
+.filtro{
 	padding-top:8px;
 	margin-right: 5px;
 	font-size: 15px;
 }
+
 .inputGroupContainer{
 	margin-top:5px;
 	margin-bottom:5px;
@@ -18,4 +17,3 @@ body {
 .btn-filtro{
 	margin-left: 8px; 
 }
-

@@ -8,23 +8,25 @@
 <title>AC Cliente</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
+<link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/clienteAssets/style.css" />"
+<link href="<c:url value="/resources/menu/style.css" />"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp" %>
-	<div class= "container-fluid busca">
+	<div class= "container-fluid cont">
 		<h1>Atualizar Cliente</h1>
 		<form action='<c:url value="/cliente/atualizar"></c:url>' method="get">
 			<div class="form-group">
-				<label class="pull-left control-label  cpf"> Buscar por cpf</label>
+				<label class="pull-left control-label  cpf"> Buscar por cpf: </label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtroCPF"> <input
-							class="btn btn-default" type="submit" value="filtrar" />
+						<input type="text" name="filtroCPF">
+						 <input
+							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
 			</div>

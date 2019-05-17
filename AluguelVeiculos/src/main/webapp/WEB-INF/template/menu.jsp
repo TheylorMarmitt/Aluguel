@@ -1,20 +1,24 @@
-	<div class="navbar-wrapper">
-		<div class="container-fluid">
-			<nav class="navbar navbar-fixed-top">
-				<div class="container">
-					<a class="navbar-brand" href="#"><img
-						src=""></a>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li><a href="#" class="">Cadastro</a></li>
-							<li><a href="#" class="">Listagem</a></li>
-							<li><a href="#" class="">Outros</a></li>
-						</ul>
-						<ul class="nav navbar-nav pull-right">
-							<li class="active"><a href="#">Logout</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Aluga<span>Car</span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#carro">Carro</a></li>
+          <li><a href="#cliente">Cliente</a></li>
+          <li><a href="#funcionario">Funcionario</a></li>
+          <li><a href="#aluguel">Aluguel</a></li>
+          <li><a href="#devolucao">Devolução</a></li>
+          <li></li>
+          <li></li>
+          <li class="btn-trial"><a href="#footer">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
