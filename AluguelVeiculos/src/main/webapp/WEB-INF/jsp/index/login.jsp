@@ -13,7 +13,7 @@
 	<form method="post">
 		<fieldset>
 			<div class="form-group  col-md-12">
-			  <label class="col-md-4 control-label text-right" for="e-mail">Usuário</label>  
+			  <label class="cooool-md-4 control-label text-right" for="e-mail">Usuário</label>  
 			  <div class="col-md-4">
 			  	<input id="e-mail" name="e-mail" type="text" placeholder="e-mail" class="form-control input-md" required="required"/>
 			  </div>
