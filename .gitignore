@@ -6,7 +6,11 @@
 # Compiled class file
 *.class
 
+target/
+
 config/
+
+pom.xml
 
 # Log file
 *.log
