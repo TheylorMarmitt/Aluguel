@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Login</title>
  <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+ <link href="<c:url value="/resources/loginAssets/style.css" />" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
@@ -15,13 +16,13 @@
 	<form method="post">
 		<fieldset>
 			<div class="form-group  col-md-12">
-			  <label class="cooool-md-4 control-label text-right" for="e-mail">Usuário</label>  
+			  <label class="col-md-4 control-label text-right" for="e-mail">Usuário</label>  
 			  <div class="col-md-4">
 			  	<input id="e-mail" name="e-mail" type="text" placeholder="e-mail" class="form-control input-md" required="required"/>
 			  </div>
 			</div>
-			<div class="form-group col-md-12">
-			  <label class="col-md-4 control-label text-right" for="senha">Senha</label>
+			<div class="form-group col-md-12 text-right">
+			  <label class="col-md-4 control-label" for="senha">Senha</label>
 			  <div class="col-md-4">
 			    <input id="senha" name="senha" type="password" placeholder="senha" class="form-control input-md" required="required"/>
 			  </div>
