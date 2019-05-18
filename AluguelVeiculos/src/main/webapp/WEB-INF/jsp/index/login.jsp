@@ -31,7 +31,7 @@
 		<div class="col-md-12  text-left">	
 			<div class="col-md-2 col-md-offset-4">	
 				<button class="btn btn-primary" type="submit">Entrar</button>
-				<a href="#" class="btn btn-default active" role="button" aria-pressed="true">Cadastre-se!</a>
+				<a href="dashboard/" class="btn btn-default active" role="button" aria-pressed="true">Cadastre-se!</a>
 			</div>
 		</div>	
 	</form>

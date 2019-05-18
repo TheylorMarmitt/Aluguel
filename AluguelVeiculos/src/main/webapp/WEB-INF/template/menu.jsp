@@ -6,13 +6,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Aluga<span>Car</span></a>
+        <a class="navbar-brand" href="../dashboard/">Aluga<span>Car</span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#carro">Carro</a></li>
-          <li><a href="#cliente">Cliente</a></li>
-          <li><a href="#funcionario">Funcionario</a></li>
+          <li><a href="../cliente/cadastro">Cliente</a></li>
+          <li><a href="../funcionario/cadastro">Funcionario</a></li>
           <li><a href="#aluguel">Aluguel</a></li>
           <li><a href="#devolucao">Devolução</a></li>
           <li></li>
