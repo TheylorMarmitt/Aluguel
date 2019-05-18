@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Lista</title>
+<title><fmt:message key="lista"/></title>
 </head>
 <body>
 	

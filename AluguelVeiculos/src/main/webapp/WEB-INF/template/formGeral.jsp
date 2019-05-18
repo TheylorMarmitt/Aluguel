@@ -27,7 +27,7 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-calendar"></i></span><input id="dataNascimento" name="dataNasc"
+							class="glyphicon glyphicon-calendar"></i></span><input id="dataNascimento" name="dataNascimento"
 							placeholder="Data" class="form-control"
 							required="required" value="" type="date">
 					</div>

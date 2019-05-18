@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "Funcionario")
 @PrimaryKeyJoinColumn(name = "codigo")
@@ -13,6 +15,7 @@ public class Funcionario extends Pessoa {
 
 	private String senha;
 	private Double salario;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
 	private Date dataDemissao;
 	

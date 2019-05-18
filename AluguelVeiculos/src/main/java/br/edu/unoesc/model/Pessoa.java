@@ -10,6 +10,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "Pessoa")
@@ -20,6 +22,7 @@ public abstract class Pessoa {
 	private long codigo;
 	private String nome;
 	private String sobrenome;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dataNascimento;
 	private String telefone;
 	private String cpf;

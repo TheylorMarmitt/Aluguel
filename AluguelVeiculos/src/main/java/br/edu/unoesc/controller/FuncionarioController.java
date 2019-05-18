@@ -8,21 +8,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.unoesc.dao.FuncionarioDao;
 import br.edu.unoesc.model.Funcionario;
+import br.edu.unoesc.service.FuncionarioService;
 @Controller
 @RequestMapping("/funcionario")
 public class FuncionarioController {
 	@Autowired
 	private FuncionarioDao dao;
+	@Autowired
+	private FuncionarioService service;
 	
 	@RequestMapping(path = "/cadastro")
 	public String cadastro() {
 		return "funcionario/cadastro";
 	}
-	@RequestMapping(path = "/cadastro", method= RequestMethod.POST)
+	@RequestMapping(path = "/enviar", method= RequestMethod.POST)
 	public String cadastro(Funcionario funcionario) {
-		dao.save(funcionario);
+		service.adiciona(funcionario);
 		return "funcionario/lista";
 	}
+	
 	@RequestMapping(path="/lista")
 	public String lista(Model model) {
 		model.addAttribute("lista", dao.findAll());

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AC Cliente</title>
+<title><fmt:message key="tela.cliente.titulo"/></title>
  <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 	<link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
