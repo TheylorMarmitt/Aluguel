@@ -1,5 +1,7 @@
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+	
 	<div class="form-group">
-				<label class="col-md-3 control-label">Nome</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.nome"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -10,7 +12,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Sobrenome</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.sobrenome"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -21,7 +23,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Data de Nascimento</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.dataNascimento"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -32,7 +34,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Telefone</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.telefone"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -43,7 +45,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">CPF</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.cpf"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -54,7 +56,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Email</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.email"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i

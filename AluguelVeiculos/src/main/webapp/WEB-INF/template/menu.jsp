@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -10,14 +12,14 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#carro">Carro</a></li>
-          <li><a href="../cliente/cadastro">Cliente</a></li>
-          <li><a href="../funcionario/cadastro">Funcionario</a></li>
-          <li><a href="#aluguel">Aluguel</a></li>
-          <li><a href="#devolucao">Devolução</a></li>
+          <li><a href="#carro"><fmt:message key="carro"/></a></li>
+          <li><a href="../cliente/cadastro"><fmt:message key="cliente"/></a></li>
+          <li><a href="../funcionario/cadastro"><fmt:message key="funcionario"/></a></li>
+          <li><a href="#aluguel"><fmt:message key="aluguel"/></a></li>
+          <li><a href="#devolucao"><fmt:message key="devolucao"/></a></li>
           <li></li>
           <li></li>
-          <li class="btn-trial"><a href="#footer">Sair</a></li>
+          <li class="btn-trial"><a href="#footer"><fmt:message key="sair"/></a></li>
         </ul>
       </div>
     </div>

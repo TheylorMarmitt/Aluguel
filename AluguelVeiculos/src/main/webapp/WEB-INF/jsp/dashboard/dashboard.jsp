@@ -10,8 +10,8 @@
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 	<link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/menu/style.css" />"
+	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/menu/style.css" />"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">

@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp" %>
 	<div class= "container-fluid cont">
-		<h1>Cadastro Cliente</h1>
+		<h1><fmt:message key="tela.cliente.cadastro"/></h1>
 	</div>
 	<form class="well form-horizontal"
 		action='<c:url value="/cliente/enviar"></c:url>' method="post">
@@ -29,7 +30,7 @@
 		<%@ include file="/WEB-INF/template/formGeral.jsp" %>
 			
 			<div class="form-group">
-				<label class="col-md-3 control-label">CNH</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.cnh"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
