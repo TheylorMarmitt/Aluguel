@@ -32,4 +32,16 @@ public class CarroController {
 		this.carroService.adiciona(carro);
 		return "index/login";
 	}
+	
+	@RequestMapping(path = "/atualizar")
+	public String atualizar(String filtroPlaca, Model model) {
+		model.addAttribute("carro", this.carroDao.findByPlaca(filtroPlaca));
+		return "carro/atualizar";
+	}
+	
+	@RequestMapping(path = "/editar", method = RequestMethod.POST)
+	public String editar(Carro carro, Model model) throws ParseException {
+		this.carroDao.saveAndFlush(carro);
+		return "carro/atualizar";
+	}
 }

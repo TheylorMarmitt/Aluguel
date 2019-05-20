@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AC Cliente</title>
+<title><fmt:message key="tela.cliente.titulo"/></title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/clienteAssets/style.css" />" rel="stylesheet">
@@ -18,10 +19,10 @@
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp" %>
 	<div class= "container-fluid cont">
-		<h1>Atualizar Cliente</h1>
+		<h1><fmt:message key="tela.cliente.atualizar"/></h1>
 		<form action='<c:url value="/cliente/atualizar"></c:url>' method="get">
 			<div class="form-group">
-				<label class="pull-left control-label  cpf"> Buscar por cpf: </label>
+				<label class="pull-left control-label  cpf"><fmt:message key="tela.cliente.busca"/></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
 						<input type="text" name="filtroCPF">
@@ -36,7 +37,7 @@
 		action='<c:url value="/cliente/editar"></c:url>' method="post">
 		<fieldset>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Nome</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.nome"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -47,7 +48,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Sobrenome</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.sobrenome"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -59,7 +60,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Data de Nascimento</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.dataNascimento"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -71,7 +72,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Telefone</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.telefone"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -83,7 +84,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">CPF</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.cpf"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -95,7 +96,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Email</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.email"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -107,7 +108,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">CNH</label>
+				<label class="col-md-3 control-label"><fmt:message key="campo.cnh"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i

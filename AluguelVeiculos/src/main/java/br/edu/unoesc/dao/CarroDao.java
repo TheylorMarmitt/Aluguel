@@ -9,6 +9,8 @@ import br.edu.unoesc.model.Carro;
 public interface CarroDao extends JpaRepository<Carro, Long>{
 
 	List<Carro> findByDisponivelTrue();
+
+	Carro findByPlaca(String filtroPlaca);
 	
 	
 	
