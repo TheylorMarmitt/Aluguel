@@ -1,8 +1,6 @@
 package br.edu.unoesc.controller;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,10 +24,7 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String lista(Cliente cliente, String dataNasc,  Model model) throws ParseException {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		Date parsed = format.parse(dataNasc);
-		cliente.setDataNascimento(parsed);
+	public String lista(Cliente cliente,  Model model) throws ParseException {
 		this.clienteDao.saveAndFlush(cliente);
 		return "index/login";
 	}
@@ -41,11 +36,7 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
-	public String editar(Cliente cliente, String dataNasc, Model model) throws ParseException {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		Date parsed = format.parse(dataNasc);
-		cliente = this.clienteDao.findByCpf(cliente.getCpf());
-		cliente.setDataNascimento(parsed);
+	public String editar(Cliente cliente, Model model) throws ParseException {
 		this.clienteDao.saveAndFlush(cliente);
 		return "index/login";
 	}

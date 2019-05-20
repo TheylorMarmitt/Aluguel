@@ -64,7 +64,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-calendar"></i></span><input
-							id="dataNascimento" name="dataNasc" placeholder="Data"
+							id="dataNascimento" name="dataNascimento" placeholder="Data"
 							class="form-control" required="required"
 							value="<c:out value="${cliente.dataNascimento}"/>" type="date">
 					</div>

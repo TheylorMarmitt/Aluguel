@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "Aluguel")
 public class Aluguel {
@@ -17,6 +19,7 @@ public class Aluguel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAluguel;
 	private Double kmSaida;
 	private boolean ativo;

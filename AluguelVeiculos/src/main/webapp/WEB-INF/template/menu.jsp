@@ -12,7 +12,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#carro"><fmt:message key="carro"/></a></li>
+          <li><a href="../carro/cadastro"><fmt:message key="carro"/></a></li>
           <li><a href="../cliente/cadastro"><fmt:message key="cliente"/></a></li>
           <li><a href="../funcionario/cadastro"><fmt:message key="funcionario"/></a></li>
           <li><a href="#aluguel"><fmt:message key="aluguel"/></a></li>

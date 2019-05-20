@@ -6,11 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "Cliente")
 @PrimaryKeyJoinColumn(name = "codigo")
 public class Cliente extends Pessoa {
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataDeCadastro;
 	private String cnh;
 
