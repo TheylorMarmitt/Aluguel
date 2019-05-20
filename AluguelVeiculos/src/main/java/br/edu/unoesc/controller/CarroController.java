@@ -44,4 +44,15 @@ public class CarroController {
 		this.carroDao.saveAndFlush(carro);
 		return "carro/atualizar";
 	}
+	
+	@RequestMapping(path = "/disponiveis")
+	public String disponiveis() {
+		return "carro/disponiveis";
+	}
+	
+	@RequestMapping(path = "/filtrarDisponivel")
+	public String disponiveis(String filtro, Model model) {
+		model.addAttribute("carros", this.carroDao.findDisponiveisPlaca(filtro));
+		return "carro/disponiveis";
+	}
 }
