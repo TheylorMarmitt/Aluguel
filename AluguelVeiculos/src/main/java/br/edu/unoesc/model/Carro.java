@@ -1,13 +1,11 @@
 package br.edu.unoesc.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,8 +23,8 @@ public class Carro {
 	private String placa;
 	private boolean disponivel;
 	
-	private LocalDate dataDeAquisicao;
-	private LocalDate dataDeDesapropriacao = null;
+	private Date dataDeAquisicao;
+	private Date dataDeDesapropriacao = null;
 	
 	
 
@@ -116,20 +114,21 @@ public class Carro {
 		return this.marca + " [" + this.modelo + "] - " + this.placa ;
 	}
 
-	public LocalDate getDataDeAquisicao() {
+	public Date getDataDeAquisicao() {
 		return dataDeAquisicao;
 	}
 
-	public void setDataDeAquisicao(LocalDate dataDeAquisicao) {
+	public void setDataDeAquisicao(Date dataDeAquisicao) {
 		this.dataDeAquisicao = dataDeAquisicao;
 	}
 
-	public LocalDate getDataDeDesapropriacao() {
+	public Date getDataDeDesapropriacao() {
 		return dataDeDesapropriacao;
 	}
 
-	public void setDataDeDesapropriacao(LocalDate dataDeDesapropriacao) {
+	public void setDataDeDesapropriacao(Date dataDeDesapropriacao) {
 		this.dataDeDesapropriacao = dataDeDesapropriacao;
 	}
+
 
 }
