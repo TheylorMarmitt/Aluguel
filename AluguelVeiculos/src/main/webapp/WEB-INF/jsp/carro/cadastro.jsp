@@ -18,6 +18,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >	
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -35,7 +36,7 @@
 						key="carro.marca" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="marca" name="marca" placeholder="Fiat, Chevrolet ..."
 							class="form-control" required="required" value="" type="text">
 					</div>
