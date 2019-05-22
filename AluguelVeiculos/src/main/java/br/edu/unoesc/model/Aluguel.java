@@ -22,6 +22,7 @@ public class Aluguel {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAluguel;
 	private Double kmSaida;
+	private Double taxa;
 	private boolean ativo;
 	
 	@ManyToOne
@@ -51,12 +52,13 @@ public class Aluguel {
 		
 	}
 
-	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, boolean ativo, Carro carro,
+	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, Double taxa, boolean ativo, Carro carro,
 			Funcionario funcionario, Cliente cliente) {
 		super();
 		this.codigo = codigo;
 		this.dataAluguel = dataAluguel;
 		this.kmSaida = kmSaida;
+		this.setTaxa(taxa);
 		this.ativo = ativo;
 		this.carro = carro;
 		this.funcionario = funcionario;
@@ -120,12 +122,21 @@ public class Aluguel {
 		this.cliente = cliente;
 	}
 	
+	public Double getTaxa() {
+		return taxa;
+	}
+	
+	
+	public void setTaxa(Double taxa) {
+		this.taxa = taxa;
+	}
 
 	@Override
 	public String toString() {
 		return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", quilometrosSaida=" + kmSaida
 				+ ", carro=" + carro + ", funcionario=" + funcionario + ", cliente=" + cliente + "]";
 	}
+
 
 
 
