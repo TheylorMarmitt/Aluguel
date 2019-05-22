@@ -19,7 +19,7 @@ public interface AluguelDao extends JpaRepository<Aluguel, Long>{
 	Funcionario findByFuncionarioCpf(String cpf);
 	Cliente findByClienteCpf(String cpf);
 
-	@Query("select a from Alugeul a where a.ativo = true and a.carro.placa like ?1%")
+	@Query("select a from Aluguel a where a.ativo = true and a.carro.placa like ?1%")
 	List<Aluguel> findAtivoPlaca(String filtro);
 	
 //	@Query("select a from Aluguel a where codCarro = ?1%")
