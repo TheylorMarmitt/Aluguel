@@ -92,7 +92,20 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-usd"></i></span><input id="taxa"
-							name="taxa" placeholder="12.5" class="form-control"
+							name="taxa" placeholder="12.2" class="form-control"
+							required="required" value="" type="text">
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-3 control-label"><fmt:message
+						key="aluguel.valor" /></label>
+				<div class="col-md-9 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-usd"></i></span><input id="valor"
+							name="valor" placeholder="50.0" class="form-control"
 							required="required" value="" type="text">
 					</div>
 				</div>
