@@ -1,0 +1,24 @@
+body {
+	font-family: 'Delius', cursive;
+}
+
+.cont{
+	margin-top: 50px;	
+}
+.cpf{
+	padding-top:8px;
+	margin-right: 5px;
+	font-size: 15px;
+}
+.inputGroupContainer{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.btn-filtro{
+	margin-left: 8px; 
+}
+
+.row{
+	margin-top:80px;
+}

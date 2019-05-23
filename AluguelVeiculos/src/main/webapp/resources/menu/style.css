@@ -91,3 +91,7 @@ barra de navegação
 .dropdown  ul  li  a:hover{
 	color: #207dd4 !important;
 }
+
+.sair{
+	text-align:center;
+}
