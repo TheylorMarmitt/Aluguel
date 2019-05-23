@@ -38,7 +38,7 @@ public class CarroController {
 		}
 		
 		this.carroService.adiciona(carro);
-		return "index/login";
+		return "carro/disponiveis";
 	}
 	
 	@RequestMapping(path = "/atualizar")

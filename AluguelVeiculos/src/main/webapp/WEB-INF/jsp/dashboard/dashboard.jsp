@@ -31,6 +31,8 @@
 			<canvas class="col-xs-12 col-md-6" id="grafico2" width="90%" height="40%"></canvas>
 		</div>
 	</div>
+<script src="<c:url value="/resources/js/custom.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 
 	<script>
 		var ctx = document.getElementById('grafico1');
@@ -97,8 +99,7 @@
 			}
 		});
 	</script>
-<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+
 
 </body>
 </html>
