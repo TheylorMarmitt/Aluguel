@@ -103,7 +103,7 @@
 						key="aluguel.km" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span><input
+						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span><input
 							id="kmSaida" name="kmSaida" placeholder="10.000"
 							class="form-control" required="required" value="" type="text">
 					</div>

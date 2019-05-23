@@ -14,6 +14,7 @@
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/menu/style.css" />"
 	rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 </head>
@@ -29,8 +30,7 @@
 				<label class="col-md-3 control-label"><fmt:message key="devolver.placaVeiculo"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span><input id="placa" name="placa"
+						<span class="input-group-addon"><i class="fa fa-car"></i></span><input id="placa" name="placa"
 							placeholder="AAA-1234" class="form-control" required="required"
 							value = "" type="text">
 					</div>
@@ -40,8 +40,7 @@
 				<label class="col-md-3 control-label"><fmt:message key="devolver.km"/></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span><input id="quilometroChegada"
+						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span><input id="quilometroChegada"
 							name="quilometroChegada" placeholder="Km" class="form-control"
 							required="required" value=""
 							type="text">

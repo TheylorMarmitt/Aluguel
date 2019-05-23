@@ -55,4 +55,10 @@ public class DevolucaoController {
 		model.addAttribute("devolucao", devolucao);
 		return "devolucao/devolvido";
 	}
+	
+	// somente para teste
+	@RequestMapping(path = "/devolvido")
+	public String teste() {
+		return "devolucao/devolvido";
+	}
 }

@@ -9,6 +9,9 @@
 <title>Login</title>
  <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
  <link href="<c:url value="/resources/loginAssets/style.css" />" rel="stylesheet">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
+ <link href="https://fonts.googleapis.com/css?family=Delius"
+	rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
@@ -30,8 +33,9 @@
 	</fieldset>
 		<div class="col-md-12">	
 			<div class="col-md-3 col-md-offset-4">	
-				<button class="btn btn-primary" type="submit">Entrar</button>
-				<a href="dashboard/" class="btn btn-default active" role="button" aria-pressed="true">Cadastre-se!</a>
+				<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-log-in
+"></i>  Entrar</button>
+				<a href="dashboard/" class="btn btn-default active" role="button" aria-pressed="true"><i class="fa fa-user-plus"></i>  Cadastre-se!</a>
 			</div>
 		</div>	
 	</form>

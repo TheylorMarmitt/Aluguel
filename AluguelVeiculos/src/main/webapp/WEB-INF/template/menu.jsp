@@ -15,8 +15,8 @@
           <li><a href="../carro/cadastro"><fmt:message key="carro"/></a></li>
           <li><a href="../cliente/cadastro"><fmt:message key="cliente"/></a></li>
           <li><a href="../funcionario/cadastro"><fmt:message key="funcionario"/></a></li>
-          <li><a href="#aluguel"><fmt:message key="aluguel"/></a></li>
-          <li><a href="#devolucao"><fmt:message key="devolucao"/></a></li>
+          <li><a href="../aluguel/cadastro"><fmt:message key="aluguel"/></a></li>
+          <li><a href="../devolucao/devolucao"><fmt:message key="devolucao"/></a></li>
           <li></li>
           <li></li>
           <li class="btn-trial"><a href="#footer"><fmt:message key="sair"/></a></li>
