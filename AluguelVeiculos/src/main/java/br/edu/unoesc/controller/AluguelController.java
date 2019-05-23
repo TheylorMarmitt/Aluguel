@@ -3,10 +3,12 @@ package br.edu.unoesc.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.unoesc.dao.AluguelDao;
+import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.model.Aluguel;
 import br.edu.unoesc.service.AluguelService;
 
@@ -18,12 +20,21 @@ public class AluguelController {
 	private AluguelDao aluguelDao;
 	
 	@Autowired
+	private CarroDao carroDao;
+	
+	@Autowired
 	private AluguelService serviceDao;
 
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
 		model.addAttribute("carros", this.aluguelDao.findByCarroDisponivelTrue());
 		return "aluguel/cadastro";
+	}
+	
+	@RequestMapping(path = "/cadastrar/{codigo}")
+	public String cadastrar(@PathVariable(value = "codigo")long codigo, Model model) {
+		model.addAttribute("carro", this.carroDao.findByCodigo(codigo));
+		return "aluguel/alugarCarro";
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
@@ -47,5 +58,7 @@ public class AluguelController {
 		model.addAttribute("alugueis", this.aluguelDao.findAtivoPlaca(filtro));
 		return "aluguel/ativos";
 	}
+	
+	
 
 }

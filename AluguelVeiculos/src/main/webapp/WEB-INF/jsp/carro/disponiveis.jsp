@@ -34,15 +34,18 @@
 	</div>
 	<div class= "container-fluid">
 			<c:forEach var="c" items="${carros}">
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 zoom"> 
+				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 zoom">
 					<div class="conteudo">
-						<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >
-						<p>Placa: <span class="azul">${c.placa}</span> </p>	
-						<p>Marca: <span class="azul">${c.marca}</span>  </p>
-						<p>Modelo:<span class="azul">${c.modelo}</span>  </p>
-						<p>Valor: <span class="azul">${c.valor}</span> </p>	
-						<p>Cor: <span class="azul">${c.cor}</span> </p>		
-					</div>
+					<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
+							<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >\
+							</a>
+							<p>Placa: <span class="azul">${c.placa}</span> </p>	
+							<p>Marca: <span class="azul">${c.marca}</span>  </p>
+							<p>Modelo:<span class="azul">${c.modelo}</span>  </p>
+							<p>Valor: <span class="azul">${c.valor}</span> </p>	
+							<p>Cor: <span class="azul">${c.cor}</span> </p>		
+						</div>
+					
 				</div>
 			</c:forEach>
 	</div>
