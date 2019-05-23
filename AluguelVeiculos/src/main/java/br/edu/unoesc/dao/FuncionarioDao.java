@@ -7,7 +7,9 @@ import br.edu.unoesc.model.Funcionario;
 
 public interface FuncionarioDao extends JpaRepository<Funcionario, Long>{
 
-//	@Query("select f from Funcionario f where f.dataDemissao = null and email = ?1%")
-//	Funcionario verificaEmail(String filtro);
+	Funcionario findByCpf(String filtroCPF);
+
+	@Query("select f from Funcionario f where f.dataDemissao = null and email = :email")
+	Funcionario verificaEmail(String email);
 	
 }

@@ -22,7 +22,7 @@
 	<%@ include file="/WEB-INF/template/menu.jsp" %>
 	
 		<div class= "container-fluid cont">
-			<h1><fmt:message key="tela.funcionario.titulo"/></h1>
+			<h1><fmt:message key="tela.funcionario.cadastro"/></h1>
 		</div>
 		<form class="well form-horizontal"
 		action='<c:url value="/funcionario/enviar"></c:url>' method="post">

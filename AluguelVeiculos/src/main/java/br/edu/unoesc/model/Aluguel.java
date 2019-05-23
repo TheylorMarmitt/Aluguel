@@ -23,42 +23,42 @@ public class Aluguel {
 	private Date dataAluguel;
 	private Double kmSaida;
 	private Double taxa;
+	private Double valor;
 	private boolean ativo;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "carro_id")
 	private Carro carro;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
-	
+
 	public boolean confirmaAluguel() {
-		if(this.carro.isDisponivel()) {
+		if (this.carro.isDisponivel()) {
 			this.carro.setDisponivel(false);
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
 
-
 	public Aluguel() {
-		
+
 	}
 
-	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, Double taxa, boolean ativo, Carro carro,
+	public Aluguel(long codigo, Date dataAluguel, Double kmSaida, Double valor, Double taxa, boolean ativo, Carro carro,
 			Funcionario funcionario, Cliente cliente) {
 		super();
 		this.codigo = codigo;
 		this.dataAluguel = dataAluguel;
 		this.kmSaida = kmSaida;
-		this.setTaxa(taxa);
+		this.taxa = taxa;
+		this.valor = valor;
 		this.ativo = ativo;
 		this.carro = carro;
 		this.funcionario = funcionario;
@@ -80,11 +80,10 @@ public class Aluguel {
 	public void setDataAluguel(Date dataAluguel) {
 		this.dataAluguel = dataAluguel;
 	}
-	
+
 	public boolean isAtivo() {
 		return ativo;
 	}
-
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
@@ -121,14 +120,21 @@ public class Aluguel {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
 	public Double getTaxa() {
 		return taxa;
 	}
-	
-	
+
 	public void setTaxa(Double taxa) {
 		this.taxa = taxa;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 
 	@Override
@@ -136,9 +142,5 @@ public class Aluguel {
 		return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", quilometrosSaida=" + kmSaida
 				+ ", carro=" + carro + ", funcionario=" + funcionario + ", cliente=" + cliente + "]";
 	}
-
-
-
-
 
 }

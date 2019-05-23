@@ -19,7 +19,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
-	<div class="container-fluid busca">
+	<div class="container-fluid cont">
 		<h1>
 			<fmt:message key="tela.alugueis.ativos" />
 		</h1>

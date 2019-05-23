@@ -51,10 +51,15 @@ public class Devolucao {
 	 * (dias * taxa) + (valor * km/1000) 
 	 * atualiza valorTotal
 	 */
-//	public void calculaValor() {
-//		long dias = ChronoUnit.DAYS.between(this.aluguel.getDataAluguel(), this.dataChegada);
-//		this.valorTotal =(dias * this.aluguel.getTipoAluguel().getTaxa()) + (this.aluguel.getTipoAluguel().getValor() * calculaQuilometros()/1000);
-//	}
+	public void calculaValor() {
+		long dias = dias();
+		this.valorTotal =(dias * this.aluguel.getTaxa()) + (this.aluguel.getValor() * calculaQuilometros()/1000);
+	}
+	
+	public long dias() {
+	  long differenceMilliSeconds = this.dataChegada.getTime() - aluguel.getDataAluguel().getTime();     
+	  return (differenceMilliSeconds/(1000*60*60*24));
+	}
 	
 	public void disponibilizaCarro() {
 		this.aluguel.getCarro().setDisponivel(true);

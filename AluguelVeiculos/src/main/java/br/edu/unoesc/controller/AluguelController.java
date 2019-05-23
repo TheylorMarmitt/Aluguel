@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.unoesc.dao.AluguelDao;
 import br.edu.unoesc.model.Aluguel;
+import br.edu.unoesc.service.AluguelService;
 
 @Controller
 @RequestMapping("/aluguel")
@@ -15,6 +16,9 @@ public class AluguelController {
 
 	@Autowired
 	private AluguelDao aluguelDao;
+	
+	@Autowired
+	private AluguelService serviceDao;
 
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
@@ -27,7 +31,8 @@ public class AluguelController {
 		aluguel.setCliente(this.aluguelDao.findByClienteCpf(cpfCliente));
 		aluguel.setFuncionario(this.aluguelDao.findByFuncionarioCpf(cpfFuncionario));
 		
-		aluguel.setAtivo(true);
+		this.serviceDao.adiciona(aluguel);
+		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
 		return "aluguel/ativos";
 	}
 	
