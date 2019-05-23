@@ -18,6 +18,7 @@
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
+	
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -102,7 +103,7 @@
 						key="aluguel.km" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class="icomoon icon-meter2"></i></span><input
+						<span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span><input
 							id="kmSaida" name="kmSaida" placeholder="10.000"
 							class="form-control" required="required" value="" type="text">
 					</div>
