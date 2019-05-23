@@ -33,24 +33,18 @@
 		</form>
 	</div>
 	<div class= "container-fluid">
-		<table class="table table-striped">
-			<tr>
-				<th><fmt:message key="carro.placa" /></th>
-				<th><fmt:message key="carro.marca" /></th>
-				<th><fmt:message key="carro.modelo" /></th>
-				<th><fmt:message key="carro.valor" /></th>
-				<th><fmt:message key="carro.cor" /></th>
-			</tr>
 			<c:forEach var="c" items="${carros}">
-				<tr>
-					<td>${c.placa}</td>
-					<td>${c.marca}</td>
-					<td>${c.modelo}</td>
-					<td>${c.valor}</td>
-					<td>${c.cor}</td>
-				</tr>
+				<div class="col-md-3"> 
+					<div class="img-responsive">
+						<img src="data:image/jpg;base64,${c.imagem}">
+					</div>
+					<div>Placa: ${c.placa}</div>	
+					<div>Marca: ${c.marca}}</div>	
+					<div>Modelo: ${c.modelo}</div>
+					<div>Valor: ${c.valor}</div>	
+					<div>Cor: ${c.cor}</div>		
+				</div>
 			</c:forEach>
-		</table>
 	</div>
 
 

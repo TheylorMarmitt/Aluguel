@@ -22,11 +22,20 @@ public class Carro {
 	private Integer ano;
 	private String placa;
 	private boolean disponivel;
+    private String imagem;
 	
 	private Date dataDeAquisicao;
 	private Date dataDeDesapropriacao = null;
 	
-	
+
+
+	public String getimagem() {
+		return imagem;
+	}
+
+	public void setimagem(String imagem) {
+		this.imagem = imagem;
+	}
 
 	public Carro() {
 

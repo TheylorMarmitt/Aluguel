@@ -1,13 +1,14 @@
 package br.edu.unoesc.controller;
 
+import java.io.IOException;
 import java.text.ParseException;
-
+import java.util.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.multipart.MultipartFile;
 import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.model.Carro;
 import br.edu.unoesc.service.CarroService;
@@ -28,7 +29,14 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastro(Carro carro,  Model model) throws ParseException {
+	public String cadastro(Carro carro, MultipartFile file,  Model model) throws ParseException {
+		try {
+			String img = Base64.getEncoder().encodeToString(file.getBytes());
+			carro.setimagem(img);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		this.carroService.adiciona(carro);
 		return "index/login";
 	}
@@ -46,7 +54,8 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/disponiveis")
-	public String disponiveis() {
+	public String disponiveis(Model model) {
+		model.addAttribute("carros", carroDao.findByDisponivelTrue());
 		return "carro/disponiveis";
 	}
 	

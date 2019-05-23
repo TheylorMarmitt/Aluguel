@@ -28,12 +28,11 @@
 		</h1>
 	</div>
 	<form class="well form-horizontal"
-		action='<c:url value="/carro/enviar"></c:url>' method="post">
+		action='<c:url value="/carro/enviar"></c:url>' method="post" enctype="multipart/form-data">
 		<fieldset>
 
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.marca" /></label>
+				<label class="col-md-3 control-label"><fmt:message	key="carro.marca" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
@@ -43,8 +42,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.modelo" /></label>
+				<label class="col-md-3 control-label"><fmt:message key="carro.modelo" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class=""></i></span><input
@@ -54,8 +52,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.valor" /></label>
+				<label class="col-md-3 control-label"><fmt:message key="carro.valor" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -67,8 +64,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.cor" /></label>
+				<label class="col-md-3 control-label"><fmt:message key="carro.cor" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class=""></i></span><input
@@ -78,8 +74,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.ano" /></label>
+				<label class="col-md-3 control-label"><fmt:message key="carro.ano" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -90,8 +85,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.placa" /></label>
+				<label class="col-md-3 control-label"><fmt:message key="carro.placa" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class=""></i></span><input
@@ -101,8 +95,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.disponivel" /></label>
+				<label class="col-md-3 control-label"><fmt:messagekey="carro.disponivel" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<div class="checkbox">
@@ -113,9 +106,9 @@
 					</div>
 				</div>
 			</div>
-
-			<input type="submit"
-				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
+			<input type="file" name="file" />
+			
+			<input type="submit" class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>
 	</form>
 </body>
