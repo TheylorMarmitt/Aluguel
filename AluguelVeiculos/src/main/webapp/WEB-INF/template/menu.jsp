@@ -45,8 +45,8 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false"><fmt:message key="aluguel" /><span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../funcionario/cadastro"><fmt:message key="cadastrar" /></a></li>
-						<li><a href="../funcionario/ativos"><fmt:message key="ativos" /></a></li>
+						<li><a href="../aluguel/cadastro"><fmt:message key="cadastrar" /></a></li>
+						<li><a href="../aluguel/ativos"><fmt:message key="ativos" /></a></li>
 					</ul>
 				</li>	
 					

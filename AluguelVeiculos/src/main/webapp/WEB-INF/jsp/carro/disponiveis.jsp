@@ -18,7 +18,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
-	<div class="container-fluid busca">
+	<div class="container-fluid cont">
 		<h1><fmt:message key="tela.carro.disponiveis" /></h1>
 		<form action='<c:url value="/carro/filtrarDisponivel"></c:url>' method="get">
 			<div class="form-group">
