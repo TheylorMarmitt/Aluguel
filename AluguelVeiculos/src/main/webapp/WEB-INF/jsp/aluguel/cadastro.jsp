@@ -102,7 +102,7 @@
 						key="aluguel.km" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="icomoon icon-meter"></i></span><input
 							id="kmSaida" name="kmSaida" placeholder="10.000"
 							class="form-control" required="required" value="" type="text">
 					</div>
@@ -111,7 +111,7 @@
 
 
 			<input type="submit"
-				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
+				class="btn btn-primary col-md-1 col-md-offset-11" name="Alugar" />
 		</fieldset>
 	</form>
 </body>
