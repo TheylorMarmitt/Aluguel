@@ -19,3 +19,26 @@ body {
 	margin-left: 8px; 
 }
 
+
+.conteudo{
+	border: 2px ;
+	border-style: solid;
+	border-color: #207dd4;
+	border-radius: 0px 0px 10px 10px;
+}
+
+.conteudo:hover{
+	position:relative;
+	z-index:1;
+	background-color: #eee;
+	transform: scale(1.05); 
+	position:relative;
+	color:fff !important;
+}
+
+
+.azul{
+	color:#207dd4;
+}
+
+

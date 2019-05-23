@@ -45,7 +45,7 @@
 				<label class="col-md-3 control-label"><fmt:message key="carro.modelo" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="modelo" name="modelo" placeholder="Uno, Celta ..."
 							class="form-control" required="required" value="" type="text">
 					</div>
@@ -67,7 +67,8 @@
 				<label class="col-md-3 control-label"><fmt:message key="carro.cor" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="glyphicon glyphicon-tint
+						"></i></span><input
 							id="cor" name="cor" placeholder="preto, prata ..."
 							class="form-control" required="required" value="" type="text">
 					</div>
@@ -88,7 +89,7 @@
 				<label class="col-md-3 control-label"><fmt:message key="carro.placa" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="placa" name="placa" placeholder="AAA-1234"
 							class="form-control" required="required" value="" type="text">
 					</div>
@@ -106,7 +107,16 @@
 					</div>
 				</div>
 			</div>
-			<input type="file" name="file" />
+			<div class="form-group">
+				<label class="col-md-3 control-label"><fmt:message key="carro.imagem" /></label>
+				<div class="col-md-9 inputGroupContainer">
+					<div class="input-group">
+						<div class="checkbox">
+							<input type="file" name="file">
+						</div>
+					</div>
+				</div>
+			</div>
 			
 			<input type="submit" class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>
