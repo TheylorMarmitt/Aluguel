@@ -20,7 +20,7 @@ table {
 }
 
 a{
-    color: #207dd4;
+    color: #fff;
 }
 a:hover, a:focus{
     color: #207dd4;
@@ -59,15 +59,15 @@ Navigation bar
 }
 
 .btn-trial a{
-	background-color: #207dd4;
+	background-color: #fff;
 	border-radius: 25px;
-	color: #ffffff !important;
+	color: #207dd4 !important;
 	border: 1px solid #207dd4;
 }
+
 .btn-trial a:hover, .btn-trial a:focus{
-	border: 1px solid #207dd4;
-	background-color: #fff;
-	color: #207dd4 !important;
+	background-color: #207dd4 !important;
+	color: #fff !important;
 }
 .navbar-default .navbar-brand {
     font-family: 'Dosis', sans-serif !important;
