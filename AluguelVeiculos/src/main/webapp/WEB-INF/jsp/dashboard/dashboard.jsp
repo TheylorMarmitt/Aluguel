@@ -17,7 +17,7 @@
 	rel="stylesheet">
 </head>
 <body>
-	<h3>Aqui podemos ter gráficos e tabelas com dados da empresa</h3>
+
 	<%@ include file="/WEB-INF/template/menu.jsp" %>
 	
 	

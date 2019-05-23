@@ -9,7 +9,8 @@
 <title><fmt:message key="tela.alugueis.ativos.titulo" /></title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/aluguelAssets/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/aluguelAssets/style.css" />"
+	rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/menu/style.css" />"
 	rel="stylesheet">
@@ -19,10 +20,13 @@
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
 	<div class="container-fluid busca">
-		<h1><fmt:message key="tela.alugueis.ativos" /></h1>
+		<h1>
+			<fmt:message key="tela.alugueis.ativos" />
+		</h1>
 		<form action='<c:url value="/aluguel/filtrar"></c:url>' method="get">
 			<div class="form-group">
-				<label class="pull-left control-label  filtro"> <fmt:message key="tela.alugueis.busca" /></label>
+				<label class="pull-left control-label  filtro"> <fmt:message
+						key="tela.alugueis.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
 						<input type="text" name="filtro"> <input
@@ -32,28 +36,29 @@
 			</div>
 		</form>
 	</div>
-	<div class= "container-fluid">
-		<table class="table table-striped">
-			<tr>
-				<th><fmt:message key="tela.alugueis.codigo" /></th>
-				<th><fmt:message key="tela.alugueis.placa" /></th>
-				<th><fmt:message key="tabela.ativos.dataAluguel" /></th>
-				<th><fmt:message key="tela.alugueis.cliente" /></th>
-			</tr>
-			<c:forEach var="a" items="${alugueis}">
+	<div class="container-fluid">
+		<div class="table table-responsive">
+			<table class="table table-striped table-hover">
 				<tr>
-					<td>${a.codigo}</td>
-					<td>${a.carro.placa}</td>
-					<td>${a.dataAluguel}</td>
-					<td>${a.cliente.nome}</td>
+					<th><fmt:message key="tela.alugueis.codigo" /></th>
+					<th><fmt:message key="tela.alugueis.placa" /></th>
+					<th><fmt:message key="tabela.ativos.dataAluguel" /></th>
+					<th><fmt:message key="cliente" /></th>
 				</tr>
-			</c:forEach>
-		</table>
+				<c:forEach var="a" items="${alugueis}">
+					<tr>
+						<td>${a.codigo}</td>
+						<td>${a.carro.placa}</td>
+						<td>${a.dataAluguel}</td>
+						<td>${a.cliente.nome}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 	</div>
 
 
-<script src="<c:url value="/resources/js/custom.js"/>"></script>
-<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-
+	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 </body>
 </html>

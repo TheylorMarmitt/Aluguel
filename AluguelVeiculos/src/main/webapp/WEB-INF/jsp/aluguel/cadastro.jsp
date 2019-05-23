@@ -17,6 +17,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -46,8 +47,7 @@
 						key="aluguel.carro" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i
-							class=""></i></span> <select
+						<span class="input-group-addon"><i class="fa fa-car"></i></span> <select
 							class="browser-default custom-select" id=carro
 							name="carro.codigo">
 							<c:forEach var="c" items="${carros}">
@@ -90,7 +90,7 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-dollar"></i></span><input id="taxa"
+							class="glyphicon glyphicon-usd"></i></span><input id="taxa"
 							name="taxa" placeholder="12.5" class="form-control"
 							required="required" value="" type="text">
 					</div>
