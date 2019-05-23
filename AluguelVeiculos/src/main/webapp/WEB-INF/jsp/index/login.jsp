@@ -21,21 +21,20 @@
 			  	<input id="e-mail" name="e-mail" type="text" placeholder="e-mail" class="form-control input-md" required="required"/>
 			  </div>
 			</div>
-			<div class="form-group col-md-12 text-right">
-			  <label class="col-md-4 control-label" for="senha">Senha</label>
+			<div class="form-group col-md-12">
+			  <label class="col-md-4 control-label text-right" for="senha">Senha</label>
 			  <div class="col-md-4">
 			    <input id="senha" name="senha" type="password" placeholder="senha" class="form-control input-md" required="required"/>
 			  </div>
 			</div>
 	</fieldset>
-		<div class="col-md-12  text-left">	
-			<div class="col-md-2 col-md-offset-4">	
+		<div class="col-md-12">	
+			<div class="col-md-3 col-md-offset-4">	
 				<button class="btn btn-primary" type="submit">Entrar</button>
 				<a href="dashboard/" class="btn btn-default active" role="button" aria-pressed="true">Cadastre-se!</a>
 			</div>
 		</div>	
 	</form>
-	
 </div>	
 </body>
 </html>
