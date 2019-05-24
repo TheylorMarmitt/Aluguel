@@ -38,6 +38,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="../funcionario/cadastro"><fmt:message key="cadastrar" /></a></li>
 						<li><a href="../funcionario/atualizar"><fmt:message key="atualizar" /></a></li>
+						<li><a href="../funcionario/lista"><fmt:message key="lista" /></a></li>
 					</ul>
 				</li>	
 				

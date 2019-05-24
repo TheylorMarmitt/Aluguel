@@ -33,7 +33,13 @@ public class FuncionarioController {
 	
 	@RequestMapping(path="/lista")
 	public String lista(Model model) {
-		model.addAttribute("lista", dao.findAll());
+		model.addAttribute("funcionarios", dao.findAll());
+		return "funcionario/lista";
+	}
+	
+	@RequestMapping(path = "/filtrar")
+	public String disponiveis(String filtro, Model model) {
+		model.addAttribute("funcionarios", this.dao.findByNome(filtro));
 		return "funcionario/lista";
 	}
 	
