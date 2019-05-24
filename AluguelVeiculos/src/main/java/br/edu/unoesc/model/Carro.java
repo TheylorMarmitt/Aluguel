@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Carro")
@@ -16,18 +18,24 @@ public class Carro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
+	@NotNull(message="O carro não pode ser nulo!")
+	@Size(min = 3, max = 10, message = "A marca precisa ter no mínimo 3 e no máximo 10 carácteres")
 	private String marca;
+	@NotNull
+	@Size(min = 3, max = 10,  message = "O marca precisa ter no mínimo 3 e no máximo 10 carácteres")
 	private String modelo;
 	private Double valor;
+	@NotNull
+	@Size(min = 3, max = 10)
 	private String cor;
 	private Integer ano;
+	@NotNull
 	private String placa;
 	private boolean disponivel;
 	@Lob
     private String imagem;
-	
 	private Date dataDeAquisicao;
-	private Date dataDeDesapropriacao = null;
+	private Date dataDeDesapropriacao;
 	
 
 

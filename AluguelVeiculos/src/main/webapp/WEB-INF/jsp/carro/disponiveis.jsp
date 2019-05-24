@@ -39,7 +39,7 @@
 						<img src="data:image/jpg;base64,${c.imagem}">
 					</div>
 					<div>Placa: ${c.placa}</div>	
-					<div>Marca: ${c.marca}}</div>	
+					<div>Marca: ${c.marca}</div>	
 					<div>Modelo: ${c.modelo}</div>
 					<div>Valor: ${c.valor}</div>	
 					<div>Cor: ${c.cor}</div>		

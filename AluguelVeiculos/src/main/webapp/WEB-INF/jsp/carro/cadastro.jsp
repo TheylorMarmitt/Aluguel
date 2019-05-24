@@ -1,8 +1,10 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
 
 <!DOCTYPE html>
 <html>
@@ -18,7 +20,14 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >	
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<style>
+span.error {
+	color: red;
+	display: inline-block;
+}
+</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -27,22 +36,29 @@
 			<fmt:message key="tela.carro.cadastro" />
 		</h1>
 	</div>
-	<form class="well form-horizontal"
-		action='<c:url value="/carro/enviar"></c:url>' method="post" enctype="multipart/form-data">
+	<frm:form modelAtributte="carro" class="well form-horizontal"
+		action="enviar" method="post" enctype="multipart/form-data">
 		<fieldset>
-
+			<spring:hasBindErrors name="carro">
+			<c:forEach var="error" items="${errors.allErrors}">
+				<div class="alert alert-danger col-xs-12"><spring:message message="${error}"/></div>
+			</c:forEach>
+			</spring:hasBindErrors>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message	key="carro.marca" /></label>
+				<label class="col-md-3 control-label"><fmt:message
+						key="carro.marca" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="marca" name="marca" placeholder="Fiat, Chevrolet ..."
 							class="form-control" required="required" value="" type="text">
+						<frm:errors path="marca" />
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message key="carro.modelo" /></label>
+				<label class="col-md-3 control-label"><fmt:message
+						key="carro.modelo" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class=""></i></span><input
@@ -52,7 +68,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message key="carro.valor" /></label>
+				<label class="col-md-3 control-label"><fmt:message
+						key="carro.valor" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -64,7 +81,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message key="carro.cor" /></label>
+				<label class="col-md-3 control-label"><fmt:message
+						key="carro.cor" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class=""></i></span><input
@@ -74,7 +92,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message key="carro.ano" /></label>
+				<label class="col-md-3 control-label"><fmt:message
+						key="carro.ano" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
@@ -85,7 +104,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message key="carro.placa" /></label>
+				<label class="col-md-3 control-label"><fmt:message
+						key="carro.placa" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class=""></i></span><input
@@ -95,21 +115,21 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message key="carro.disponivel" /></label>
+				<label class="col-md-3 control-label"><fmt:message
+						key="carro.disponivel" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<div class="checkbox">
 							<label> <input type="checkbox" name="disponivel">
-							<fmt:message key="carro.disponivelAluguel" />
+								<fmt:message key="carro.disponivelAluguel" />
 							</label>
 						</div>
 					</div>
 				</div>
 			</div>
-			<input type="file" name="file" />
-			
-			<input type="submit" class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
+			<input type="file" name="file" /> <input type="submit"
+				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>
-	</form>
+	</frm:form>
 </body>
 </html>

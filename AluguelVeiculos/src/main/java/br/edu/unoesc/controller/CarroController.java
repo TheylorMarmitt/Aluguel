@@ -3,15 +3,21 @@ package br.edu.unoesc.controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Base64;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.model.Carro;
 import br.edu.unoesc.service.CarroService;
+import org.springframework.validation.Errors;
 
 @Controller
 @RequestMapping("/carro")
@@ -19,7 +25,7 @@ public class CarroController {
 
 	@Autowired
 	private CarroDao carroDao;
-
+	
 	@Autowired
 	private CarroService carroService;
 	
@@ -29,7 +35,10 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastro(Carro carro, MultipartFile file,  Model model) throws ParseException {
+	public String cadastro(@Valid Carro carro, Errors erro, MultipartFile file,  Model model) throws ParseException {
+		if(erro.hasErrors()) {
+			return "carro/cadastro";
+		}
 		try {
 			String img = Base64.getEncoder().encodeToString(file.getBytes());
 			carro.setimagem(img);
@@ -37,7 +46,9 @@ public class CarroController {
 			e.printStackTrace();
 		}
 		
+		
 		this.carroService.adiciona(carro);
+		model.addAttribute("carros", carroDao.findByDisponivelTrue());
 		return "carro/disponiveis";
 	}
 	
