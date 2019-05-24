@@ -1,8 +1,11 @@
 package br.edu.unoesc.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,7 +41,10 @@ public class AluguelController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastrar(Aluguel aluguel, String cpfFuncionario, String cpfCliente, Model model) {
+	public String cadastrar(@Valid Aluguel aluguel, Errors erro, String cpfFuncionario, String cpfCliente, Model model) {
+		if(erro.hasErrors()) {
+			return "aluguel/cadastro";
+		}
 		aluguel.setCliente(this.aluguelDao.findByClienteCpf(cpfCliente));
 		aluguel.setFuncionario(this.aluguelDao.findByFuncionarioCpf(cpfFuncionario));
 		

@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -17,8 +19,9 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
-	
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -27,9 +30,16 @@
 			<fmt:message key="tela.aluguel.cadastro" />
 		</h1>
 	</div>
-	<form class="well form-horizontal"
-		action='<c:url value="/aluguel/enviar"></c:url>' method="post">
+	<frm:form modelAtributte="aluguel" class="well form-horizontal"
+		action="enviar" method="post" enctype="multipart/form-data">
 		<fieldset>
+			<spring:hasBindErrors name="aluguel">
+				<c:forEach var="error" items="${errors.allErrors}">
+					<div class="alert alert-danger col-xs-12">
+						<spring:message message="${error}" />
+					</div>
+				</c:forEach>
+			</spring:hasBindErrors>
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="aluguel.data" /></label>
@@ -52,7 +62,7 @@
 							class="browser-default custom-select" id=carro
 							name="carro.codigo">
 							<c:forEach var="c" items="${carros}">
-								<option value="${c.codigo}">${c.marca} - ${c.placa}</option>
+								<option value="${c.codigo}">${c.marca}- ${c.placa}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -66,8 +76,8 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpfFuncionario"
-							name="cpfFuncionario" placeholder="123.123.123-12" class="form-control"
-							required="required" value="" type="text">
+							name="cpfFuncionario" placeholder="123.123.123-12"
+							class="form-control" required="required" value="" type="text">
 					</div>
 				</div>
 			</div>
@@ -79,8 +89,8 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpfCliente"
-							name="cpfCliente" placeholder="123.123.123-12" class="form-control"
-							required="required" value="" type="text">
+							name="cpfCliente" placeholder="123.123.123-12"
+							class="form-control" required="required" value="" type="text">
 					</div>
 				</div>
 			</div>
@@ -91,13 +101,13 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-usd"></i></span><input id="taxa"
-							name="taxa" placeholder="12.2" class="form-control"
-							required="required" value="" type="text">
+							class="glyphicon glyphicon-usd"></i></span><input id="taxa" name="taxa"
+							placeholder="12.2" class="form-control" required="required"
+							value="" type="text">
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="aluguel.valor" /></label>
@@ -116,9 +126,10 @@
 						key="aluguel.km" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span><input
-							id="kmSaida" name="kmSaida" placeholder="10.000"
-							class="form-control" required="required" value="" type="text">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-dashboard"></i></span><input id="kmSaida"
+							name="kmSaida" placeholder="10.000" class="form-control"
+							required="required" value="" type="text">
 					</div>
 				</div>
 			</div>
@@ -127,6 +138,6 @@
 			<input type="submit"
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Alugar" />
 		</fieldset>
-	</form>
+	</frm:form>
 </body>
 </html>

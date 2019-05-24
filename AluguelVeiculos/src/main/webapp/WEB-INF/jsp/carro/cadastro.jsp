@@ -121,8 +121,6 @@
 					</div>
 				</div>
 			</div>
-			<input type="file" name="file" /> <input type="submit"
-				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message key="carro.imagem" /></label>
 				<div class="col-md-9 inputGroupContainer">

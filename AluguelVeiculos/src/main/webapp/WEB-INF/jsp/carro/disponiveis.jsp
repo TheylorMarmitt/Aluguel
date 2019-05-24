@@ -34,16 +34,8 @@
 	</div>
 	<div class= "container-fluid">
 			<c:forEach var="c" items="${carros}">
-				<div class="col-md-3"> 
-					<div class="img-responsive">
-						<img src="data:image/jpg;base64,${c.imagem}">
-					</div>
-					<div>Placa: ${c.placa}</div>	
-					<div>Marca: ${c.marca}</div>	
-					<div>Modelo: ${c.modelo}</div>
-					<div>Valor: ${c.valor}</div>	
-					<div>Cor: ${c.cor}</div>		
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 zoom">
+
+				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
 					<div class="conteudo">
 					<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
 							<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >
@@ -55,7 +47,7 @@
 							<p>Cor: <span class="azul">${c.cor}</span> </p>		
 						</div>
 					</div>
-				</div>
+
 			</c:forEach>
 	</div>
 
