@@ -1,10 +1,11 @@
 package br.edu.unoesc.controller;
 
-import java.text.ParseException;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -26,8 +27,9 @@ public class FuncionarioController {
 		return "funcionario/cadastro";
 	}
 	@RequestMapping(path = "/enviar", method= RequestMethod.POST)
-	public String cadastro(Funcionario funcionario) {
+	public String cadastro(@Valid Funcionario funcionario, Errors erro, Model model) {
 		service.adiciona(funcionario);
+		model.addAttribute("funcionarios", dao.findAll());
 		return "funcionario/lista";
 	}
 	
@@ -50,8 +52,9 @@ public class FuncionarioController {
 	}
 	
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
-	public String editar(Funcionario funcionario, Model model) throws ParseException {
+	public String editar(@Valid Funcionario funcionario, Errors erro, Model model) {
 		this.dao.saveAndFlush(funcionario);
-		return "dashboard/dashboard";
+		model.addAttribute("funcionarios", dao.findAll());
+		return "funcionario/lista";
 	}
 }

@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -31,6 +32,7 @@ public abstract class Pessoa {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dataNascimento;
 	private String telefone;
+	@CPF
 	@NotNull(message="O CPF é um campo obrigatório")
 	@Size(min = 11, max = 11, message = "Insira um CPF válido")
 	private String cpf;

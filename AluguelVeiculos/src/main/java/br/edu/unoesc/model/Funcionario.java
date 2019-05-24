@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,7 +15,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 @PrimaryKeyJoinColumn(name = "codigo")
 public class Funcionario extends Pessoa {
 
+	@NotNull(message="A senha é obrigatória")
+	@Size(min = 3, max = 30, message = "A senha deve ser válida")
 	private String senha;
+	@NotNull(message="O salário é obrigatório")
 	private Double salario;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
