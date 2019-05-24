@@ -32,7 +32,7 @@ public abstract class Pessoa {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dataNascimento;
 	private String telefone;
-	@CPF
+	@CPF(message="Adicione um CPF válido")
 	@NotNull(message="O CPF é um campo obrigatório")
 	@Size(min = 11, max = 11, message = "Insira um CPF válido")
 	private String cpf;
