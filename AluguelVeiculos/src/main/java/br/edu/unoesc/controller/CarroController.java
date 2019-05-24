@@ -75,4 +75,6 @@ public class CarroController {
 		model.addAttribute("carros", this.carroDao.findDisponiveisPlaca(filtro));
 		return "carro/disponiveis";
 	}
+	
 }
+

@@ -81,7 +81,7 @@
 						key="carro.cor" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span><input
 							id="cor" name="cor" placeholder="preto, prata ..."
 							class="form-control" required="required" value="<c:out value="${carro.cor}"/>" type="text">
 					</div>
@@ -104,7 +104,7 @@
 						key="carro.placa" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="placa" name="placa" placeholder="AAA-1234"
 							class="form-control" required="required" value="<c:out value="${carro.placa}"/>" type="text" disabled>
 					</div>
@@ -119,6 +119,16 @@
 							<label> <input type="checkbox" name="disponivel">
 							<fmt:message key="carro.disponivelAluguel" />
 							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label"><fmt:message key="carro.imagem" /></label>
+				<div class="col-md-9 inputGroupContainer">
+					<div class="input-group">
+						<div class="checkbox">
+							<input type="file" name="file">
 						</div>
 					</div>
 				</div>

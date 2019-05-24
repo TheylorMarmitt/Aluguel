@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -22,12 +21,6 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<style>
-span.error {
-	color: red;
-	display: inline-block;
-}
-</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -61,7 +54,7 @@ span.error {
 						key="carro.modelo" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="modelo" name="modelo" placeholder="Uno, Celta ..."
 							class="form-control" required="required" value="" type="text">
 					</div>
@@ -85,7 +78,8 @@ span.error {
 						key="carro.cor" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="glyphicon glyphicon-tint
+						"></i></span><input
 							id="cor" name="cor" placeholder="preto, prata ..."
 							class="form-control" required="required" value="" type="text">
 					</div>
@@ -108,7 +102,7 @@ span.error {
 						key="carro.placa" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class=""></i></span><input
+						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="placa" name="placa" placeholder="AAA-1234"
 							class="form-control" required="required" value="" type="text">
 					</div>
@@ -129,6 +123,18 @@ span.error {
 			</div>
 			<input type="file" name="file" /> <input type="submit"
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
+			<div class="form-group">
+				<label class="col-md-3 control-label"><fmt:message key="carro.imagem" /></label>
+				<div class="col-md-9 inputGroupContainer">
+					<div class="input-group">
+						<div class="checkbox">
+							<input type="file" name="file">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<input type="submit" class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>
 	</frm:form>
 </body>

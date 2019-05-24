@@ -7,9 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title><fmt:message key="tela.carro.titulo" /></title>
+<link href="<c:url value="/resources/carroAssets/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/aluguelAssets/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/menu/style.css" />"
 	rel="stylesheet">
@@ -43,6 +43,18 @@
 					<div>Modelo: ${c.modelo}</div>
 					<div>Valor: ${c.valor}</div>	
 					<div>Cor: ${c.cor}</div>		
+				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 zoom">
+					<div class="conteudo">
+					<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
+							<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >
+							</a>
+							<p>Placa: <span class="azul">${c.placa}</span> </p>	
+							<p>Marca: <span class="azul">${c.marca}</span>  </p>
+							<p>Modelo:<span class="azul">${c.modelo}</span>  </p>
+							<p>Valor: <span class="azul">${c.valor}</span> </p>	
+							<p>Cor: <span class="azul">${c.cor}</span> </p>		
+						</div>
+					</div>
 				</div>
 			</c:forEach>
 	</div>

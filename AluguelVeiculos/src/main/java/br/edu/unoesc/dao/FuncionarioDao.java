@@ -11,5 +11,7 @@ public interface FuncionarioDao extends JpaRepository<Funcionario, Long>{
 
 	@Query("select f from Funcionario f where f.dataDemissao = null and email = :email")
 	Funcionario verificaEmail(String email);
+
+	Funcionario findByNome(String nome);
 	
 }
