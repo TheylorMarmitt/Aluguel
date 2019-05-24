@@ -36,24 +36,33 @@
 
 	<script>
 		var ctx = document.getElementById('grafico1');
+		var labels = [];
+		
+		var data = [];
+
+		var backgroundColor = [];
+		var borderColor = [];
+		
+		var label = 'Veículos mais caros';
+		var borderWidth = 2;
+		
+		<c:forEach var="c" items="${carros}">
+			labels.push(${c.modelo});
+			data.push(${c.valor});
+			backgroundColor.push('#207dd4');
+			borderColor.push('#ddd')
+		</c:forEach>
+
+		
 		var myChart = new Chart(ctx, {
-			type : 'bar',
-			data : {
-				labels : [ 'Carro1', 'Carro2', 'Carro3', 'Carro4' ],
+			type : 'bar',			
+			data : { labels,
 				datasets : [ {
-					label : '# teste',
-					data : [ 12, 19, 3, 5, 2, 3 ],
-					backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)' ],
-					borderColor : [ 'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)' ],
-					borderWidth : 4
+					label,
+					data,
+					backgroundColor,
+					borderColor,
+					borderWidth,
 				} ]
 			},
 			options : {

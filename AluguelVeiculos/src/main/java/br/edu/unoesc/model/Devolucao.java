@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,27 +22,28 @@ public class Devolucao {
 	private long codigo;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataChegada;
-	private Double quilometroChegada;
+	@NotNull(message="O campo kilometro de chegada é obrigatorio")
+	private Double kilometroChegada;
 	private Double valorTotal;
 	
 	@ManyToOne
-	@JoinColumn(name = "aluguel_id")	
+	@JoinColumn(name = "aluguel_id")
 	private Aluguel aluguel;
 	
 	/**
 	 * 
 	 * @return quilometros percorridos durante o aluguel do veiculo
 	 */
-	public Double calculaQuilometros() {
+	public Double calculaKms() {
 		if(validaKm()) {
-			Double km = this.quilometroChegada - this.aluguel.getQuilometrosSaida();			
+			Double km = this.kilometroChegada - this.aluguel.getQuilometrosSaida();			
 			return km;
 		}
 		return null;
 	}
 	
 	public boolean validaKm() {
-		if(this.quilometroChegada > this.aluguel.getQuilometrosSaida()) {
+		if(this.kilometroChegada > this.aluguel.getQuilometrosSaida()) {
 			return true;
 		}
 		return false;
@@ -53,12 +55,12 @@ public class Devolucao {
 	 */
 	public void calculaValor() {
 		long dias = dias();
-		this.valorTotal =(dias * this.aluguel.getTaxa()) + (this.aluguel.getValor() * calculaQuilometros()/1000);
+		this.valorTotal =(dias * this.aluguel.getTaxa()) + (this.aluguel.getValor() * calculaKms()/1000);
 	}
 	
 	public long dias() {
-	  long differenceMilliSeconds = this.dataChegada.getTime() - aluguel.getDataAluguel().getTime();     
-	  return (differenceMilliSeconds/(1000*60*60*24));
+	  long millisegundos = this.dataChegada.getTime() - aluguel.getDataAluguel().getTime();     
+	  return (millisegundos/(1000*60*60*24));
 	}
 	
 	public void disponibilizaCarro() {
@@ -81,12 +83,12 @@ public class Devolucao {
 		this.dataChegada = dataChegada;
 	}
 
-	public Double getQuilometroChegada() {
-		return quilometroChegada;
+	public Double getKilometroChegada() {
+		return kilometroChegada;
 	}
 
-	public void setQuilometroChegada(Double quilometroChegada) {
-		this.quilometroChegada = quilometroChegada;
+	public void setKilometroChegada(Double kilometroChegada) {
+		this.kilometroChegada = kilometroChegada;
 	}
 
 	public Aluguel getAluguel() {
@@ -105,12 +107,12 @@ public class Devolucao {
 		this.valorTotal = valorTotal;
 	}
 
-	public Devolucao(Integer codigo, Date dataChegada, Double quilometroChegada, Aluguel aluguel,
+	public Devolucao(Integer codigo, Date dataChegada, Double kilometroChegada, Aluguel aluguel,
 			Double valorTotal) {
 		super();
 		this.codigo = codigo;
 		this.dataChegada = dataChegada;
-		this.quilometroChegada = quilometroChegada;
+		this.kilometroChegada = kilometroChegada;
 		this.aluguel = aluguel;
 		this.valorTotal = valorTotal;
 	}
@@ -121,8 +123,8 @@ public class Devolucao {
 
 	@Override
 	public String toString() {
-		return "Devolucao [codigo=" + codigo + ", dataChegada=" + dataChegada + ", quilometroChegada="
-				+ quilometroChegada + ", aluguel=" + aluguel + ", valorTotal=" + valorTotal + "]";
+		return "Devolucao [codigo=" + codigo + ", dataChegada=" + dataChegada + ", kilometroChegada="
+				+ kilometroChegada + ", aluguel=" + aluguel + ", valorTotal=" + valorTotal + "]";
 	}
 
 }

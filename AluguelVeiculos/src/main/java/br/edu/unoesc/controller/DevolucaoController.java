@@ -1,12 +1,11 @@
 package br.edu.unoesc.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,12 +35,13 @@ public class DevolucaoController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String lista(Devolucao devolucao, String placa, String dataChegada,  Model model) throws ParseException {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		Date parsed = format.parse(dataChegada);
-		devolucao.setDataChegada(parsed);
+	public String lista(@Valid Devolucao devolucao, Errors erro, String placa, Model model) {
+		if(erro.hasErrors()) {
+			return "devolucao/devolver";
+		}
+		
 		// impementar calculo em model
-		devolucao.setValorTotal(0.0);
+		devolucao.calculaValor();
 		devolucaoDao.saveAndFlush(devolucao);
 		devolucao.disponibilizaCarro();
 		
