@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,12 +22,19 @@ public abstract class Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
+	@NotNull(message="O nome é um campo obrigatório")
+	@Size(min = 3, max = 30, message = "Insira um nome válido")
 	private String nome;
+	@NotNull(message="O sobrenome é um campo obrigatório")
+	@Size(min = 3, max = 30, message = "Insira um sobrenome válido")
 	private String sobrenome;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dataNascimento;
 	private String telefone;
+	@NotNull(message="O CPF é um campo obrigatório")
+	@Size(min = 11, max = 11, message = "Insira um CPF válido")
 	private String cpf;
+	@NotNull(message="O e-mail é um campo obrigatório")
 	private String email;
 	
 	

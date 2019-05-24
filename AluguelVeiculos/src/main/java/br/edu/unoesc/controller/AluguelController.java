@@ -38,6 +38,7 @@ public class AluguelController {
 	public String cadastrar(@PathVariable(value = "codigo")long codigo, Model model) {
 		model.addAttribute("carro", this.carroDao.findByCodigo(codigo));
 		return "aluguel/alugarCarro";
+		
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
