@@ -41,19 +41,22 @@
 		<div class="table table-responsive">
 			<table class="table table-striped table-hover">
 				<tr>
-					<th><fmt:message key="tela.alugueis.codigo" /></th>
 					<th><fmt:message key="campo.nome" /></th>
 					<th><fmt:message key="campo.sobrenome" /></th>
 					<th><fmt:message key="campo.dataNascimento" /></th>
 					<th><fmt:message key="campo.email" /></th>
+					<th><fmt:message key="opcoes"/></th>
 				</tr>
 				<c:forEach var="f" items="${funcionarios}">
+					<input type="hidden" name="cpf" value="${f.cpf}"/>
 					<tr>
-						<td>${f.codigo}</td>
 						<td>${f.nome}</td>
 						<td>${f.sobrenome}</td>
 						<td>${f.dataNascimento}</td>
 						<td>${f.email}</td>
+						<td><a class="btn btn-sm btn-info" href="atualizar"><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

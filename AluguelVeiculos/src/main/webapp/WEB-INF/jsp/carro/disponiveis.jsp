@@ -40,11 +40,11 @@
 					<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
 							<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >
 							</a>
-							<p>Placa: <span class="azul">${c.placa}</span> </p>	
-							<p>Marca: <span class="azul">${c.marca}</span>  </p>
-							<p>Modelo:<span class="azul">${c.modelo}</span>  </p>
-							<p>Valor: <span class="azul">${c.valor}</span> </p>	
-							<p>Cor: <span class="azul">${c.cor}</span> </p>		
+							<p><fmt:message key="carro.placa"/> <span class="azul">${c.placa}</span> </p>	
+							<p><fmt:message key="carro.marca"/><span class="azul">${c.marca}</span>  </p>
+							<p><fmt:message key="carro.modelo"/><span class="azul">${c.modelo}</span>  </p>
+							<p><fmt:message key="carro.valor"/><span class="azul">${c.valor}</span> </p>	
+							<p><fmt:message key="carro.cor"/><span class="azul">${c.cor}</span> </p>		
 						</div>
 					</div>
 

@@ -41,13 +41,13 @@ public class FuncionarioController {
 	
 	@RequestMapping(path = "/filtrar")
 	public String disponiveis(String filtro, Model model) {
-		model.addAttribute("funcionarios", this.dao.findByNome(filtro));
+		model.addAttribute("funcionarios", dao.findByNome(filtro));
 		return "funcionario/lista";
 	}
 	
 	@RequestMapping(path = "/atualizar")
 	public String atualizar(String filtroCPF, Model model) {
-		model.addAttribute("funcionario", this.dao.findByCpf(filtroCPF));
+		model.addAttribute("funcionario", dao.findByCpf(filtroCPF));
 		return "funcionario/atualizar";
 	}
 	
