@@ -157,5 +157,13 @@
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Editar" />
 		</fieldset>
 	</frm:form>
+	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+
+	<script>
+		jQuery(function($) {
+			$("#placa").mask("AAA-9999");
+		});
+	</script>
 </body>
 </html>

@@ -139,5 +139,15 @@
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Alugar" />
 		</fieldset>
 	</frm:form>
+	
+	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+
+	<script>
+		jQuery(function($) {
+			$("#cpfCliente").mask("999.999.999-99");
+			$("#cpfFuncionario").mask("999.999.999-99");
+		});
+	</script>
 </body>
 </html>

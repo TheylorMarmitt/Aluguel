@@ -55,7 +55,7 @@
 							key="devolucao" /></a></li>
 				<li></li>
 				<li></li>
-				<li class="btn-trial sair"><a href="#footer"><fmt:message
+				<li class="btn-trial sair"><a href="../"><fmt:message
 							key="sair" /></a></li>
 			</ul>
 		</div>
