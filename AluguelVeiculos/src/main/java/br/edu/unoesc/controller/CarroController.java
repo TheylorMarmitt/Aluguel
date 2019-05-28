@@ -35,6 +35,7 @@ public class CarroController {
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
 	public String cadastro(@Valid Carro carro, Errors erro, MultipartFile file,  Model model) throws ParseException {
 		if(erro.hasErrors()) {
+			model.addAttribute("carro", carro);
 			return "carro/cadastro";
 		}
 		try {

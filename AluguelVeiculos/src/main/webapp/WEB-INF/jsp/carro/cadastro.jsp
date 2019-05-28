@@ -44,7 +44,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="marca" name="marca" placeholder="Fiat, Chevrolet ..."
-							class="form-control" required="required" value="" type="text">
+							class="form-control" required="required" value="<c:out value="${carro.marca}"/>" type="text">
 						<frm:errors path="marca" />
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="modelo" name="modelo" placeholder="Uno, Celta ..."
-							class="form-control" required="required" value="" type="text">
+							class="form-control" required="required" value="<c:out value="${carro.modelo}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 							class="glyphicon glyphicon-usd	
 							"></i></span><input id="valor"
 							name="valor" placeholder="valor do carro" class="form-control"
-							required="required" value="" type="text">
+							required="required" value="<c:out value="${carro.valor}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -81,7 +81,7 @@
 						<span class="input-group-addon"><i class="glyphicon glyphicon-tint
 						"></i></span><input
 							id="cor" name="cor" placeholder="preto, prata ..."
-							class="form-control" required="required" value="" type="text">
+							class="form-control" required="required" value="<c:out value="${carro.cor}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -93,7 +93,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-calendar"></i></span><input id="ano"
 							name="ano" placeholder="2000, 2010 ..." class="form-control"
-							required="required" value="" type="text">
+							required="required" value="<c:out value="${carro.ano}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="placa" name="placa" placeholder="AAA-1234"
-							class="form-control" required="required" value="" type="text">
+							class="form-control" required="required" value="<c:out value="${carro.placa}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -112,9 +112,12 @@
 				<label class="col-md-3 control-label"><fmt:message
 						key="carro.disponivel" /></label>
 				<div class="col-md-9 inputGroupContainer">
-					<div class="input-group">
+					<div class="input-group">..........................................................
 						<div class="checkbox">
 							<label> <input type="checkbox" name="disponivel">
+							<c:if test="${carro.disponivel == true}">
+								<input type="checkbox" name="disponivel" checked>
+							</c:if>
 								<fmt:message key="carro.disponivelAluguel" />
 							</label>
 						</div>
