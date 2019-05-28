@@ -17,7 +17,8 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"> </script>	
+<script
+	src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"> </script>
 </head>
 <body>
 
@@ -25,90 +26,106 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-md-6">
-			<canvas class="col-xs-12 col-md-6" id="grafico1" width="90%" height="40%"></canvas>
+			<canvas class="col-xs-12 col-md-6" id="grafico1" width="90%"
+				height="40%"></canvas>
 		</div>
 		<div class="col-xs-12 col-md-6">
-			<canvas class="col-xs-12 col-md-6" id="grafico2" width="90%" height="40%"></canvas>
+			<canvas class="col-xs-12 col-md-6" id="grafico2" width="90%"
+				height="40%"></canvas>
 		</div>
 	</div>
-<script src="<c:url value="/resources/js/custom.js"/>"></script>
-<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 
-	<script>
+	<script type="text/javascript">
+	
+		const carro = [];
+		  
+		function pegaDados(){  
+	        <c:forEach var="c" items="${carros}">
+	        	carro.push({modelo: "${c.modelo}", valor: ${c.valor}, qtdAlugado: ${c.qtdAlugado}});
+	        </c:forEach>
+	        console.log(carro);
+	    }
+	
 		var ctx = document.getElementById('grafico1');
 		var labels = [];
-		
 		var data = [];
-
 		var backgroundColor = [];
 		var borderColor = [];
 		
-		var label = 'Veículos mais caros';
-		var borderWidth = 2;
+		var ctx2 = document.getElementById('grafico2');
+		var labels2 = [];
+		var data2 = [];
+		var backgroundColor2 = [];
+		var borderColor2 = [];
 		
-		<c:forEach var="c" items="${carros}">
-			labels.push(${c.modelo});
-			data.push(${c.valor});
-			backgroundColor.push('#207dd4');
-			borderColor.push('#ddd')
-		</c:forEach>
+		$(document).ready(function() {
+			pegaDados();
+			
+			// grafico1
+			carro.forEach(element => {
+		        labels.push(element.modelo);
+		        data.push(element.valor);
+		        backgroundColor.push('#6242f4');
+		        borderColor.push('#eee');
+			 }); 
 
-		
-		var myChart = new Chart(ctx, {
-			type : 'bar',			
-			data : { labels,
-				datasets : [ {
-					label,
-					data,
-					backgroundColor,
-					borderColor,
-					borderWidth,
-				} ]
-			},
-			options : {
-				scales : {
-					yAxes : [ {
-						ticks : {
-							beginAtZero : true
-						}
+			var myChart = new Chart(ctx, {
+				type : 'bar',			
+				data : { labels,
+					datasets : [ {
+						label: 'Veículos e valores',
+						data,
+						backgroundColor,
+						borderColor,
+						borderWidth: 2
 					} ]
+				},
+				options : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
 				}
-			}
+			});
+			
+			// grafico2
+			carro.forEach(element => {
+		        labels2.push(element.modelo);
+		        data2.push(element.qtdAlugado);
+		        backgroundColor2.push('#6242f4');
+		        borderColor2.push('#eee');
+		    }); 
+			
+			var myChart = new Chart(ctx2, {
+				type : 'pie',			
+				data : { labels,
+					datasets : [ {
+						label: 'Quantidade de alugueis',
+						data2,
+						backgroundColor2,
+						borderColor2,
+						borderWidth: 2
+					} ]
+				},
+				options : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
+				}
+			});
+			
 		});
 		
-		var ctx = document.getElementById('grafico2');
-		var myChart = new Chart(ctx, {
-			type : 'pie',
-			data : {
-				labels : [ 'Carro1', 'Carro2', 'Carro3', 'Carro4' ],
-				datasets : [ {
-					label : '# teste',
-					data : [ 12, 19, 3, 5, 2, 3 ],
-					backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)' ],
-					borderColor : [ 'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)' ],
-					borderWidth : 4
-				} ]
-			},
-			options : {
-				scales : {
-					yAxes : [ {
-						ticks : {
-							beginAtZero : true
-						}
-					} ]
-				}
-			}
-		});
 	</script>
-
 
 </body>
 </html>

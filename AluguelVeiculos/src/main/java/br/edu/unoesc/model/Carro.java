@@ -37,7 +37,7 @@ public class Carro {
 	private Date dataDeAquisicao;
 	private Date dataDeDesapropriacao;
 	
-
+	private int qtdAlugado;
 
 	public String getimagem() {
 		return imagem;
@@ -112,6 +112,9 @@ public class Carro {
 	}
 
 	public void setDisponivel(boolean disponivel) {
+		if(disponivel) {
+			qtdAlugado++;
+		}
 		this.disponivel = disponivel;
 	}
 
@@ -148,6 +151,11 @@ public class Carro {
 	public void setDataDeDesapropriacao(Date dataDeDesapropriacao) {
 		this.dataDeDesapropriacao = dataDeDesapropriacao;
 	}
+
+	public int getQtdAlugado() {
+		return qtdAlugado;
+	}
+
 
 
 }
