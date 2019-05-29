@@ -58,5 +58,14 @@
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>
 	</frm:form>
+	
+	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+	
+	<script>
+		jQuery(function($) {
+			$("#cnh").mask("99999999999");
+		});
+	</script>
 </body>
 </html>

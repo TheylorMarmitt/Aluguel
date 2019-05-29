@@ -140,10 +140,13 @@
 	</frm:form>
 	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+	
 
 	<script>
 		jQuery(function($) {
 			$("#placa").mask("AAA-9999");
+			$("#ano").mask("9999");
+			$('#valor').mask('#.##0,00', {reverse: true});
 		});
 	</script>
 </body>
