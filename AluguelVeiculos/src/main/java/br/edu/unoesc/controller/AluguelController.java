@@ -30,7 +30,7 @@ public class AluguelController {
 
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
-		model.addAttribute("carros", this.aluguelDao.findByCarroDisponivelTrue());
+		model.addAttribute("carros", this.carroDao.findByDisponivelTrue());
 		return "aluguel/cadastro";
 	}
 	

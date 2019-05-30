@@ -31,7 +31,7 @@
 						key="cpf.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtroCPF"> <input
+						<input type="text" name="filtroCPF" id="filtro"> <input
 							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
@@ -150,6 +150,7 @@
 
 	<script>
 		jQuery(function($) {
+			$("#filtro").mask("999.999.999-99");
 			$("#cpf").mask("999.999.999-99");
 			$("#telefone").mask("(99)99999-9999");
 			$("#cnh").mask("99999999999");

@@ -1,5 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<link rel="icon" href="src/main/resources/favicon.ico"
+	type="image/x-icon">
+
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -12,45 +15,54 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
-			
+
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"><fmt:message key="carro" /><span class="caret"></span></a>
+					aria-expanded="false"><fmt:message key="carro" /><span
+						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../carro/cadastro"><fmt:message key="cadastrar" /></a></li>
-						<li><a href="../carro/atualizar"><fmt:message key="atualizar" /></a></li>
-						<li><a href="../carro/disponiveis"><fmt:message key="disponiveis" /></a></li>
-					</ul>
-				</li>
-				
+						<li><a href="../carro/cadastro"><fmt:message
+									key="cadastrar" /></a></li>
+						<li><a href="../carro/atualizar"><fmt:message
+									key="atualizar" /></a></li>
+						<li><a href="../carro/disponiveis"><fmt:message
+									key="disponiveis" /></a></li>
+					</ul></li>
+
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"><fmt:message key="cliente" /><span class="caret"></span></a>
+					aria-expanded="false"><fmt:message key="cliente" /><span
+						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../cliente/cadastro"><fmt:message key="cadastrar" /></a></li>
-						<li><a href="../cliente/atualizar"><fmt:message key="atualizar" /></a></li>
-					</ul>
-				</li>
-					
+						<li><a href="../cliente/cadastro"><fmt:message
+									key="cadastrar" /></a></li>
+						<li><a href="../cliente/atualizar"><fmt:message
+									key="atualizar" /></a></li>
+					</ul></li>
+
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"><fmt:message key="funcionario" /><span class="caret"></span></a>
+					aria-expanded="false"><fmt:message key="funcionario" /><span
+						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../funcionario/cadastro"><fmt:message key="cadastrar" /></a></li>
-						<li><a href="../funcionario/atualizar"><fmt:message key="atualizar" /></a></li>
-						<li><a href="../funcionario/lista"><fmt:message key="lista" /></a></li>
-					</ul>
-				</li>	
-				
+						<li><a href="../funcionario/cadastro"><fmt:message
+									key="cadastrar" /></a></li>
+						<li><a href="../funcionario/atualizar"><fmt:message
+									key="atualizar" /></a></li>
+						<li><a href="../funcionario/lista"><fmt:message
+									key="lista" /></a></li>
+					</ul></li>
+
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"><fmt:message key="aluguel" /><span class="caret"></span></a>
+					aria-expanded="false"><fmt:message key="aluguel" /><span
+						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../aluguel/cadastro"><fmt:message key="cadastrar" /></a></li>
+						<li><a href="../aluguel/cadastro"><fmt:message
+									key="cadastrar" /></a></li>
 						<li><a href="../aluguel/ativos"><fmt:message key="ativos" /></a></li>
-					</ul>
-				</li>	
-					
+					</ul></li>
+
 				<li><a href="../devolucao/devolucao"><fmt:message
 							key="devolucao" /></a></li>
 				<li></li>

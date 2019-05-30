@@ -134,8 +134,8 @@
 			$("#cpfCliente").mask("999.999.999-99");
 			$("#cpfFuncionario").mask("999.999.999-99");
 			$("#placa").mask("AAA-9999");
-			$('#taxa').mask('#.##0,00', {reverse: true});
-			$('#valor').mask('#.##0,00', {reverse: true});
+			$('#taxa').mask('#.##0.00', {reverse: true});
+			$('#valor').mask('#.##0.00', {reverse: true});
 		});
 	</script>
 </body>

@@ -164,7 +164,7 @@
 		jQuery(function($) {
 			$("#placa").mask("AAA-9999");
 			$("#ano").mask("9999");
-			$('#valor').mask('#.##0,00', {reverse: true});
+			$('#valor').mask('#.##0.00', {reverse: true});
 		});
 	</script>
 </body>

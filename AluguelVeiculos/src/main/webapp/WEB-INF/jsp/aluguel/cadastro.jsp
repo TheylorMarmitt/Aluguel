@@ -62,7 +62,7 @@
 							class="browser-default custom-select" id=carro
 							name="carro.codigo">
 							<c:forEach var="c" items="${carros}">
-								<option value="${c.codigo}">${c.marca}- ${c.placa}</option>
+								<option value="${c.codigo}">${c.marca}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -147,8 +147,8 @@
 		jQuery(function($) {
 			$("#cpfCliente").mask("999.999.999-99");
 			$("#cpfFuncionario").mask("999.999.999-99");
-			$('#taxa').mask('#.##0,00', {reverse: true});
-			$('#valor').mask('#.##0,00', {reverse: true});
+			$('#taxa').mask('#.##0.00', {reverse: true});
+			$('#valor').mask('#.##0.00', {reverse: true});
 		});
 	</script>
 </body>
