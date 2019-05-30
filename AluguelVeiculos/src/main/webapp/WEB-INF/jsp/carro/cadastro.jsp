@@ -21,6 +21,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -112,7 +113,7 @@
 				<label class="col-md-3 control-label"><fmt:message
 						key="carro.disponivel" /></label>
 				<div class="col-md-9 inputGroupContainer">
-					<div class="input-group">..........................................................
+					<div class="input-group">
 						<div class="checkbox">
 							<label> <input type="checkbox" name="disponivel">
 							<c:if test="${carro.disponivel == true}">
@@ -146,7 +147,7 @@
 		jQuery(function($) {
 			$("#placa").mask("AAA-9999");
 			$("#ano").mask("9999");
-			$('#valor').mask('#.##0.00', {reverse: true});
+			$('#valor').mask('#.##0', {reverse: true});
 		});
 	</script>
 </body>

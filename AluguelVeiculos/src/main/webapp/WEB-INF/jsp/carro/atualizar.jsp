@@ -22,6 +22,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -135,6 +136,9 @@
 					<div class="input-group">
 						<div class="checkbox">
 							<label> <input type="checkbox" name="disponivel">
+							<c:if test="${carro.disponivel == true}">
+								<input type="checkbox" name="disponivel" checked>
+							</c:if>
 								<fmt:message key="carro.disponivelAluguel" />
 							</label>
 						</div>

@@ -19,6 +19,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
 

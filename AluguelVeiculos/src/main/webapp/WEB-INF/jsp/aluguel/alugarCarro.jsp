@@ -18,6 +18,7 @@
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
+	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 	
 </head>
 <body>
@@ -89,8 +90,8 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-usd"></i></span><input id="taxa"
-							name="taxa" placeholder="12.2" class="form-control"
-							required="required" value="" type="text">
+							name="taxa" class="form-control"
+							required="required" value="10.00" type="text">
 					</div>
 				</div>
 			</div>
@@ -102,8 +103,8 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-usd"></i></span><input id="valor"
-							name="valor" placeholder="50.0" class="form-control"
-							required="required" value="" type="text">
+							name="valor" class="form-control"
+							required="required" value="20.00" type="text">
 					</div>
 				</div>
 			</div>
@@ -126,7 +127,7 @@
 		</fieldset>
 	</form>
 	
-		<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
 
 	<script>
