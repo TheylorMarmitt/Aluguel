@@ -90,8 +90,8 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-usd"></i></span><input id="taxa"
-							name="taxa" placeholder="12.2" class="form-control"
-							required="required" value="" type="text">
+							name="taxa" class="form-control"
+							required="required" value="10.00" type="text">
 					</div>
 				</div>
 			</div>
@@ -103,8 +103,8 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-usd"></i></span><input id="valor"
-							name="valor" placeholder="50.0" class="form-control"
-							required="required" value="" type="text">
+							name="valor" class="form-control"
+							required="required" value="20.00" type="text">
 					</div>
 				</div>
 			</div>
@@ -127,7 +127,7 @@
 		</fieldset>
 	</form>
 	
-		<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
 
 	<script>

@@ -136,6 +136,9 @@
 					<div class="input-group">
 						<div class="checkbox">
 							<label> <input type="checkbox" name="disponivel">
+							<c:if test="${carro.disponivel == true}">
+								<input type="checkbox" name="disponivel" checked>
+							</c:if>
 								<fmt:message key="carro.disponivelAluguel" />
 							</label>
 						</div>

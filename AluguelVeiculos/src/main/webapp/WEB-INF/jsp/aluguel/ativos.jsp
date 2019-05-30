@@ -30,7 +30,7 @@
 						key="tela.alugueis.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtro"> <input
+						<input type="text" id="filtro" name="filtro"> <input
 							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
@@ -61,5 +61,14 @@
 
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+
+	<script>
+		jQuery(function($) {
+			$("#filtro").mask("AAA-9999");
+		});
+	</script>
+	
+	
 </body>
 </html>

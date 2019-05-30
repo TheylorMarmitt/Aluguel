@@ -27,11 +27,11 @@
 		</h1>
 		<form action='<c:url value="/funcionario/filtrar"></c:url>' method="get">
 			<div class="form-group">
-				<label class="pull-left control-label  filtro"> <fmt:message
+				<label class="pull-left control-label filtro"> <fmt:message
 						key="nome.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtro"> <input
+						<input type="text" id="filtro" name="filtro"> <input
 							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
@@ -67,5 +67,13 @@
 
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+
+	<script>
+		jQuery(function($) {
+			$("#filtro").mask("999.999.999-99");
+		});
+	</script>
+	
 </body>
 </html>
