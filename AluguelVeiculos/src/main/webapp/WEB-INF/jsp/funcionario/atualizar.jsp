@@ -84,7 +84,7 @@
 							class="glyphicon glyphicon-calendar"></i></span><input
 							id="dataNascimento" name="dataNascimento" placeholder="Data"
 							class="form-control" required="required"
-							value="<fmt:formatDate value="${funcionario.dataNascimento}" type="both" pattern="dd/MM/yyyy"/>"
+							value="<fmt:formatDate value="${funcionario.converteData()}" type="both" pattern="dd/MM/yyyy"/>"
 							type="text">
 					</div>
 				</div>
@@ -137,7 +137,7 @@
 							class="glyphicon glyphicon-calendar"></i></span><input id="dataAdmissao"
 							name="dataAdmissao" placeholder="Data" class="form-control"
 							required="required"
-							value="<c:out value="${funcionario.dataAdmissao}"/>" type="date">
+							value="<c:out value="${funcionario.converteDataAdmissao()}"/>" type="date">
 					</div>
 				</div>
 			</div>

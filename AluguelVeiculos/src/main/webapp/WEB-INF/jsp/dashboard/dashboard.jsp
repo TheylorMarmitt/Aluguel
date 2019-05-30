@@ -47,7 +47,6 @@
 	        <c:forEach var="c" items="${carros}">
 	        	carro.push({modelo: "${c.modelo}", valor: ${c.valor}, qtdAlugado: ${c.qtdAlugado}});
 	        </c:forEach>
-	        console.log(carro);
 	    }
 	
 		var ctx = document.getElementById('grafico1');

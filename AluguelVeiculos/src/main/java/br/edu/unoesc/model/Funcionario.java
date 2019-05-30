@@ -1,5 +1,7 @@
 package br.edu.unoesc.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -26,6 +28,17 @@ public class Funcionario extends Pessoa {
 	
 	public Funcionario() {
 
+	}
+	
+	public String converteDataAdmissao(){
+		SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			return out.format(in.parse(this.dataAdmissao.toString()));
+		} catch (ParseException e) {
+			return "Erro ao pegar data";
+			
+		}  
 	}
 
 	public Funcionario(String senha, Double salario, Date dataAdmissao, Date dataDemissao) {

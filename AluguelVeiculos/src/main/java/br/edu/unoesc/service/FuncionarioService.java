@@ -10,9 +10,9 @@ import br.edu.unoesc.model.Funcionario;
 
 @Service
 public class FuncionarioService {
+
 	@Autowired
 	private FuncionarioDao dao;
-	
 	
 	public void adiciona(Funcionario funcionario) {
 		if(funcionario.getDataAdmissao() == null) {
