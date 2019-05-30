@@ -11,7 +11,7 @@
  <link href="<c:url value="/resources/loginAssets/style.css" />" rel="stylesheet">
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
  <link href="https://fonts.googleapis.com/css?family=Delius" rel="stylesheet">
- <link rel="icon" href="src/main/resources/favicon.ico" type="image/x-icon">
+ <link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
 <div class="container-fluid">

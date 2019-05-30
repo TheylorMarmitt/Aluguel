@@ -38,7 +38,13 @@
 				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
 					<div class="conteudo">
 					<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
-							<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >
+							<c:if test="${empty c.imagem}">
+								<img src="<c:url value="/resources/img/imgNotFound.png" />" class="img-responsive rounded-top" >
+							</c:if>
+							<c:if test="${not empty c.imagem}">
+								<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >	
+							</c:if>
+							
 							</a>
 							<p><fmt:message key="carro.placa"/> <span class="azul">${c.placa}</span> </p>	
 							<p><fmt:message key="carro.marca"/><span class="azul">${c.marca}</span>  </p>
