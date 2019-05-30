@@ -69,7 +69,7 @@
 			carro.forEach(element => {
 		        labels.push(element.modelo);
 		        data.push(element.valor);
-		        backgroundColor.push('#6242f4');
+		        backgroundColor.push('#207dd4');
 		        borderColor.push('#eee');
 			 }); 
 
@@ -99,7 +99,7 @@
 			carro.forEach(element => {
 		        labels2.push(element.modelo);
 		        data2.push(element.qtdAlugado);
-		        backgroundColor2.push('#6242f4');
+		        backgroundColor2.push('#207dd4');
 		        borderColor2.push('#eee');
 		    }); 
 			
