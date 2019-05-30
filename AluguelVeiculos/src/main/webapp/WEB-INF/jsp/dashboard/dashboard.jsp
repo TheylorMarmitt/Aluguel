@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Dashboard</title>
+<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/dashAssets/style.css" />"
@@ -17,6 +18,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"> </script>
 </head>
