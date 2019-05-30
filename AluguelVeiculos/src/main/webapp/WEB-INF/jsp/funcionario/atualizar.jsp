@@ -32,7 +32,7 @@
 						key="cpf.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtroCPF" id="filtro"> <input
+						<input type="text" name="cpf" id="filtro"> <input
 							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
@@ -55,9 +55,9 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span><input id="nome" name="nome"
+							class="glyphicon glyphicon-user"></i></span><input id="nome" name="nome" value=""
 							placeholder="Joe" class="form-control" required="required"
-							value="${funcionario.nome}" type="text">
+							value="<c:out value="${funcionario.nome}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 							class="glyphicon glyphicon-user"></i></span><input id="sobrenome"
 							name="sobrenome" placeholder="Doe" class="form-control"
 							required="required"
-							value="${funcionario.sobrenome}" type="text">
+							value="<c:out value="${funcionario.sobrenome}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -83,8 +83,8 @@
 							class="glyphicon glyphicon-calendar"></i></span><input
 							id="dataNascimento" name="dataNascimento" placeholder="Data"
 							class="form-control" required="required"
-							value="${funcionario.dataNascimento}"
-							type="date">
+							value="<fmt:formatDate value="${funcionario.dataNascimento}" type="both" pattern="dd/MM/yyyy"/>"
+							type="text">
 					</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 							class="glyphicon glyphicon-earphone"></i></span><input id="telefone"
 							name="telefone" placeholder="49 9 9999-9999" class="form-control"
 							required="required"
-							value="${funcionario.telefone}" type="text">
+							value="<c:out value="${funcionario.telefone}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -109,7 +109,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpf" name="cpf"
 							placeholder="112.234.567-89" class="form-control"
-							required="required" value="${funcionario.cpf}"
+							required="required" value="<c:out value="${funcionario.cpf}"/>"
 							type="text" disabled>
 					</div>
 				</div>
@@ -122,7 +122,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-envelope"></i></span><input id="email"
 							name="email" placeholder="joe@doe.com" class="form-control"
-							required="required" value="${funcionario.email}"
+							required="required" value="<c:out value="${funcionario.email}"/>"
 							type="email">
 					</div>
 				</div>
@@ -136,7 +136,7 @@
 							class="glyphicon glyphicon-calendar"></i></span><input id="dataAdmissao"
 							name="dataAdmissao" placeholder="Data" class="form-control"
 							required="required"
-							value="${funcionario.dataAdmissao}" type="date">
+							value="<c:out value="${funcionario.dataAdmissao}"/>" type="date">
 					</div>
 				</div>
 			</div>

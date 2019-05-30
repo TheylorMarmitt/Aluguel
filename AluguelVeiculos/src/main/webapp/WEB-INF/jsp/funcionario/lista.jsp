@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
 						<td>${f.sobrenome}</td>
 						<td>${f.dataNascimento}</td>
 						<td>${f.email}</td>
-						<td><a class="btn btn-sm btn-info" href="atualizar"><i class="glyphicon glyphicon-pencil"></i></a>
+						<td><a class="btn btn-sm btn-info" href="atualizar/${f.cpf}"><i class="glyphicon glyphicon-pencil"></i></a>
 							<a class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 						</td>
 					</tr>

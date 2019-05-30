@@ -45,9 +45,9 @@ public class FuncionarioController {
 		return "funcionario/lista";
 	}
 	
-	@RequestMapping(path = "/atualizar")
-	public String atualizar(String filtroCPF, Model model) {
-		model.addAttribute("funcionario", dao.findByCpf(filtroCPF));
+	@RequestMapping(path = {"/atualizar", "/atualizar/{cpf}"})
+	public String atualizar(Funcionario funcionario, Model model) {
+		model.addAttribute("funcionario", dao.findByCpf(funcionario.getCpf()));
 		return "funcionario/atualizar";
 	}
 	
