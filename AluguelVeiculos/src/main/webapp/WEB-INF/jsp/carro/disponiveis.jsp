@@ -35,25 +35,27 @@
 	</div>
 	<div class= "container-fluid">
 			<c:forEach var="c" items="${carros}">
-
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-					<div class="conteudo">
-					<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
-							<c:if test="${empty c.imagem}">
-								<img src="<c:url value="/resources/img/imgNotFound.png" />" class="img-responsive rounded-top" >
-							</c:if>
-							<c:if test="${not empty c.imagem}">
-								<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top" >	
-							</c:if>
-							
+				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 fixed-width">
+					<div class="conteudo ">
+						<div class="imagem">
+							<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
+								<c:if test="${empty c.imagem}">
+									<img src="<c:url value="/resources/img/imgNotFound.png" />" class="img-responsive center-block" >
+								</c:if>
+								<c:if test="${not empty c.imagem}">
+									<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top center-block">	
+								</c:if>
 							</a>
+						</div>	
+						<div class="inf">
 							<p><fmt:message key="carro.placa"/> <span class="azul">${c.placa}</span> </p>	
 							<p><fmt:message key="carro.marca"/><span class="azul">${c.marca}</span>  </p>
 							<p><fmt:message key="carro.modelo"/><span class="azul">${c.modelo}</span>  </p>
 							<p><fmt:message key="carro.valor"/><span class="azul">${c.valor}</span> </p>	
-							<p><fmt:message key="carro.cor"/><span class="azul">${c.cor}</span> </p>		
-						</div>
+							<p><fmt:message key="carro.cor"/><span class="azul">${c.cor}</span> </p>
+						</div>			
 					</div>
+				</div>
 
 			</c:forEach>
 	</div>

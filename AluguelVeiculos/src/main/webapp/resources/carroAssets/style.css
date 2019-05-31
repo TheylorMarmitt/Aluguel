@@ -21,6 +21,8 @@ body {
 
 
 .conteudo{
+	height: 400px;
+	margin-bottom:5px;
 	border: 2px ;
 	border-style: solid;
 	border-color: #207dd4;
@@ -40,5 +42,21 @@ body {
 .azul{
 	color:#207dd4;
 }
+
+.imagem{
+	width:100%;
+}
+
+.inf{
+	height:160px;
+	position:absolute;
+    bottom:0;
+}
+
+img{
+	height: 180px;
+	width: 180px;	
+}
+
 
 

@@ -45,9 +45,7 @@ public class CarroController {
 			e.printStackTrace();
 		}
 		
-		
 		this.carroService.adiciona(carro);
-		model.addAttribute("carros", carroDao.findByDisponivelTrue());
 		return "carro/disponiveis";
 	}
 	
