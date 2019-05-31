@@ -58,18 +58,6 @@
 			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
-						key="campo.salario" /></label>
-				<div class="col-md-9 inputGroupContainer">
-					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-calendar"></i></span><input id="salario"
-							name="salario" placeholder="Salario" class="form-control"
-							value="" type="text">
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
 						key="campo.senha" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">

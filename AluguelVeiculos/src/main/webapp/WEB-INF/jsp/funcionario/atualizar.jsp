@@ -98,7 +98,7 @@
 							class="glyphicon glyphicon-earphone"></i></span><input id="telefone"
 							name="telefone" placeholder="49 9 9999-9999" class="form-control"
 							required="required"
-							value="<c:out value="${funcionario.telefone}"/>" type="text">
+							value="${funcionario.telefone}" type="text">
 					</div>
 				</div>
 			</div>

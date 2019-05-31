@@ -55,9 +55,17 @@
 					aria-expanded="false"><fmt:message key="aluguel" /><span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../aluguel/cadastro"><fmt:message
-									key="cadastrar" /></a></li>
+						<li><a href="../aluguel/cadastro"><fmt:message key="cadastrar" /></a></li>
 						<li><a href="../aluguel/ativos"><fmt:message key="ativos" /></a></li>
+						
+					</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false"><fmt:message key="configuracoes" /><span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="../configuracoes/aluguel"><fmt:message key="configuracoes" /></a></li>
+						<li><a href="../filial/nova"><fmt:message key="filial" /></a></li>
 					</ul></li>
 
 				<li><a href="../devolucao/devolucao"><fmt:message

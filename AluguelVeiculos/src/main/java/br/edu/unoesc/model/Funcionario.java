@@ -3,6 +3,9 @@ package br.edu.unoesc.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -18,19 +21,20 @@ public class Funcionario extends Pessoa {
 	@NotNull(message="A senha é obrigatória")
 	@Size(min = 3, max = 30, message = "A senha deve ser válida")
 	private String senha;
-	@NotNull(message="O salário é obrigatório")
-	private Double salario;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
+	
 	private Date dataDemissao;
+	@ManyToOne
+	private Filial filial;
 	
 	public Funcionario() {
 
 	}
 
-	public Funcionario(String senha, Double salario, Date dataAdmissao, Date dataDemissao) {
+	public Funcionario(String senha, Date dataAdmissao, Date dataDemissao) {
 		this.senha = senha;
-		this.salario = salario;
 		this.dataAdmissao = dataAdmissao;
 		this.dataDemissao = dataDemissao;
 	}
@@ -54,14 +58,6 @@ public class Funcionario extends Pessoa {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public Double getSalario() {
-		return salario;
-	}
-
-	public void setSalario(Double salario) {
-		this.salario = salario;
 	}
 
 

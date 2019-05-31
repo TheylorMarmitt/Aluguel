@@ -71,40 +71,42 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="aluguel.cliente" /></label>
+				<label class="col-md-3 control-label"><fmt:message key="aluguel.cliente" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span><input id="cpfCliente"
-							name="cpfCliente" placeholder="123.123.123-12" class="form-control"
-							required="required" value="" type="text">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-user"></i>
+						</span>
+						<input id="cpfCliente" name="cpfCliente" placeholder="123.123.123-12" class="form-control"
+						required="required" value="" type="text">
 					</div>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="aluguel.taxa" /></label>
+				<label class="col-md-3 control-label">
+					<fmt:message key="aluguel.taxa" />
+				</label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-usd"></i></span><input id="taxa"
-							name="taxa" class="form-control"
-							required="required" value="10.00" type="text">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-usd"></i>
+						</span>
+						<input id="taxa" name="taxa" class="form-control" required="required" value="10.00" type="text">
 					</div>
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="aluguel.valor" /></label>
+				<label class="col-md-3 control-label">
+					<fmt:message key="aluguel.valor" />
+				</label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-usd"></i></span><input id="valor"
-							name="valor" class="form-control"
-							required="required" value="20.00" type="text">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-usd"></i>
+						</span>
+						<input id="valor" name="valor" class="form-control" required="required" value="20.00" type="text">
 					</div>
 				</div>
 			</div>
