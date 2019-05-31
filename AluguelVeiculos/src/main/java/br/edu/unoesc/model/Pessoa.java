@@ -1,5 +1,8 @@
 package br.edu.unoesc.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -41,6 +44,17 @@ public abstract class Pessoa {
 	
 	public Pessoa() {
 
+	}
+	
+	public String converteData(){
+		SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			return out.format(in.parse(this.dataNascimento.toString()));
+		} catch (ParseException e) {
+			return "Erro ao pegar data";
+			
+		}  
 	}
 
 	public Pessoa(long codigo, String nome, String sobrenome, Date dataNascimento, String telefone, String cpf,

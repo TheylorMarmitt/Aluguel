@@ -14,7 +14,7 @@ public class DashboardController {
 	@Autowired
 	CarroDao carroDao;
 	
-	@RequestMapping(path = "/")
+	@RequestMapping(path = {"/", ""})
 	public String dashboard(Model model) {
 		model.addAttribute("carros", carroDao.findAll());
 		return "dashboard/dashboard";

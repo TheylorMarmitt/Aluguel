@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
 import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.model.Carro;
 import br.edu.unoesc.service.CarroService;
@@ -33,10 +35,10 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastro(@Valid Carro carro, Errors erro, MultipartFile file,  Model model) throws ParseException {
+	public ModelAndView cadastro(@Valid Carro carro, Errors erro, MultipartFile file,  Model model) throws ParseException {
 		if(erro.hasErrors()) {
-			model.addAttribute("carro", carro);
-			return "carro/cadastro";
+//			model.addAttribute("carro", carro);
+			new ModelAndView("carro/cadastro", "carro", carro);
 		}
 		try {
 			String img = Base64.getEncoder().encodeToString(file.getBytes());
@@ -45,10 +47,9 @@ public class CarroController {
 			e.printStackTrace();
 		}
 		
-		
 		this.carroService.adiciona(carro);
-		model.addAttribute("carros", carroDao.findByDisponivelTrue());
-		return "carro/disponiveis";
+//		return "carro/disponiveis";
+		return new ModelAndView("carro/disponiveis", "carros", carroDao.findByDisponivelTrue());
 	}
 	
 	@RequestMapping(path = "/atualizar")

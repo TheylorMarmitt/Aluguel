@@ -10,7 +10,7 @@ import br.edu.unoesc.model.Aluguel;
 public class AluguelService {
 
 	@Autowired
-	AluguelDao aluguelDao;
+	private AluguelDao aluguelDao;
 	
 	public void adiciona(Aluguel aluguel) {
 		if(!aluguel.isAtivo()) {
