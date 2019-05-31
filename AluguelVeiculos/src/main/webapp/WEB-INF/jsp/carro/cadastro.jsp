@@ -69,25 +69,11 @@
 						      
 						    </div>
 						 </div>
-<!-- 						<input -->
-<!-- 							id="marca" name="marca" placeholder="Fiat, Chevrolet ..." -->
-<%-- 							class="form-control" required="required" value="<c:out value="${carro.marca}"/>" type="text"> --%>
 						<frm:errors path="marca" />
 					</div>
 				</div>
 			</div>
-<!-- 			<div class="form-group"> -->
-<%-- 				<label class="col-md-3 control-label"><fmt:message --%>
-<%-- 						key="carro.modelo" /></label> --%>
-<!-- 				<div class="col-md-9 inputGroupContainer"> -->
-<!-- 					<div class="input-group"> -->
-<!-- 						<span class="input-group-addon"><i class="fa fa-car"></i></span> -->
-<!-- 						<input -->
-<!-- 							id="modelo" name="modelo" placeholder="Uno, Celta ..." -->
-<%-- 							class="form-control" required="required" value="<c:out value="${carro.modelo}"/>" type="text"> --%>
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
+
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="carro.valor" /></label>
@@ -97,7 +83,7 @@
 							class="glyphicon glyphicon-usd	
 							"></i></span><input id="valor"
 							name="valor" placeholder="valor do carro" class="form-control"
-							required="required" value="<c:out value="${carro.valor}"/>" type="text">
+							required="required" value="<c:out value="${carro.valor}"/>" disabled type="text">
 					</div>
 				</div>
 			</div>
@@ -113,19 +99,7 @@
 					</div>
 				</div>
 			</div>
-<!-- 			<div class="form-group"> -->
-<%-- 				<label class="col-md-3 control-label"><fmt:message --%>
-<%-- 						key="carro.ano" /></label> --%>
-<!-- 				<div class="col-md-9 inputGroupContainer"> -->
-<!-- 					<div class="input-group"> -->
-<!-- 						<span class="input-group-addon"><i -->
-<!-- 							class="glyphicon glyphicon-calendar"></i></span> -->
-<!-- 							<input id="ano" -->
-<!-- 							name="ano" placeholder="2000, 2010 ..." class="form-control" -->
-<%-- 							required="required" value="<c:out value="${carro.ano}"/>" type="text"> --%>
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
+
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="carro.placa" /></label>
@@ -175,19 +149,15 @@
 		
 	$(document).ready(function() {
 
-        $.ajax({
-            url: "http://fipeapi.appspot.com/api/1/carros/marcas.json",
-            type: 'GET',
-            dataType: 'json',
-            success: function(data){
-            	const $marca = $('#marca');
-                $.each(data, function(key, marca){                
-                    $("#marca").append("<option value='"+marca.id+"'>"+marca.fipe_name+"</option>");
-                });
-                $('#loading').text('Selecione a marca');
-                $marca.change();
-            }
-        });
+		$.get('http://fipeapi.appspot.com/api/1/carros/marcas.json', function (json) {
+            const $marca = $('#marca');
+            json.forEach((marca) => {
+                $marca.append("<option value="+marca.id+">"+ marca.fipe_name+ "</option>");
+            })
+
+            $marca.change();
+        })
+       
         
         $('#marca').change(function () {
             const marcaSelecionada = $(this).val();
@@ -209,24 +179,30 @@
             $ano.empty();
             $.get("http://fipeapi.appspot.com/api/1/carros/veiculo/" + marcaSelecionada +"/"+ modeloSelecionado +".json", function (json) {
                 json.forEach((ano) => {
-                	$("#ano").append("<option value='"+ano.id+"'>"+ano.name+"</option>");
+                	$("#ano").append("<option value="+ano.id+">"+ano.name+"</option>");
                 })
+		        $ano.change();
             })
+        })
+        
+        $('#ano').change(function () {
+        	 const marcaSelecionada = $('#marca').val();
+             const modeloSelecionado = $('#modelo').val();
+             const anoSelecionado = $('#ano').val();
+             
+             $.get("http://fipeapi.appspot.com/api/1/carros/veiculo/" + marcaSelecionada +"/"+ modeloSelecionado+ "/"+ anoSelecionado +".json", function (data) {
+                 $("#valor").val(data.preco);
+             });
+             
         })
         
     });
 		
-	
-
-        
-
-        
-        
-        jQuery(function($) {
-			$("#placa").mask("AAA-9999");
-			$("#ano").mask("9999");
-			$('#valor').mask('#.##0', {reverse: true});
-		});
+    jQuery(function($) {
+		$("#placa").mask("AAA-9999");
+		$("#ano").mask("9999");
+		$('#valor').mask('#.##0', {reverse: true});
+	});
 		
 	</script>
 </body>
