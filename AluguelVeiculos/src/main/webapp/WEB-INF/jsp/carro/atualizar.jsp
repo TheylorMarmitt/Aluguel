@@ -18,6 +18,7 @@
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/menu/style.css" />"
 	rel="stylesheet">
+	<link href="<c:url value="/resources/carroAssets/style.css" />" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
 <link rel="stylesheet"
@@ -36,7 +37,7 @@
 						key="tela.carro.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtroPlaca"> <input
+						<input type="text" id= "filtroPlaca" name="filtroPlaca"> <input
 							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
@@ -53,30 +54,58 @@
 					</div>
 				</c:forEach>
 			</spring:hasBindErrors>
-			<div class="form-group">
+
+			
+			<div class="form-group" >
 				<label class="col-md-3 control-label"><fmt:message
-						key="carro.marca" /></label>
+						key="carro" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
-							id="marca" name="marca" placeholder="Fiat, Chevrolet ..."
-							class="form-control" required="required"
-							value="<c:out value="${carro.marca}"/>" type="text">
+						<span class="input-group-addon"><i class="fa fa-car"></i></span>
+						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><fmt:message
+									key="carro.selecione" /></button>
+						<div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog">
+						    
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title"><fmt:message
+									key="carro.selecione" /></h4>
+						        </div>
+						        <div class="modal-body">
+						        <label class="control-label"><fmt:message
+									key="carro.marca" /></label>
+						          <select class="form-control"  name="marcaSelect" id="marca"></select>
+						        </div>
+						        <div class="modal-body">
+						        <label class="control-label"><fmt:message
+									key="carro.modelo" /></label>
+						          <select class="form-control" name="modeloSelect" id="modelo"> </select>
+						        </div>
+						        <div class="modal-body">
+						        <label class="control-label"><fmt:message
+									key="carro.ano" /></label>
+						          <select class="form-control" name="anoSelect" id="ano"> </select>
+						        </div>
+						        
+						        <br>
+						        <div class="modal-footer">
+						          <button type="button" id="fechar" class="btn btn-default" data-dismiss="modal">Fechar</button>
+						        </div>
+						      </div>
+						      
+						    </div>
+						 </div>
+<%-- 				<frm:errors path="marca" /> --%>
 					</div>
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
-						key="carro.modelo" /></label>
-				<div class="col-md-9 inputGroupContainer">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
-							id="modelo" name="modelo" placeholder="Uno, Celta ..."
-							class="form-control" required="required"
-							value="<c:out value="${carro.modelo}"/>" type="text">
-					</div>
-				</div>
-			</div>
+			
+			<input value="<c:out value="${carro.marca}"/>" id=marcaCarro type="hidden" name="marca" required/>
+			<input value="<c:out value="${carro.modelo}"/>" id=modeloCarro type="hidden" name="modelo" required/>
+			<input value="<c:out value="${carro.ano}"/>" id=anoCarro type="hidden" name="ano" required/>
+
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="carro.valor" /></label>
@@ -166,8 +195,8 @@
 
 	<script>
 		jQuery(function($) {
+			$("#filtroPlaca").mask("AAA-9999");
 			$("#placa").mask("AAA-9999");
-			$("#ano").mask("9999");
 			$('#valor').mask('#.##0.00', {reverse: true});
 		});
 	</script>

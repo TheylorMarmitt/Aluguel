@@ -2,6 +2,7 @@ package br.edu.unoesc.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +31,7 @@ public class Carro {
 	private Integer ano;
 	@NotNull(message="A placa é um campo obrigatório")
 	@Size(min = 7, max = 8,  message = "A placa precisa ser válida")
+	@Column(unique=true)
 	private String placa;
 	private boolean disponivel;
 	@Lob
