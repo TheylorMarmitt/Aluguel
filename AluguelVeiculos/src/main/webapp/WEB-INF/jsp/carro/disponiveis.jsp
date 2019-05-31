@@ -36,16 +36,15 @@
 	<div class= "container-fluid">
 			<c:forEach var="c" items="${carros}">
 				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 fixed-width">
+					<a class="link" href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
 					<div class="conteudo ">
 						<div class="imagem">
-							<a href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
 								<c:if test="${empty c.imagem}">
 									<img src="<c:url value="/resources/img/imgNotFound.png" />" class="img-responsive center-block" >
 								</c:if>
 								<c:if test="${not empty c.imagem}">
-									<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive rounded-top center-block">	
+									<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive center-block">	
 								</c:if>
-							</a>
 						</div>	
 						<div class="inf">
 							<p><fmt:message key="carro.placa"/> <span class="azul">${c.placa}</span> </p>	
@@ -55,6 +54,7 @@
 							<p><fmt:message key="carro.cor"/><span class="azul">${c.cor}</span> </p>
 						</div>			
 					</div>
+					</a>
 				</div>
 
 			</c:forEach>

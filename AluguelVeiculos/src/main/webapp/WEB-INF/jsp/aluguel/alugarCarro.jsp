@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,9 +30,17 @@
 			<fmt:message key="tela.aluguel.cadastro" />
 		</h1>
 	</div>
-	<form class="well form-horizontal"
-		action='<c:url value="/aluguel/enviar"></c:url>' method="post">
+	<frm:form modelAtributte="aluguel" class="well form-horizontal"
+		action="enviar" method="post" enctype="multipart/form-data">
 		<fieldset>
+			<spring:hasBindErrors name="aluguel">
+				<c:forEach var="error" items="${errors.allErrors}">
+					<div class="alert alert-danger col-xs-12">
+						<spring:message message="${error}" />
+					</div>
+				</c:forEach>
+			</spring:hasBindErrors>
+		
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="aluguel.data" /></label>
@@ -125,7 +135,7 @@
 			<input type="submit"
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Alugar" />
 		</fieldset>
-	</form>
+	</frm:form>
 	
 	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>

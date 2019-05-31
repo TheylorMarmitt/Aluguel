@@ -9,20 +9,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><fmt:message key="tela.carro.titulo" /></title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/carroAssets/style.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/menu/style.css" />"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Delius"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<title><fmt:message key="tela.carro.titulo" /></title>
+	
 	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
+	<link href="<c:url value="/resources/css/bootstrap.min.css" />"rel="stylesheet">
+	<link href="<c:url value="/resources/carroAssets/style.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/menu/style.css" />" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Delius" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
+
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
 	<div class="container-fluid cont">
@@ -38,42 +35,56 @@
 				<div class="alert alert-danger col-xs-12"><spring:message message="${error}"/></div>
 			</c:forEach>
 			</spring:hasBindErrors>
-			<div class="form-group">
+			<div class="form-group" >
 				<label class="col-md-3 control-label"><fmt:message
-						key="carro.marca" /></label>
+						key="carro" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span>
-						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Selecione o carro</button>
+						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><fmt:message
+									key="carro.selecione" /></button>
 						<div class="modal fade" id="myModal" role="dialog">
 						    <div class="modal-dialog">
 						    
 						      <div class="modal-content">
 						        <div class="modal-header">
 						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">Selecione o carro</h4>
+						          <h4 class="modal-title"><fmt:message
+									key="carro.selecione" /></h4>
 						        </div>
 						        <div class="modal-body">
-						          <select name="marca" id="marca" required> </select>
+						        <label class="control-label"><fmt:message
+									key="carro.marca" /></label>
+						          <select class="form-control"  name="marcaSelect" id="marca"> </select>
 						        </div>
 						        <div class="modal-body">
-						          <select name="modelo" id="modelo" required> </select>
+						        <label class="control-label"><fmt:message
+									key="carro.modelo" /></label>
+						          <select class="form-control" name="modeloSelect" id="modelo"> </select>
 						        </div>
 						        <div class="modal-body">
-						          <select name="ano" id="ano" required> </select>
+						        <label class="control-label"><fmt:message
+									key="carro.ano" /></label>
+						          <select class="form-control" name="anoSelect" id="ano"> </select>
 						        </div>
+						        
+						        <br>
 						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						          <button type="button" id="fechar" class="btn btn-default" data-dismiss="modal">Fechar</button>
 						        </div>
 						      </div>
 						      
 						    </div>
 						 </div>
-						<frm:errors path="marca" />
+<%-- 				<frm:errors path="marca" /> --%>
 					</div>
 				</div>
 			</div>
-
+			
+			<input id=marcaCarro type="hidden" name="marca" required/>
+			<input id=modeloCarro type="hidden" name="modelo" required/>
+			<input id=anoCarro type="hidden" name="ano" required/>
+			
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="carro.valor" /></label>
@@ -83,7 +94,7 @@
 							class="glyphicon glyphicon-usd	
 							"></i></span><input id="valor"
 							name="valor" placeholder="valor do carro" class="form-control"
-							required="required" value="<c:out value="${carro.valor}"/>" disabled type="text">
+							required="required" value="<c:out value="${carro.valor}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -143,61 +154,10 @@
 	</frm:form>
 	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
-	
+	<script src="<c:url value="/resources/carroAssets/script.js" />"></script>
 
 	<script>
-		
-	$(document).ready(function() {
 
-		$.get('http://fipeapi.appspot.com/api/1/carros/marcas.json', function (json) {
-            const $marca = $('#marca');
-            json.forEach((marca) => {
-                $marca.append("<option value="+marca.id+">"+ marca.fipe_name+ "</option>");
-            })
-
-            $marca.change();
-        })
-       
-        
-        $('#marca').change(function () {
-            const marcaSelecionada = $(this).val();
-            const $modelo = $('#modelo');
-            $modelo.empty();
-            $.get("http://fipeapi.appspot.com/api/1/carros/veiculos/" + marcaSelecionada+ ".json", function (json) {
-                json.forEach((modelo) => {
-                	$("#modelo").append("<option value='"+modelo.id+"'>"+modelo.fipe_name+"</option>");
-                })
-                $modelo.change();
-            })
-
-        })
-        
-        $('#modelo').change(function () {
-            const marcaSelecionada = $('#marca').val();
-            const modeloSelecionado = $(this).val();
-            const $ano = $('#ano');
-            $ano.empty();
-            $.get("http://fipeapi.appspot.com/api/1/carros/veiculo/" + marcaSelecionada +"/"+ modeloSelecionado +".json", function (json) {
-                json.forEach((ano) => {
-                	$("#ano").append("<option value="+ano.id+">"+ano.name+"</option>");
-                })
-		        $ano.change();
-            })
-        })
-        
-        $('#ano').change(function () {
-        	 const marcaSelecionada = $('#marca').val();
-             const modeloSelecionado = $('#modelo').val();
-             const anoSelecionado = $('#ano').val();
-             
-             $.get("http://fipeapi.appspot.com/api/1/carros/veiculo/" + marcaSelecionada +"/"+ modeloSelecionado+ "/"+ anoSelecionado +".json", function (data) {
-                 $("#valor").val(data.preco);
-             });
-             
-        })
-        
-    });
-		
     jQuery(function($) {
 		$("#placa").mask("AAA-9999");
 		$("#ano").mask("9999");
