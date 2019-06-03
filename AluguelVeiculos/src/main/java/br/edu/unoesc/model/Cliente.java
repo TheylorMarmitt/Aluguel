@@ -5,13 +5,14 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "Cliente")
+@Table(name = "Cliente" ,uniqueConstraints = {@UniqueConstraint(columnNames={"cnh"})})
 @PrimaryKeyJoinColumn(name = "codigo")
 public class Cliente extends Pessoa {
 
