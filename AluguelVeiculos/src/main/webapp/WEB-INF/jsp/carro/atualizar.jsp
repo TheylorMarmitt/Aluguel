@@ -135,26 +135,13 @@
 			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
-						key="carro.ano" /></label>
-				<div class="col-md-9 inputGroupContainer">
-					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-calendar"></i></span><input id="ano"
-							name="ano" placeholder="2000, 2010 ..." class="form-control"
-							required="required" value="<c:out value="${carro.ano}"/>"
-							type="text">
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message
 						key="carro.placa" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span><input
 							id="placa" name="placa" placeholder="AAA-1234"
 							class="form-control" required="required"
-							value="<c:out value="${carro.placa}"/>" type="text" disabled>
+							value="<c:out value="${carro.placa}"/>" type="text">
 					</div>
 				</div>
 			</div>
@@ -192,12 +179,13 @@
 	</frm:form>
 	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
-
+	<script src="<c:url value="/resources/carroAssets/script.js" />"></script>
+	
 	<script>
 		jQuery(function($) {
 			$("#filtroPlaca").mask("AAA-9999");
 			$("#placa").mask("AAA-9999");
-			$('#valor').mask('#.##0.00', {reverse: true});
+			$('#valor').mask('#.##0', {reverse: true});
 		});
 	</script>
 </body>

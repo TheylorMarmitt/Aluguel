@@ -18,6 +18,6 @@ public class CarroService {
 		if(carro.getDataDeAquisicao() == null) {
 			carro.setDataDeAquisicao(new Date());;
 		}
-		dao.save(carro);
+		dao.saveAndFlush(carro);
 	}
 }
