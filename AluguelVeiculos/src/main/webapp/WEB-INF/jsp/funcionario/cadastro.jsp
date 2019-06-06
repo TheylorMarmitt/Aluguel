@@ -68,6 +68,18 @@
 					</div>
 				</div>
 			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">
+					<fmt:message key="filial"/>
+				</label>
+				<div class="col-md-9 inputGroupContainer">
+					<select name="filial.codigo">
+						<c:forEach var="filial" items="${filiais}">
+							<option value="${filial.codigo}">"${filial.nome}"</option>
+						</c:forEach>
+					</select>
+				</div>
+			</div>
 			<input type="submit"
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>

@@ -1,10 +1,16 @@
 package br.edu.unoesc.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="configuracoes")
@@ -17,8 +23,20 @@ public class Configuracoes {
 	private Integer percentValorKm;
 	
 	private Integer percentTaxaDiaria;
-
 	
+	@Transient
+	private Filial filial;
+	
+	
+
+	public Filial getFilial() {
+		return filial;
+	}
+
+	public void setFilial(Filial filial) {
+		this.filial = filial;
+	}
+
 	public long getCodigo() {
 		return codigo;
 	}

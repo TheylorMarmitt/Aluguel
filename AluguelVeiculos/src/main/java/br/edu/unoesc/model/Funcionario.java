@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -29,7 +30,8 @@ public class Funcionario extends Pessoa {
 	
 	private Date dataDemissao;
 	@ManyToOne
-	private Filial filial;
+	@JoinColumn(name="filial_id")
+	private Filial filial = new Filial();
 	
 	public Funcionario() {
 
@@ -71,6 +73,14 @@ public class Funcionario extends Pessoa {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Filial getFilial() {
+		return filial;
+	}
+
+	public void setFilial(Filial filial) {
+		this.filial = filial;
 	}
 
 

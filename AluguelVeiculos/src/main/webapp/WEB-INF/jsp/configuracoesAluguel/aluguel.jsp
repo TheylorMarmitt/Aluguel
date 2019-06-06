@@ -64,7 +64,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span> <select
 							class="browser-default custom-select" id=carro
-							name="filial">
+							name="filial.codigo">
 							<c:forEach var="f" items="${filial}">
 								<option value="${f.codigo}">${f.nome}</option>
 							</c:forEach>

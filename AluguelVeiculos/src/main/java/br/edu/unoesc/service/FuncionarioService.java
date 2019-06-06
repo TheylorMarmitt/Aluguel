@@ -1,11 +1,14 @@
 package br.edu.unoesc.service;
 
 import java.util.Date;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.unoesc.dao.FilialDao;
 import br.edu.unoesc.dao.FuncionarioDao;
+import br.edu.unoesc.model.Filial;
 import br.edu.unoesc.model.Funcionario;
 
 @Service
