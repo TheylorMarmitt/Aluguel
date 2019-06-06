@@ -42,12 +42,12 @@ public class AluguelController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastrar(@Valid Aluguel aluguel, Errors erro, String cpfFuncionario, String cpfCliente, Model model) {
+	public String cadastrar(@Valid Aluguel aluguel, Errors erro, Model model) {
 		if(erro.hasErrors()) {
 			return "aluguel/cadastro";
 		}
-		aluguel.setCliente(this.aluguelDao.findByClienteCpf(cpfCliente));
-		aluguel.setFuncionario(this.aluguelDao.findByFuncionarioCpf(cpfFuncionario));
+		aluguel.setCliente(this.aluguelDao.findByClienteCpf(aluguel.getCliente().getCpf()));
+		aluguel.setFuncionario(this.aluguelDao.findByFuncionarioCpf(aluguel.getFuncionario().getCpf()));
 		
 		this.serviceDao.adiciona(aluguel);
 		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());

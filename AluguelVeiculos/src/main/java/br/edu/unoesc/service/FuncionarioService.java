@@ -12,12 +12,24 @@ import br.edu.unoesc.model.Funcionario;
 public class FuncionarioService {
 
 	@Autowired
-	private FuncionarioDao dao;
+	private FuncionarioDao repository;
 	
 	public void adiciona(Funcionario funcionario) {
 		if(funcionario.getDataAdmissao() == null) {
 			funcionario.setDataAdmissao(new Date());
 		}
-		dao.save(funcionario);
+		repository.save(funcionario);
+	}
+	
+	public boolean verificaLogin(String email, String senha) {
+		Funcionario funcionarioLogando = repository.login(email, senha);
+		if(funcionarioLogando == null) {
+			return false;
+		}else {
+			if(funcionarioLogando.getSenha().contentEquals(senha)){
+				return true;
+			}
+		}
+		return false;
 	}
 }
