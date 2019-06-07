@@ -19,6 +19,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
 	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
@@ -61,8 +62,7 @@
 						key="campo.senha" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-calendar"></i></span><input id="senha"
+						<span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span><input id="senha"
 							name="senha" placeholder="Senha" class="form-control"
 							value="" type="password">
 					</div>
@@ -73,13 +73,18 @@
 					<fmt:message key="filial"/>
 				</label>
 				<div class="col-md-9 inputGroupContainer">
-					<select name="filial.codigo">
-						<c:forEach var="filial" items="${filiais}">
-							<option value="${filial.codigo}">"${filial.nome}"</option>
-						</c:forEach>
-					</select>
+					<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-building"></i></span>
+						<select class="form-control" name="filial.codigo">
+							<c:forEach var="filial" items="${filiais}">
+								<option value="${filial.codigo}">"${filial.nome}"</option>
+							</c:forEach>
+						</select>
+					</div>	
 				</div>
 			</div>
+			
 			<input type="submit"
 				class="btn btn-primary col-md-1 col-md-offset-11" name="Enviar" />
 		</fieldset>

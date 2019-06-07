@@ -18,6 +18,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
 	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
@@ -139,6 +140,36 @@
 							required="required"
 							value="<c:out value="${funcionario.converteDataAdmissao()}"/>" type="date">
 					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label"><fmt:message
+						key="campo.senha" /></label>
+				<div class="col-md-9 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span><input id="senha"
+							name="senha" placeholder="Senha" class="form-control"
+							value="<c:out value="${funcionario.senha}"/>" type="password">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">
+					<fmt:message key="filial"/>
+				</label>
+				<div class="col-md-9 inputGroupContainer">
+					<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-building"></i></span>
+						<select class="form-control" name="filial.codigo">
+							<c:forEach var="filial" items="${filiais}">
+								<c:if test="${funcionario.filial} == ${filial.nome}">
+									<option value="${filial.codigo}" selected>"${filial.nome}"</option>
+								</c:if>
+									<option value="${filial.codigo}">"${filial.nome}"</option>
+							</c:forEach>
+						</select>
+					</div>	
 				</div>
 			</div>
 			<input type="submit"
