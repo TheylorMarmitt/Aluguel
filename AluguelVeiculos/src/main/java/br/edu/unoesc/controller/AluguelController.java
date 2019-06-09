@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.google.gson.Gson;
+
 import br.edu.unoesc.dao.AluguelDao;
 import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.model.Aluguel;
+import br.edu.unoesc.model.Carro;
 import br.edu.unoesc.service.AluguelService;
 
 @Controller
@@ -31,12 +34,18 @@ public class AluguelController {
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
 		model.addAttribute("carros", this.carroDao.findByDisponivelTrue());
+		
 		return "aluguel/cadastro";
 	}
 	
 	@RequestMapping(path = "/cadastrar/{codigo}")
 	public String cadastrar(@PathVariable(value = "codigo")long codigo, Model model) {
-		model.addAttribute("carro", this.carroDao.findByCodigo(codigo));
+		
+		Carro carro = this.carroDao.findByCodigo(codigo);
+		
+		model.addAttribute("carro", carro);
+		model.addAttribute("valoresTaxas", serviceDao.calculaValorTaxaEPorKm(carro));
+		
 		return "aluguel/alugarCarro";
 		
 	}
@@ -66,6 +75,14 @@ public class AluguelController {
 		return "aluguel/ativos";
 	}
 	
+	@RequestMapping(path= "/atualizaValores/{codigo}")
+	public String getValores(Carro carro) {
+		
+		Gson json = new Gson();
+	
+		return	json.toJson(serviceDao.calculaValorTaxaEPorKm(carro));
+		
+	}
 	
 
 }

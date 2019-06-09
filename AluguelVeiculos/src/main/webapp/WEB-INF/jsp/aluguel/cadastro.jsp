@@ -104,7 +104,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-usd"></i></span><input id="taxa" name="taxa"
 							class="form-control" required="required"
-							value="10.00" type="text">
+							value="${valoresTaxas.taxaPorKm}" type="text">
 					</div>
 				</div>
 			</div>
@@ -117,7 +117,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-usd"></i></span><input id="valor"
 							name="valor" class="form-control"
-							required="required" value="20.00" type="text">
+							required="required" value="${valoresTaxas.valorDiario}" type="text">
 					</div>
 				</div>
 			</div>

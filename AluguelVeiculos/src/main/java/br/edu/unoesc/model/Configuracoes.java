@@ -20,9 +20,9 @@ public class Configuracoes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
 	
-	private Integer percentValorKm;
+	private Integer percentValorKm = 0;
 	
-	private Integer percentTaxaDiaria;
+	private Integer percentTaxaDiaria = 0;
 	
 	@Transient
 	private Filial filial;
