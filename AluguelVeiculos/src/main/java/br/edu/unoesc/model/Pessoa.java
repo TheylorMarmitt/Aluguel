@@ -3,6 +3,7 @@ package br.edu.unoesc.model;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,20 +27,26 @@ public abstract class Pessoa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigo;
+	private Long codigo;
+	
 	@NotNull(message="O nome é um campo obrigatório")
 	@Size(min = 3, max = 30, message = "Insira um nome válido")
 	private String nome;
+	
 	@NotNull(message="O sobrenome é um campo obrigatório")
 	@Size(min = 3, max = 30, message = "Insira um sobrenome válido")
 	private String sobrenome;
+	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dataNascimento;
+	
 	private String telefone;
+	
 	@CPF(message="Adicione um CPF válido")
 	@NotNull(message="O CPF é um campo obrigatório")
 	@Column(unique=true)
 	private String cpf;
+	
 	@NotNull(message="O e-mail é um campo obrigatório")
 	private String email;
 	
@@ -52,7 +59,13 @@ public abstract class Pessoa {
 		SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
 		try {
-			return out.format(in.parse(this.dataNascimento.toString()));
+			if(this.dataNascimento != null) {
+				return out.format(in.parse(Optional.ofNullable(this.dataNascimento.toString()).orElse("")));
+			}
+			else {
+				return "";
+			}
+				
 		} catch (ParseException e) {
 			return "Erro ao pegar data";
 			
@@ -120,6 +133,15 @@ public abstract class Pessoa {
 		this.email = email;
 	}
 
+
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
 
 	@Override
 	public int hashCode() {

@@ -12,17 +12,41 @@ import br.edu.unoesc.model.Funcionario;
 public class FuncionarioService {
 
 	@Autowired
-	private FuncionarioDao repository;
+	private FuncionarioDao dao;
+	
+	
+	public void atualiza(Funcionario funcionario) {
+		
+		Funcionario funcionarioBanco = dao.findById(funcionario.getCodigo()).get();
+		
+		funcionarioBanco.setCpf(funcionario.getCpf());
+		funcionarioBanco.setDataAdmissao(funcionario.getDataAdmissao());
+		funcionarioBanco.setDataDemissao(funcionario.getDataDemissao());
+		funcionarioBanco.setDataNascimento(funcionario.getDataNascimento());
+		funcionarioBanco.setEmail(funcionario.getEmail());
+		funcionarioBanco.setFilial(funcionario.getFilial());
+		funcionarioBanco.setNome(funcionario.getNome());
+		funcionarioBanco.setSenha(funcionario.getSenha());
+		funcionarioBanco.setSobrenome(funcionario.getSobrenome());
+		funcionarioBanco.setTelefone(funcionario.getTelefone());
+		
+		dao.save(funcionarioBanco);
+		
+	}
 	
 	public void adiciona(Funcionario funcionario) {
+		
 		if(funcionario.getDataAdmissao() == null) {
 			funcionario.setDataAdmissao(new Date());
 		}
-		repository.save(funcionario);
+		
+		dao.save(funcionario);
 	}
 	
 	public boolean verificaLogin(String email, String senha) {
-		Funcionario funcionarioLogando = repository.login(email, senha);
+		
+		Funcionario funcionarioLogando = dao.login(email, senha);
+		
 		if(funcionarioLogando == null) {
 			return false;
 		}else {
@@ -30,6 +54,7 @@ public class FuncionarioService {
 				return true;
 			}
 		}
+		
 		return false;
 	}
 }

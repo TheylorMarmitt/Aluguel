@@ -27,8 +27,7 @@
 		<h1>
 			<fmt:message key="tela.funcionario.atualizar" />
 		</h1>
-		<form action='<c:url value="/funcionario/atualizar"></c:url>'
-			method="get">
+		<form>
 			<div class="form-group">
 				<label class="pull-left control-label  cpf"><fmt:message
 						key="cpf.busca" /></label>
@@ -51,13 +50,14 @@
 					</div>
 				</c:forEach>
 			</spring:hasBindErrors>
+			<input type="hidden" name="codigo" value="${funcionario.codigo}" />
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="campo.nome" /></label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span><input id="nome" name="nome" value=""
+							class="glyphicon glyphicon-user"></i></span><input id="nome" name="nome"
 							placeholder="Joe" class="form-control" required="required"
 							value="<c:out value="${funcionario.nome}"/>" type="text">
 					</div>
@@ -85,8 +85,7 @@
 							class="glyphicon glyphicon-calendar"></i></span><input
 							id="dataNascimento" name="dataNascimento" placeholder="Data"
 							class="form-control" required="required"
-							value="<fmt:formatDate value="${funcionario.converteData()}" type="both" pattern="dd/MM/yyyy"/>"
-							type="text">
+							value="${funcionario.converteData()}" type="date">
 					</div>
 				</div>
 			</div>
@@ -112,7 +111,7 @@
 							class="glyphicon glyphicon-user"></i></span><input id="cpf" name="cpf"
 							placeholder="112.234.567-89" class="form-control"
 							required="required" value="<c:out value="${funcionario.cpf}"/>"
-							type="text" disabled>
+							type="text" />
 					</div>
 				</div>
 			</div>
@@ -137,8 +136,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-calendar"></i></span><input id="dataAdmissao"
 							name="dataAdmissao" placeholder="Data" class="form-control"
-							required="required"
-							value="<c:out value="${funcionario.converteDataAdmissao()}"/>" type="date">
+							value="${funcionario.converteDataAdmissao()}" type="date" />
 					</div>
 				</div>
 			</div>
@@ -163,10 +161,10 @@
 						<i class="fa fa-building"></i></span>
 						<select class="form-control" name="filial.codigo">
 							<c:forEach var="filial" items="${filiais}">
-								<c:if test="${funcionario.filial} == ${filial.nome}">
-									<option value="${filial.codigo}" selected>"${filial.nome}"</option>
+								<c:if test="${funcionario.filial.codigo} == ${filial.codigo}">
+									<option value="${filial.codigo}" selected>${filial.nome}</option>
 								</c:if>
-									<option value="${filial.codigo}">"${filial.nome}"</option>
+									<option value="${filial.codigo}">${filial.nome}</option>
 							</c:forEach>
 						</select>
 					</div>	

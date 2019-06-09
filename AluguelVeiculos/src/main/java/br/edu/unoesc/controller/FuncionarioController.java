@@ -33,6 +33,7 @@ public class FuncionarioController {
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
 	public String cadastro(@Valid Funcionario funcionario, Errors erro, Model model) {
 		service.adiciona(funcionario);
+		
 		model.addAttribute("funcionarios", dao.findAll());
 		return "funcionario/lista";
 	}
@@ -49,16 +50,30 @@ public class FuncionarioController {
 		return "funcionario/lista";
 	}
 
-	@RequestMapping(path = { "/atualizar", "/atualizar/{cpf}" })
+	@RequestMapping(path = { "/atualizar", "/atualizar/{codigo}" })
 	public String atualizar(Funcionario funcionario, Model model) {
-		model.addAttribute("funcionario", dao.findByCpf(funcionario.getCpf()));
+	
+		if(funcionario.getCpf() != null || funcionario.getCodigo() ==  null) {
+			model.addAttribute("funcionario", dao.findByCpf(funcionario.getCpf()));
+		}
+		else if(funcionario.getCodigo() != null){
+			model.addAttribute("funcionario", dao.findById(funcionario.getCodigo()).get());
+		}
+		
+		model.addAttribute("filiais", filialDao.findAll());
+		
 		return "funcionario/atualizar";
+		
 	}
 
-	@RequestMapping(path = "/editar", method = RequestMethod.POST)
+	@RequestMapping(path = { "/atualizar", "/atualizar/{codigo}" }, method = RequestMethod.POST)
 	public String editar(@Valid Funcionario funcionario, Errors erro, Model model) {
-		this.dao.saveAndFlush(funcionario);
+		
+		service.atualiza(funcionario);
+		
 		model.addAttribute("funcionarios", dao.findAll());
+		
 		return "funcionario/lista";
+	
 	}
 }

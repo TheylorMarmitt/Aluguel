@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,9 +21,14 @@ public class Funcionario extends Pessoa {
 	@NotNull(message="A senha é obrigatória")
 	@Size(min = 3, max = 30, message = "A senha deve ser válida")
 	private String senha;
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
+	
 	private Date dataDemissao;
+	
+	@ManyToOne
+	private Filial filial = new Filial();
 	
 	public Funcionario() {
 
@@ -32,7 +38,14 @@ public class Funcionario extends Pessoa {
 		SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
 		try {
+			
+		if(this.dataAdmissao != null) {
 			return out.format(in.parse(this.dataAdmissao.toString()));
+		}
+		else {
+			return "";
+		}
+		
 		} catch (ParseException e) {
 			return "Erro ao pegar data";
 			
@@ -64,6 +77,14 @@ public class Funcionario extends Pessoa {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Filial getFilial() {
+		return filial;
+	}
+
+	public void setFilial(Filial filial) {
+		this.filial = filial;
 	}
 
 
