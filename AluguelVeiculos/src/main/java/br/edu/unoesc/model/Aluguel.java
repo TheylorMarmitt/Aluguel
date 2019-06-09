@@ -1,6 +1,7 @@
 package br.edu.unoesc.model;
 
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,21 +20,18 @@ public class Aluguel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
-	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAluguel;
-	
-	@NotNull(message = "Favor informar Kilometros de saída do veículo")
+	@NotNull(message="Favor informar Kilometros de saída do veículo")
 	private Double kmSaida;
-	
-	@NotNull(message = "Favor imformar taxa para calculos futuros")
+	@NotNull(message="Favor imformar taxa para calculos futuros")
 	private Double taxa;
-	
-	@NotNull(message = "Favor imformar valor para calculos futuros")
+	@NotNull(message="Favor imformar valor para calculos futuros")
 	private Double valor;
-	
 	private boolean ativo;
 
+	@ManyToOne
+	@JoinColumn(name = "carro_id")
 	@NotNull(message="Favor informar veículo")
 	private Carro carro = new Carro();
 
@@ -47,6 +45,7 @@ public class Aluguel {
 	@NotNull(message="Favor informar cliente")
 	private Cliente cliente = new Cliente();
 	
+
 	public boolean confirmaAluguel() {
 		if (this.carro.isDisponivel()) {
 			this.carro.setDisponivel(false);

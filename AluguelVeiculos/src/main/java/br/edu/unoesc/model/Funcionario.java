@@ -5,9 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -23,13 +20,9 @@ public class Funcionario extends Pessoa {
 	@NotNull(message="A senha é obrigatória")
 	@Size(min = 3, max = 30, message = "A senha deve ser válida")
 	private String senha;
-
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
-	
 	private Date dataDemissao;
-	@ManyToOne
-	private Filial filial;
 	
 	public Funcionario() {
 
