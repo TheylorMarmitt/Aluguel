@@ -64,9 +64,9 @@
 					aria-expanded="false"><fmt:message key="configuracoes" /><span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../configuracoes/aluguel"><fmt:message key="configuracoes" /></a></li>
-						<li><a href="../filial/nova"><fmt:message key="filial" /></a></li>
-
+						<li><a href="<c:url value="/configuracoes/aluguel"/>"><fmt:message key="configuracoes" /></a></li>
+						<li><a href="<c:url value="/filial/nova"/>"><fmt:message key="filial" /></a></li>
+							<li><a href="<c:url value="/filial/lista"/>""><fmt:message key="filial.lista" /></a></li>
 					
 						
 					</ul></li>
