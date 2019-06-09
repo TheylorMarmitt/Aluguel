@@ -24,7 +24,10 @@ public class Funcionario extends Pessoa {
 	@NotNull(message="A senha é obrigatória")
 	@Size(min = 3, max = 30, message = "A senha deve ser válida")
 	private String senha;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 4ddf61de2c66996166351240298878635713b8c6
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
 	
@@ -75,6 +78,7 @@ public class Funcionario extends Pessoa {
 		this.senha = senha;
 	}
 
+<<<<<<< HEAD
 	public Filial getFilial() {
 		return filial;
 	}
@@ -83,5 +87,7 @@ public class Funcionario extends Pessoa {
 		this.filial = filial;
 	}
 
+=======
+>>>>>>> 4ddf61de2c66996166351240298878635713b8c6
 
 }

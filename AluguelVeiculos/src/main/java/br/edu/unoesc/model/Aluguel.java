@@ -40,6 +40,7 @@ public class Aluguel {
 
 	@ManyToOne
 	@JoinColumn(name = "carro_id")
+<<<<<<< HEAD
 	@NotNull(message = "Favor informar veículo")
 	private Carro carro;
 
@@ -53,6 +54,22 @@ public class Aluguel {
 	@NotNull(message = "Favor informar cliente")
 	private Cliente cliente;
 	
+=======
+	@NotNull(message="Favor informar veículo")
+	private Carro carro = new Carro();
+
+	@ManyToOne
+	@JoinColumn(name = "funcionario_id")
+	@NotNull(message="Favor informar funcionário")
+	private Funcionario funcionario = new Funcionario();
+
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	@NotNull(message="Favor informar cliente")
+	private Cliente cliente = new Cliente();
+	
+
+>>>>>>> 4ddf61de2c66996166351240298878635713b8c6
 	public boolean confirmaAluguel() {
 		if (this.carro.isDisponivel()) {
 			this.carro.setDisponivel(false);
