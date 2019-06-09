@@ -2,27 +2,29 @@ package br.edu.unoesc.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "Carro")
+@Table(name = "Carro" , uniqueConstraints = {@UniqueConstraint(columnNames={"placa"})})
 public class Carro {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
 	@NotNull(message="A marca não pode ser nula!")
-	@Size(min = 3, max = 10, message = "A marca precisa ter no mínimo 3 e no máximo 10 caracteres")
+	@Size(min = 3, max = 45, message = "A marca precisa ter no mínimo 3 e no máximo 45 caracteres")
 	private String marca;
 	@NotNull(message="O modelo não pode ser nulo!")
-	@Size(min = 3, max = 10,  message = "O modelo precisa ter no mínimo 3 e no máximo 10 caracteres")
+	@Size(min = 3, max = 45,  message = "O modelo precisa ter no mínimo 3 e no máximo 45 caracteres")
 	private String modelo;
 	@NotNull(message="Favor informar o valor para calculos futuros")
 	private Double valor;
@@ -30,6 +32,7 @@ public class Carro {
 	private Integer ano;
 	@NotNull(message="A placa é um campo obrigatório")
 	@Size(min = 7, max = 8,  message = "A placa precisa ser válida")
+	@Column(unique=true)
 	private String placa;
 	private boolean disponivel;
 	@Lob

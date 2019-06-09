@@ -2,9 +2,9 @@ package br.edu.unoesc.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,7 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "Pessoa")
+@Table(name = "Pessoa" , uniqueConstraints = {@UniqueConstraint(columnNames={"cpf"})})
 public abstract class Pessoa {
 
 	@Id
@@ -37,6 +38,7 @@ public abstract class Pessoa {
 	private String telefone;
 	@CPF(message="Adicione um CPF válido")
 	@NotNull(message="O CPF é um campo obrigatório")
+	@Column(unique=true)
 	private String cpf;
 	@NotNull(message="O e-mail é um campo obrigatório")
 	private String email;

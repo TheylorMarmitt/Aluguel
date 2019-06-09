@@ -44,6 +44,7 @@
 				<tr>
 					<th><fmt:message key="campo.nome" /></th>
 					<th><fmt:message key="campo.sobrenome" /></th>
+					<th><fmt:message key="campo.cpf" /></th>
 					<th><fmt:message key="campo.dataNascimento" /></th>
 					<th><fmt:message key="campo.email" /></th>
 					<th><fmt:message key="opcoes"/></th>
@@ -53,6 +54,7 @@
 					<tr>
 						<td>${f.nome}</td>
 						<td>${f.sobrenome}</td>
+						<td>${f.cpf}</td>
 						<td>${f.dataNascimento}</td>
 						<td>${f.email}</td>
 						<td><a class="btn btn-sm btn-info" href="atualizar/${f.cpf}"><i class="glyphicon glyphicon-pencil"></i></a>

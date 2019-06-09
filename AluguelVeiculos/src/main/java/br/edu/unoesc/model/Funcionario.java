@@ -23,7 +23,7 @@ public class Funcionario extends Pessoa {
 	@NotNull(message="A senha é obrigatória")
 	@Size(min = 3, max = 30, message = "A senha deve ser válida")
 	private String senha;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
 	

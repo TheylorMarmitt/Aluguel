@@ -1,16 +1,12 @@
 package br.edu.unoesc.model;
 
 import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -38,20 +34,18 @@ public class Aluguel {
 	
 	private boolean ativo;
 
-	@ManyToOne
-	@JoinColumn(name = "carro_id")
-	@NotNull(message = "Favor informar veículo")
-	private Carro carro;
+	@NotNull(message="Favor informar veículo")
+	private Carro carro = new Carro();
 
 	@ManyToOne
 	@JoinColumn(name = "funcionario_id")
-	@NotNull(message = "Favor informar funcionário")
-	private Funcionario funcionario;
+	@NotNull(message="Favor informar funcionário")
+	private Funcionario funcionario = new Funcionario();
 
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
-	@NotNull(message = "Favor informar cliente")
-	private Cliente cliente;
+	@NotNull(message="Favor informar cliente")
+	private Cliente cliente = new Cliente();
 	
 	public boolean confirmaAluguel() {
 		if (this.carro.isDisponivel()) {

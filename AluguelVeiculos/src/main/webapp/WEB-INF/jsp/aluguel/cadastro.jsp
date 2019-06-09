@@ -60,10 +60,10 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span> <select
-							class="browser-default custom-select" id=carro
-							name="carro.codigo">
+							class="browser-default custom-select form-control" id=carro
+							name="aluguel.carro.codigo">
 							<c:forEach var="c" items="${carros}">
-								<option value="${c.codigo}">${c.marca}</option>
+								<option value="${c.codigo}">${c.placa} - ${c.modelo}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -77,7 +77,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpfFuncionario"
-							name="cpfFuncionario" placeholder="123.123.123-12"
+							name="aluguel.funcionario.cpf" placeholder="123.123.123-12"
 							class="form-control" required="required" value="" type="text">
 					</div>
 				</div>
@@ -90,7 +90,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpfCliente"
-							name="cpfCliente" placeholder="123.123.123-12"
+							name="aluguel.funcionario.cpf" placeholder="123.123.123-12"
 							class="form-control" required="required" value="" type="text">
 					</div>
 				</div>
