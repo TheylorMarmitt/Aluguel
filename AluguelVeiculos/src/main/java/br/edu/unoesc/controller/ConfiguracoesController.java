@@ -1,5 +1,7 @@
 package br.edu.unoesc.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +24,16 @@ public class ConfiguracoesController {
 
 	@RequestMapping(path = "/aluguel")
 	public String index(Model model) {
-		model.addAttribute("filial", filialDao.findAll());
+		
+		List<Filial> filiais = filialDao.findAll();
+		
+		Configuracoes configFilialPadrao = filiais.get(0).getConfiguracoes();
+
+		model.addAttribute("filial", filiais);	
+		model.addAttribute("filialConfig", configFilialPadrao);
+		
 		return "configuracoesAluguel/aluguel";
+	
 	}
 
 	@RequestMapping(path = "/aluguel", method = RequestMethod.POST)

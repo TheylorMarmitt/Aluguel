@@ -19,7 +19,6 @@ public class FilialController {
 
 	@Autowired
 	private FilialDao dao;
-	
 	@Autowired
 	private FilialService service;
 	

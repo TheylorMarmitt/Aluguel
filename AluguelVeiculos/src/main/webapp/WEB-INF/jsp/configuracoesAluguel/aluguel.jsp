@@ -30,15 +30,12 @@
 							<i class="ace-icon fa fa-question-circle blue info"></i>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
-							<div class="">
-								
-							</div>
 							<div class="col-md-3 input-group">
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
 								<input name="percentValorKm" placeholder="50%" class="form-control" 
-								required="required" value="<c:out value="${aluguel.percentValorKm}"/>" type="text"/>
+								required="required" value="<c:out value="${filialConfig.percentValorKm}"/>" type="text"/>
 							</div>
 						</div>
 					</div>
@@ -53,7 +50,7 @@
 									<i class="fa fa-percent"></i>
 								</span>
 								<input name="percentTaxaDiaria" placeholder="50%" class="form-control" 
-								required="required" value="<c:out value="${aluguel.percentTaxaDiaria}"/>" type="text"/>
+								required="required" value="<c:out value="${filialConfig.percentTaxaDiaria}"/>" type="text"/>
 							</div>
 						</div>
 					</div>
