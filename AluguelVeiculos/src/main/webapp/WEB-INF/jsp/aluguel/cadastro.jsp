@@ -143,7 +143,7 @@
 	
 	<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
-
+	<script src="<c:url value="/resources/aluguelAssets/aluguel.js"/>"></script>
 	<script>
 		jQuery(function($) {
 			$("#cpfCliente").mask("999.999.999-99");

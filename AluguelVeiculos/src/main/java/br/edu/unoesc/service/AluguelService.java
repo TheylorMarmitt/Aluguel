@@ -2,6 +2,7 @@ package br.edu.unoesc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.edu.unoesc.dao.AluguelDao;
 import br.edu.unoesc.dao.CarroDao;

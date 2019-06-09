@@ -19,7 +19,7 @@ public class Carro {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigo;
+	private Long codigo;
 	
 	@NotNull(message="A marca não pode ser nula!")
 	@Size(min = 3, max = 45, message = "A marca precisa ter no mínimo 3 e no máximo 45 caracteres")
@@ -63,11 +63,11 @@ public class Carro {
 
 	}
 
-	public long getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(long codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -130,7 +130,7 @@ public class Carro {
 		this.disponivel = disponivel;
 	}
 
-	public Carro(long codigo, String marca, String modelo, Double valor, String cor, Integer ano, String placa,
+	public Carro(Long codigo, String marca, String modelo, Double valor, String cor, Integer ano, String placa,
 			boolean disponivel) {
 		super();
 		this.codigo = codigo;
