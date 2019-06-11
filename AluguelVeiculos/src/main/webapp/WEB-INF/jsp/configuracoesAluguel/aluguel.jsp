@@ -27,13 +27,13 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label">
 							<fmt:message key="aluguel.valor" />
-							<i class="ace-icon fa fa-question-circle blue info"></i>
+							<i class="ace-icon fa fa-question-circle blue info" data-toggle="tooltip" title="Porcentagem do valor do km rodado" id="km"></i>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
 							<div class="">
 								
 							</div>
-							<div class="col-md-2 input-group">
+							<div class="col-md-3 input-group">
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
@@ -45,10 +45,12 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label">
 							<fmt:message key="aluguel.taxa" />
-							<i class="ace-icon fa fa-question-circle blue info"></i>
+							<a>
+							<i class="ace-icon fa fa-question-circle blue info"  data-toggle="tooltip" title="Porcentagem da taxa diária de locação" id="taxa"></i>
+							</a>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
-							<div class="input-group col-md-2">
+							<div class="input-group col-md-3">
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
@@ -61,9 +63,9 @@
 				<label class="col-md-3 control-label"><fmt:message
 						key="filial" /></label>
 				<div class="col-md-9 inputGroupContainer">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-car"></i></span> <select
-							class="browser-default custom-select" id=carro
+					<div class="input-group col-md-3">
+						<span class="input-group-addon"><i class="fa fa-building"></i></span> <select
+							class="browser-default form-control custom-select" id=carro
 							name="filial">
 							<c:forEach var="f" items="${filial}">
 								<option value="${f.codigo}">${f.nome}</option>
@@ -76,6 +78,17 @@
 			</fieldset>		
 		</form>
 	</div>
+
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+<%-- <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script> --%>
+
+<script>
+
+$(function(){
+    $('#taxa').tooltip();
+    $("#km").tooltip();
+});
+</script>
 
 </body>
 </html>
