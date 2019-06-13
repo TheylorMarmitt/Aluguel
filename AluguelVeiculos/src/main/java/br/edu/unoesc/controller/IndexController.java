@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.edu.unoesc.contatoemail.EmailUtil;
 import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.dao.FuncionarioDao;
+import br.edu.unoesc.email.EmailUtil;
 import br.edu.unoesc.model.Funcionario;
 import br.edu.unoesc.service.FuncionarioService;
 
