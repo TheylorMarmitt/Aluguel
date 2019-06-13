@@ -61,7 +61,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span> <select
 							class="browser-default custom-select form-control" id="carro"
-							name="aluguel.carro.codigo">
+							name="carroId">
 							<c:forEach var="c" items="${carros}">
 								<option value="${c.codigo}">${c.placa} - ${c.modelo}</option>
 							</c:forEach>
@@ -70,19 +70,6 @@
 				</div>
 			</div>
 
-<!-- 			<div class="form-group"> -->
-<%-- 				<label class="col-md-3 control-label"><fmt:message --%>
-<%-- 						key="aluguel.funcionario" /></label> --%>
-<!-- 				<div class="col-md-9 inputGroupContainer"> -->
-<!-- 					<div class="input-group"> -->
-<!-- 						<span class="input-group-addon"><i -->
-<!-- 							class="glyphicon glyphicon-user"></i></span><input id="cpfFuncionario" -->
-<!-- 							name="aluguel.funcionario.cpf" placeholder="123.123.123-12" -->
-<!-- 							class="form-control" required="required" value="" type="text"> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
 						key="aluguel.cliente" /></label>
@@ -90,7 +77,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpfCliente"
-							name="aluguel.funcionario.cpf" placeholder="123.123.123-12"
+							name="clienteCPF" placeholder="123.123.123-12"
 							class="form-control" required="required" value="" type="text">
 					</div>
 				</div>

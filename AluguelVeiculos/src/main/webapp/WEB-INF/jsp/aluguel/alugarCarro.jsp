@@ -61,24 +61,11 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span>
 							<input
-							id="placa" name="aluguel.carro.codigo" class="form-control" required="required"
+							id="carroId" name="aluguel.carro.codigo" class="form-control" required="required"
 							value="<c:out value="${carro.placa}"/>" type="text" disabled>
 					</div>
 				</div>
 			</div>
-
-<!-- 			<div class="form-group"> -->
-<%-- 				<label class="col-md-3 control-label"><fmt:message --%>
-<%-- 						key="aluguel.funcionario" /></label> --%>
-<!-- 				<div class="col-md-9 inputGroupContainer"> -->
-<!-- 					<div class="input-group"> -->
-<!-- 						<span class="input-group-addon"><i -->
-<!-- 							class="glyphicon glyphicon-user"></i></span><input id="cpfFuncionario" -->
-<!-- 							name="cpfFuncionario" placeholder="123.123.123-12" class="form-control" -->
-<!-- 							required="required" value="" type="text"> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
 
 			<div class="form-group">
 				<label class="col-md-3 control-label"><fmt:message
@@ -87,7 +74,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpfCliente"
-							name="cpfCliente" placeholder="123.123.123-12" class="form-control"
+							name="clienteCPF" placeholder="123.123.123-12" class="form-control"
 							required="required" value="" type="text">
 					</div>
 				</div>

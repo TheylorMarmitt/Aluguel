@@ -50,8 +50,8 @@
 					<tr>
 						<td>${a.codigo}</td>
 						<td>${a.carro.placa}</td>
-						<td>${a.dataAluguel}</td>
-						<td>${a.cliente.nome}</td>
+						<td>${a.converteData()}</td>
+						<td>${a.cliente}</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 
 import br.edu.unoesc.dao.AluguelDao;
 import br.edu.unoesc.dao.CarroDao;
+import br.edu.unoesc.dao.ClienteDao;
 import br.edu.unoesc.model.Aluguel;
 import br.edu.unoesc.model.Carro;
 import br.edu.unoesc.service.AluguelService;
@@ -30,6 +31,8 @@ public class AluguelController {
 	private AluguelDao aluguelDao;
 	@Autowired
 	private CarroDao carroDao;
+	@Autowired
+	private ClienteDao clienteDao;
 	@Autowired
 	private AluguelService serviceDao;
 
@@ -58,16 +61,23 @@ public class AluguelController {
 	}
 
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastrar(@Valid Aluguel aluguel, Errors erro, Model model) {
+	public String cadastrar(@Valid Aluguel aluguel, String carroId, String clienteCPF, Errors erro, Model model) {
+		Carro carroAlugando = this.carroDao.findByCodigo(Long.parseLong(carroId)); 
 
+		aluguel.setCarro(carroAlugando);
+		aluguel.setCliente(this.clienteDao.findByCpf(clienteCPF));	
+		aluguel.setCliente(this.aluguelDao.findByClienteCpf(aluguel.getCliente().getCpf()));
+		
 		if (erro.hasErrors()) {
 			return "aluguel/cadastro";
 		}
-		aluguel.setCliente(this.aluguelDao.findByClienteCpf(aluguel.getCliente().getCpf()));
+		
+		carroAlugando.setDisponivel(false);
+		this.carroDao.saveAndFlush(carroAlugando);
 		aluguel.setFuncionario(Util.funcionarioLogado);
 		this.serviceDao.adiciona(aluguel);
+		
 		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
-
 		return "aluguel/ativos";
 
 	}

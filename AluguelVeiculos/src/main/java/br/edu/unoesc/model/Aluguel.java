@@ -1,6 +1,9 @@
 package br.edu.unoesc.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,17 +35,17 @@ public class Aluguel {
 
 	@ManyToOne
 	@JoinColumn(name = "carro_id")
-	@NotNull(message="Favor informar veículo")
+//	@NotNull(message="Favor informar veículo")
 	private Carro carro = new Carro();
 
 	@ManyToOne
 	@JoinColumn(name = "funcionario_id")
-	@NotNull(message="Favor informar funcionário")
+//	@NotNull(message="Favor informar funcionário")
 	private Funcionario funcionario = new Funcionario();
 
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
-	@NotNull(message="Favor informar cliente")
+//	@NotNull(message="Favor informar cliente")
 	private Cliente cliente = new Cliente();
 	
 
@@ -159,4 +162,25 @@ public class Aluguel {
 		this.kmSaida = kmSaida;
 	}
 
+	public String getNomeCliente() {
+		return this.cliente.getNome() +" "+ this.cliente.getSobrenome();
+	}
+	
+	public String converteData(){
+		SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			if(this.dataAluguel != null) {
+				return out.format(in.parse(Optional.ofNullable(this.dataAluguel.toString()).orElse("")));
+			}
+			else {
+				return "";
+			}
+				
+		} catch (ParseException e) {
+			return "Erro ao pegar data";
+			
+		}  
+	}
+	
 }

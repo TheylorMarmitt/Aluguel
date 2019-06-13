@@ -16,7 +16,7 @@ public interface CarroDao extends JpaRepository<Carro, Long>{
 	@Query("select c from Carro c where c.disponivel = true and c.placa like ?1%")
 	List<Carro> findDisponiveisPlaca(String filtro);
 
-	Carro findByCodigo(long codigo);
+	Carro findByCodigo(Long codigo);
 	
 	
 	
