@@ -38,12 +38,16 @@
 	</fieldset>
 		<div class="col-md-12">	
 			<div class="col-md-3 col-md-offset-4">	
-				<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-log-in
-"></i>  Entrar</button>
-				
+				<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-log-in"></i>  Entrar</button>
 			</div>
 		</div>	
 	</form>
+	<div class="col-md-12">	
+			<div class="col-md-3 col-md-offset-4">	
+				<a type="buttom" class="btn btn-link" href="<c:url value="/recuperarsenha"/>">Esqueci minha senha</a>
+			</div>
+		</div>	
+	
 </div>	
 </body>
 </html>
