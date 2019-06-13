@@ -124,7 +124,7 @@ public class Carro {
 	}
 
 	public void setDisponivel(boolean disponivel) {
-		if(disponivel) {
+		if(!disponivel) {
 			qtdAlugado++;
 		}
 		this.disponivel = disponivel;

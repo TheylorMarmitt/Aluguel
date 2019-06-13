@@ -23,4 +23,6 @@ public interface AluguelDao extends JpaRepository<Aluguel, Long>{
 	List<Aluguel> findAtivoPlaca(String filtro);
 	
 	Aluguel findByCarroCodigo(long codigo);
+	
+	Aluguel findByCarroPlaca(String placa);
 }

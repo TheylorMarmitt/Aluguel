@@ -39,17 +39,20 @@ public class DevolucaoController {
 		if(erro.hasErrors()) {
 			return "devolucao/devolver";
 		}
+		devolucao.setAluguel(this.aluguelDao.findByCarroPlaca(placa));
 		
-		// impementar calculo em model
+		System.out.println(devolucao);
 		devolucao.calculaValor();
-		devolucaoDao.saveAndFlush(devolucao);
 		devolucao.disponibilizaCarro();
 		
-		Aluguel a = this.devolucaoDao.findByAluguelCarroPlaca(placa);
-		a.setAtivo(false);
+		Aluguel a = devolucao.getAluguel();
+		a.setAtivo(true);
 		this.aluguelDao.saveAndFlush(a);
 		
+		this.devolucaoDao.saveAndFlush(devolucao);
+		
 		Carro c = a.getCarro();
+		c.setDisponivel(true);
 		this.carroDao.saveAndFlush(c);
 		
 		model.addAttribute("devolucao", devolucao);
