@@ -53,7 +53,8 @@ public class IndexController {
 			return new ModelAndView("index/recuperarSenha");
 		}else {
 			try {
-				EmailUtil.enviarEmail(funcionario.getEmail());
+				funcionario.setSenha(EmailUtil.enviarEmail(funcionario.getEmail()));
+				this.funcionarioRepository.saveAndFlush(funcionario);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
