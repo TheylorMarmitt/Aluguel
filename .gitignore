@@ -10,6 +10,8 @@ target/
 
 config/
 
+contatoemail/
+
 pom.xml
 
 # Log file
