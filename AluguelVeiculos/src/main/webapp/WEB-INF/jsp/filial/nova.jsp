@@ -40,8 +40,7 @@
 					</div>
 					<div class="form-group">
 						<label class="col-md-3 control-label">
-							<fmt:message key="filial.cpnj" /><a>
-							<i class="ace-icon fa fa-question-circle blue info" data-toggle="tooltip" title="CNPJ da filial"></i></a>
+							<fmt:message key="filial.cpnj" />
 						</label>
 						<div class="col-md-9 inputGroupContainer">
 							<div class="input-group col-md-3">
@@ -56,7 +55,6 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label">
 							<fmt:message key="filial.endereco" />
-							<i class="ace-icon fa fa-question-circle blue info" data-toggle="tooltip" title="Endereço da filial"></i>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
 							<div class="input-group col-md-3">

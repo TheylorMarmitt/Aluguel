@@ -42,7 +42,7 @@ public class ConfiguracoesController {
 
 	@RequestMapping(path = "/aluguel", method = RequestMethod.POST)
 	public String index(Configuracoes configuracao) {
-
+		System.out.println(configuracao);
 		Filial filialBanco = filialDao.findOne(configuracao.getFilial());
 		filialBanco.setConfiguracoes(configuracao);
 
