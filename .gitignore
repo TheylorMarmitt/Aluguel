@@ -10,7 +10,7 @@ target/
 
 config/
 
-contatoemail/
+email/
 
 pom.xml
 
