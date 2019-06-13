@@ -45,7 +45,6 @@ public class FuncionarioService {
 	}
 	
 	public boolean verificaLogin(String email, String senha) {
-		
 		if(dao.findAll().isEmpty()) {
 			if(email.equals("admin") && senha.equals("admin")) {
 				return true;
@@ -60,8 +59,6 @@ public class FuncionarioService {
 					return true;
 				}
 			}
-			
-			
 		}
 		return false;
 	}
