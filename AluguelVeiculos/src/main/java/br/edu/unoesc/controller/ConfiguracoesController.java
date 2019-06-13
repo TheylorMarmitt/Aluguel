@@ -41,12 +41,16 @@ public class ConfiguracoesController {
 	}
 
 	@RequestMapping(path = "/aluguel", method = RequestMethod.POST)
-	public String index(Configuracoes configuracao) {
-		System.out.println(configuracao);
-		Filial filialBanco = filialDao.findOne(configuracao.getFilial());
-		filialBanco.setConfiguracoes(configuracao);
-
-		dao.save(configuracao);
+	public String index(Integer valorKm, Integer taxaDiaria, Long filialId) {		
+		Configuracoes conf = new Configuracoes();
+		conf.setPercentTaxaDiaria(taxaDiaria);
+		conf.setPercentValorKm(valorKm);
+		conf.setFilial(filialDao.findByCodigo(filialId));
+		
+		Filial filialBanco = conf.getFilial();
+		filialBanco.setConfiguracoes(conf);
+//
+		dao.save(conf);
 		filialDao.saveAndFlush(filialBanco);
 		
 		return "configuracoesAluguel/aluguel";

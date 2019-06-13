@@ -37,7 +37,7 @@
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="percentValorKm" placeholder="50%" class="form-control" 
+								<input name="valorKm" placeholder="50%" class="form-control" 
 								required="required" value="<c:out value="${aluguel.percentValorKm}"/>" type="text"/>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="percentTaxaDiaria" placeholder="50%" class="form-control" 
+								<input name="taxaDiaria" placeholder="50%" class="form-control" 
 								required="required" value="<c:out value="${aluguel.percentTaxaDiaria}"/>" type="text"/>
 							</div>
 						</div>
@@ -64,7 +64,7 @@
 					<div class="input-group col-md-3">
 						<span class="input-group-addon"><i class="fa fa-building"></i></span> <select
 							class="browser-default form-control custom-select" id=carro
-							name="filial">
+							name="filialId">
 							<c:forEach var="f" items="${filial}">
 								<option value="${f.codigo}">${f.nome}</option>
 							</c:forEach>

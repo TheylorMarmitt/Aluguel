@@ -9,4 +9,6 @@ public interface FilialDao extends JpaRepository<Filial, Long>{
 	
 	@Query("select f from Filial f where f = ?1")
 	Filial findOne(Filial filial);
+
+	Filial findByCodigo(Long codigo);
 }
