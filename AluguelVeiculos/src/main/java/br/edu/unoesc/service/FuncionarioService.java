@@ -46,17 +46,23 @@ public class FuncionarioService {
 	
 	public boolean verificaLogin(String email, String senha) {
 		
-		Funcionario funcionarioLogando = dao.login(email, senha);
-		
-		if(funcionarioLogando == null) {
-			return false;
-		}else {
-			if(funcionarioLogando.getSenha().contentEquals(senha)){
-				Util.funcionarioLogado = funcionarioLogando; 
+		if(dao.findAll().isEmpty()) {
+			if(email.equals("admin") && senha.equals("admin")) {
 				return true;
 			}
+		}else {
+			Funcionario funcionarioLogando = dao.login(email, senha);
+			if(funcionarioLogando == null) {
+				return false;
+			}else {
+				if(funcionarioLogando.getSenha().contentEquals(senha)){
+					Util.funcionarioLogado = funcionarioLogando; 
+					return true;
+				}
+			}
+			
+			
 		}
-		
 		return false;
 	}
 }
