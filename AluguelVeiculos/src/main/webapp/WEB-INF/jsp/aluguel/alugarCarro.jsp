@@ -61,7 +61,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-car"></i></span>
 							<input
-							id="placa" name="carro.codigo" class="form-control" required="required"
+							id="placa" name="aluguel.carro.codigo" class="form-control" required="required"
 							value="<c:out value="${carro.placa}"/>" type="text" disabled>
 					</div>
 				</div>

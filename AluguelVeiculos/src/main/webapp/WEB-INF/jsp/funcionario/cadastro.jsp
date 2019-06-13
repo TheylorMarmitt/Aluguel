@@ -78,7 +78,7 @@
 						<i class="fa fa-building"></i></span>
 						<select class="form-control" name="filial.codigo">
 							<c:forEach var="filial" items="${filiais}">
-								<option value="${filial.codigo}">"${filial.nome}"</option>
+								<option value="${filial.codigo}">${filial.nome}</option>
 							</c:forEach>
 						</select>
 					</div>	

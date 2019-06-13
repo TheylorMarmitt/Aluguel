@@ -151,4 +151,12 @@ public class Aluguel {
 				+ ", carro=" + carro + ", funcionario=" + funcionario + ", cliente=" + cliente + "]";
 	}
 
+	public Double getKmSaida() {
+		return kmSaida;
+	}
+
+	public void setKmSaida(Double kmSaida) {
+		this.kmSaida = kmSaida;
+	}
+
 }
