@@ -45,9 +45,7 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label">
 							<fmt:message key="aluguel.taxa" />
-							<a>
 							<i class="ace-icon fa fa-question-circle blue info"  data-toggle="tooltip" title="Porcentagem da taxa diária de locação" id="taxa"></i>
-							</a>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
 							<div class="input-group col-md-3">
@@ -91,5 +89,4 @@ $(function(){
 </script>
 
 </body>
->>>>>>> 03f05aa67723239c3a27793f6d2804a3415e0d19
 </html>

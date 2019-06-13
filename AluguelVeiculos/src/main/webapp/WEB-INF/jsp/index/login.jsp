@@ -40,7 +40,7 @@
 			<div class="col-md-3 col-md-offset-4">	
 				<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-log-in
 "></i>  Entrar</button>
-				<a href="dashboard/" class="btn btn-default active" role="button" aria-pressed="true"><i class="fa fa-user-plus"></i>  Cadastre-se!</a>
+				
 			</div>
 		</div>	
 	</form>
