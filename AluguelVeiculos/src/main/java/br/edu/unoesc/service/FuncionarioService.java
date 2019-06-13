@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.unoesc.dao.FuncionarioDao;
 import br.edu.unoesc.model.Funcionario;
+import br.edu.unoesc.util.Util;
 
 @Service
 public class FuncionarioService {
@@ -51,6 +52,7 @@ public class FuncionarioService {
 			return false;
 		}else {
 			if(funcionarioLogando.getSenha().contentEquals(senha)){
+				Util.funcionarioLogado = funcionarioLogando; 
 				return true;
 			}
 		}

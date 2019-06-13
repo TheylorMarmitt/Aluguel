@@ -40,13 +40,13 @@
 					</div>
 					<div class="form-group">
 						<label class="col-md-3 control-label">
-							<fmt:message key="filial.cpnj" />
-							<i class="ace-icon fa fa-question-circle blue info"></i>
+							<fmt:message key="filial.cpnj" /><a>
+							<i class="ace-icon fa fa-question-circle blue info" data-toggle="tooltip" title="CNPJ da filial"></i></a>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
 							<div class="input-group col-md-3">
 								<span class="input-group-addon">
-									<i class="fa fa-percent"></i>
+									<i class="fa fa-building"></i>
 								</span>
 								<input name="cnpj" placeholder="" class="form-control" 
 								required="required" value="<c:out value="${filial.cnpj}"/>" type="text"/>
@@ -56,12 +56,12 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label">
 							<fmt:message key="filial.endereco" />
-							<i class="ace-icon fa fa-question-circle blue info"></i>
+							<i class="ace-icon fa fa-question-circle blue info" data-toggle="tooltip" title="Endereço da filial"></i>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
 							<div class="input-group col-md-3">
 								<span class="input-group-addon">
-									<i class="fa fa-percent"></i>
+									<i class="glyphicon glyphicon-road"></i>
 								</span>
 								<input name="endereco" placeholder="" class="form-control" 
 								value="<c:out value="${filial.endereco}"/>" type="text"/>
@@ -72,6 +72,16 @@
 			</fieldset>		
 		</form>
 	</div>
+	
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+<%-- <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script> --%>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 
 </body>
+>>>>>>> 03f05aa67723239c3a27793f6d2804a3415e0d19
 </html>

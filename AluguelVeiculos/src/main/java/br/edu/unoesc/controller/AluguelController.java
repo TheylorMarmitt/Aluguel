@@ -20,6 +20,7 @@ import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.model.Aluguel;
 import br.edu.unoesc.model.Carro;
 import br.edu.unoesc.service.AluguelService;
+import br.edu.unoesc.util.Util;
 
 @Controller
 @RequestMapping("/aluguel")
@@ -63,8 +64,7 @@ public class AluguelController {
 			return "aluguel/cadastro";
 		}
 		aluguel.setCliente(this.aluguelDao.findByClienteCpf(aluguel.getCliente().getCpf()));
-		aluguel.setFuncionario(this.aluguelDao.findByFuncionarioCpf(aluguel.getFuncionario().getCpf()));
-
+		aluguel.setFuncionario(Util.funcionarioLogado);
 		this.serviceDao.adiciona(aluguel);
 		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
 
