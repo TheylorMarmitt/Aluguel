@@ -49,7 +49,7 @@ public class Carro {
 	
 	private Date dataDeDesapropriacao;
 	
-	private int qtdAlugado;
+	private Integer qtdAlugado = 0;
 
 	public String getimagem() {
 		return imagem;
@@ -161,6 +161,7 @@ public class Carro {
 	}
 
 	public void setDataDeDesapropriacao(Date dataDeDesapropriacao) {
+		this.disponivel  = false;
 		this.dataDeDesapropriacao = dataDeDesapropriacao;
 	}
 
@@ -168,6 +169,8 @@ public class Carro {
 		return qtdAlugado;
 	}
 
-
+	public void setQtdAlugado(Integer qtdAlugado) {
+		this.qtdAlugado = qtdAlugado;
+	}
 
 }

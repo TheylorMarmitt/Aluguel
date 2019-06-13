@@ -27,15 +27,15 @@
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
 
 	<div class="row">
-		<div class="col-xs-12 col-md-6">
+		<div class="col-xs-12 col-md-8 col-md-offset-2">
 			<canvas class="col-xs-12 col-md-6" id="grafico1" width="90%"
-				height="40%"></canvas>
+				height="56%"></canvas>
 		</div>
-		<div class="col-xs-12 col-md-6">
-			<canvas class="col-xs-12 col-md-6" id="grafico2" width="90%"
-				height="40%"></canvas>
-		</div>
+		
 	</div>
+	
+	<br>
+	<br>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 
@@ -55,11 +55,6 @@
 		var backgroundColor = [];
 		var borderColor = [];
 		
-		var ctx2 = document.getElementById('grafico2');
-		var labels2 = [];
-		var data2 = [];
-		var backgroundColor2 = [];
-		var borderColor2 = [];
 		
 		$(document).ready(function() {
 			pegaDados();
@@ -80,36 +75,6 @@
 						data,
 						backgroundColor,
 						borderColor,
-						borderWidth: 2
-					} ]
-				},
-				options : {
-					scales : {
-						yAxes : [ {
-							ticks : {
-								beginAtZero : true
-							}
-						} ]
-					}
-				}
-			});
-			
-			// grafico2
-			carro.forEach(element => {
-		        labels2.push(element.modelo);
-		        data2.push(element.qtdAlugado);
-		        backgroundColor2.push('#207dd4');
-		        borderColor2.push('#eee');
-		    }); 
-			
-			var myChart = new Chart(ctx2, {
-				type : 'pie',			
-				data : { labels,
-					datasets : [ {
-						label: 'Quantidade de alugueis',
-						data2,
-						backgroundColor2,
-						borderColor2,
 						borderWidth: 2
 					} ]
 				},

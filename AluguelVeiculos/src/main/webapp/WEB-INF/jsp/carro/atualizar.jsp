@@ -185,7 +185,6 @@
 		jQuery(function($) {
 			$("#filtroPlaca").mask("AAA-9999");
 			$("#placa").mask("AAA-9999");
-			$('#valor').mask('#.##0', {reverse: true});
 		});
 	</script>
 </body>
