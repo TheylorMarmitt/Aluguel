@@ -62,6 +62,9 @@
 						<span class="input-group-addon"><i class="fa fa-car"></i></span> <select
 							class="browser-default custom-select form-control" id="carro"
 							name="carroId">
+							<c:if test="${empty carros or not empty carro}">
+								<option value="${carro.codigo }">${carro.placa} - ${carro.modelo}</option>
+							</c:if>
 							<c:forEach var="c" items="${carros}">
 								<option value="${c.codigo}">${c.placa} - ${c.modelo}</option>
 							</c:forEach>

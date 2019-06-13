@@ -35,9 +35,8 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public ModelAndView cadastro(@Valid Carro carro, Errors erro, MultipartFile file,  Model model) throws ParseException {
+	public ModelAndView cadastro(@Valid Carro carro, Errors erro, MultipartFile file,  Model model) {
 		if(erro.hasErrors()) {
-//			model.addAttribute("carro", carro);
 			new ModelAndView("carro/cadastro", "carro", carro);
 		}
 		try {
@@ -48,7 +47,6 @@ public class CarroController {
 		}
 		
 		this.carroService.adiciona(carro);
-//		return "carro/disponiveis";
 		return new ModelAndView("carro/disponiveis", "carros", carroDao.findByDisponivelTrue());
 	}
 	
@@ -59,7 +57,7 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
-	public String editar(Carro carro, Model model) throws ParseException {
+	public String editar(Carro carro, Model model) {
 		this.carroDao.saveAndFlush(carro);
 		return "carro/atualizar";
 	}

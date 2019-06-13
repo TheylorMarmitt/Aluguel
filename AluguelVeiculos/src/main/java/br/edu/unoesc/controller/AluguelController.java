@@ -49,14 +49,14 @@ public class AluguelController {
 	}
 
 	@RequestMapping(path = "/cadastrar/{codigo}")
-	public String cadastrar(@PathVariable(value = "codigo") long codigo, Model model) {
+	public String cadastrar(Carro carro, Model model) {
 
-		Carro carro = this.carroDao.findByCodigo(codigo);
+		Carro carroBanco = this.carroDao.findByCodigo(carro.getCodigo());
 
-		model.addAttribute("carro", carro);
+		model.addAttribute("carro", carroBanco);
 		model.addAttribute("valoresTaxas", serviceDao.calculaValorTaxaEPorKm(carro));
 
-		return "aluguel/alugarCarro";
+		return "aluguel/cadastro";
 
 	}
 
