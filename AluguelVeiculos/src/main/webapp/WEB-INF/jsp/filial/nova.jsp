@@ -74,7 +74,6 @@
 	</div>
 	
 <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-<%-- <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script> --%>
 
 <script>
 $(document).ready(function(){
@@ -83,5 +82,4 @@ $(document).ready(function(){
 </script>
 
 </body>
->>>>>>> 03f05aa67723239c3a27793f6d2804a3415e0d19
 </html>

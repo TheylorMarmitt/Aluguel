@@ -30,15 +30,12 @@
 							<i class="ace-icon fa fa-question-circle blue info" data-toggle="tooltip" title="Porcentagem do valor do km rodado" id="km"></i>
 						</label>
 						<div class="col-md-9 inputGroupContainer">
-							<div class="">
-								
-							</div>
 							<div class="col-md-3 input-group">
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="percentValorKm" placeholder="50%" class="form-control" 
-								required="required" value="<c:out value="${aluguel.percentValorKm}"/>" type="text"/>
+								<input name="percentValorKm" placeholder="50%" class="form-control"  id="valorKm"
+								required="required" value="<c:out value="${filialConfig.percentValorKm}"/>" type="text"/>
 							</div>
 						</div>
 					</div>
@@ -54,8 +51,8 @@
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="percentTaxaDiaria" placeholder="50%" class="form-control" 
-								required="required" value="<c:out value="${aluguel.percentTaxaDiaria}"/>" type="text"/>
+								<input name="percentTaxaDiaria" placeholder="50%" class="form-control" id="taxaDiaria"
+								required="required" value="<c:out value="${filialConfig.percentTaxaDiaria}"/>" type="text"/>
 							</div>
 						</div>
 					</div>
@@ -63,10 +60,11 @@
 				<label class="col-md-3 control-label"><fmt:message
 						key="filial" /></label>
 				<div class="col-md-9 inputGroupContainer">
-					<div class="input-group col-md-3">
-						<span class="input-group-addon"><i class="fa fa-building"></i></span> <select
-							class="browser-default form-control custom-select" id=carro
-							name="filial">
+					<div class="input-group col-md-3 ">
+						<span class="input-group-addon">
+						<i class="fa fa-building"></i></span>
+						 <select class="browser-default form-control custom-select" id=filial
+							name="filial.codigo">
 							<c:forEach var="f" items="${filial}">
 								<option value="${f.codigo}">${f.nome}</option>
 							</c:forEach>
@@ -78,18 +76,14 @@
 			</fieldset>		
 		</form>
 	</div>
-
-<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-<%-- <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script> --%>
-
-<script>
+	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/configuracoesAssets/configuracoes.js"/>"></script>
+	<script>
 
 $(function(){
     $('#taxa').tooltip();
     $("#km").tooltip();
 });
 </script>
-
 </body>
->>>>>>> 03f05aa67723239c3a27793f6d2804a3415e0d19
 </html>
