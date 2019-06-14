@@ -51,7 +51,7 @@
 						<td>${a.codigo}</td>
 						<td>${a.carro.placa}</td>
 						<td>${a.converteData()}</td>
-						<td>${a.cliente}</td>
+						<td>${a}</td>
 					</tr>
 				</c:forEach>
 			</table>

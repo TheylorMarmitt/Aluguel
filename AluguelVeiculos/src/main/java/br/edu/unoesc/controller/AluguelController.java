@@ -66,7 +66,6 @@ public class AluguelController {
 
 		aluguel.setCarro(carroAlugando);
 		aluguel.setCliente(this.clienteDao.findByCpf(clienteCPF));	
-		aluguel.setCliente(this.aluguelDao.findByClienteCpf(aluguel.getCliente().getCpf()));
 		
 		if (erro.hasErrors()) {
 			return "aluguel/cadastro";
