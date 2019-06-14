@@ -99,5 +99,9 @@ public class Funcionario extends Pessoa {
 		this.logado = logado;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Funcionario [senha=" + senha + ", dataAdmissao=" + dataAdmissao + ", dataDemissao=" + dataDemissao
+				+ ", logado=" + logado + ", filial=" + filial + "]";
+	}
 }

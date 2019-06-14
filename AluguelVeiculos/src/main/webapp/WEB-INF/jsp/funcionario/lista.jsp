@@ -56,8 +56,8 @@
 						<td>${f.cpf}</td>
 						<td>${f.converteData()}</td>
 						<td>${f.email}</td>
-						<td><a class="btn btn-sm btn-info" href="atualizar/${f.codigo}"><i class="glyphicon glyphicon-pencil"></i></a>
-							<a class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+						<td><a class="btn btn-sm btn-info" href= <c:url value='atualizar/${f.codigo}'></c:url>><i class="glyphicon glyphicon-pencil"></i></a>
+							<a class="btn btn-sm btn-danger" href= <c:url value='demitir/${f.codigo}'></c:url>><i class="glyphicon glyphicon-trash"></i></a>
 						</td>
 					</tr>
 				</c:forEach>

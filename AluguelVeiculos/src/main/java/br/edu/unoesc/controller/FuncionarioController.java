@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -70,6 +71,19 @@ public class FuncionarioController {
 	public String editar(@Valid Funcionario funcionario, Errors erro, Model model) {
 		
 		service.atualiza(funcionario);
+		
+		model.addAttribute("funcionarios", dao.findAll());
+		
+		return "funcionario/lista";
+	
+	}
+	
+	@RequestMapping(path = { "/demitir", "/demitir/{codigo}" }, method = RequestMethod.GET)
+	public String demitir(Funcionario funcionario, @PathVariable("codigo") Long codigo, Model model) {
+		Funcionario f = dao.findByCodigo(codigo);
+		
+		System.out.println("========"+ f.toString());
+		service.demitir(f);
 		
 		model.addAttribute("funcionarios", dao.findAll());
 		

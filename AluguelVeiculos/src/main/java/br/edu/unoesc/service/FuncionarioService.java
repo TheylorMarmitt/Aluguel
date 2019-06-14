@@ -7,13 +7,18 @@ import org.springframework.stereotype.Service;
 
 import br.edu.unoesc.dao.FuncionarioDao;
 import br.edu.unoesc.model.Funcionario;
-import br.edu.unoesc.util.Util;
 
 @Service
 public class FuncionarioService {
 
 	@Autowired
 	private FuncionarioDao dao;
+	
+	public void demitir(Funcionario funcionario) {
+		funcionario.setDataDemissao(new Date());
+		funcionario.setFilial(null);
+		dao.saveAndFlush(funcionario);
+	}
 	
 	
 	public void atualiza(Funcionario funcionario) {
