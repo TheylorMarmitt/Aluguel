@@ -18,8 +18,10 @@ import com.google.gson.Gson;
 import br.edu.unoesc.dao.AluguelDao;
 import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.dao.ClienteDao;
+import br.edu.unoesc.dao.FuncionarioDao;
 import br.edu.unoesc.model.Aluguel;
 import br.edu.unoesc.model.Carro;
+import br.edu.unoesc.model.Funcionario;
 import br.edu.unoesc.service.AluguelService;
 import br.edu.unoesc.util.Util;
 
@@ -35,6 +37,9 @@ public class AluguelController {
 	private ClienteDao clienteDao;
 	@Autowired
 	private AluguelService serviceDao;
+	
+	@Autowired 
+	private FuncionarioDao funcionarioDao;
 
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
@@ -73,7 +78,13 @@ public class AluguelController {
 		
 		carroAlugando.setDisponivel(false);
 		this.carroDao.saveAndFlush(carroAlugando);
-		aluguel.setFuncionario(Util.funcionarioLogado);
+		
+		Funcionario funcionario = this.funcionarioDao.findByLogadoTrue();
+		if(funcionario == null) {
+			return "aluguel/cadastro";
+		}
+			
+		aluguel.setFuncionario(funcionario);
 		this.serviceDao.adiciona(aluguel);
 		
 		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());

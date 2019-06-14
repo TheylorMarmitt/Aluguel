@@ -13,6 +13,8 @@ public interface FuncionarioDao extends JpaRepository<Funcionario, Long>{
 
 	Funcionario findByNome(String nome);
 	
+	Funcionario findByLogadoTrue();
+	
 	@Query("select f from Funcionario f where f.nome like %?1%")
 	List<Funcionario> filtraByNome(String nome);
 
