@@ -69,25 +69,16 @@ public class FuncionarioController {
 
 	@RequestMapping(path = { "/atualizar", "/atualizar/{codigo}" }, method = RequestMethod.POST)
 	public String editar(@Valid Funcionario funcionario, Errors erro, Model model) {
-		
 		service.atualiza(funcionario);
-		
 		model.addAttribute("funcionarios", dao.findAll());
-		
 		return "funcionario/lista";
-	
 	}
 	
 	@RequestMapping(path = { "/demitir", "/demitir/{codigo}" }, method = RequestMethod.GET)
 	public String demitir(Funcionario funcionario, @PathVariable("codigo") Long codigo, Model model) {
 		Funcionario f = dao.findByCodigo(codigo);
-		
-		System.out.println("========"+ f.toString());
 		service.demitir(f);
-		
 		model.addAttribute("funcionarios", dao.findAll());
-		
 		return "funcionario/lista";
-	
 	}
 }
