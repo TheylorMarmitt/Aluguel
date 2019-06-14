@@ -61,12 +61,11 @@ public class AluguelController {
 	}
 
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastrar(@Valid Aluguel aluguel, String carroId, String clienteCPF, Errors erro, Model model) {
-		Carro carroAlugando = this.carroDao.findByCodigo(Long.parseLong(carroId)); 
+	public String cadastrar(@Valid Aluguel aluguel, String clienteCPF, Errors erro, Model model) {
+		Carro carroAlugando = this.carroDao.findByCodigo(aluguel.getCarro().getCodigo()); 
 
 		aluguel.setCarro(carroAlugando);
 		aluguel.setCliente(this.clienteDao.findByCpf(clienteCPF));	
-		aluguel.setCliente(this.aluguelDao.findByClienteCpf(aluguel.getCliente().getCpf()));
 		
 		if (erro.hasErrors()) {
 			return "aluguel/cadastro";

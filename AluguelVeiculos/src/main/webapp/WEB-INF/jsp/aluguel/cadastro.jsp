@@ -80,7 +80,7 @@
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span><input id="cpfCliente"
-							name="clienteCPF" placeholder="123.123.123-12"
+							name="aluguel.cliente.pessoa.cpf" placeholder="123.123.123-12"
 							class="form-control" required="required" value="" type="text">
 					</div>
 				</div>
