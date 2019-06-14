@@ -21,7 +21,7 @@
 			<div class="form-group  col-md-12">
 			  <label class="col-md-4 control-label text-right" for="e-mail">E-mail</label>  
 			  <div class="col-md-4">
-			  	<input id="email" name="email" type="text" placeholder="e-mail" class="form-control input-md" required="required"/>
+			  	<input id="email" name="email" type="text" placeholder="E-mail do usuário" class="form-control input-md" required="required"/>
 			  </div>
 			</div>
 			

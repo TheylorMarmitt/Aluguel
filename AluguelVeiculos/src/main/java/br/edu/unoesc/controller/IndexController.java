@@ -21,13 +21,21 @@ public class IndexController {
 	private FuncionarioService service;
 	
 	@Autowired
-	private FuncionarioDao funcionarioRepository;
+	private CarroDao carroDao;
 	
 	@Autowired
-	private CarroDao carroDao;
+	private FuncionarioDao funcionarioRepository;
 	
 	@RequestMapping(path = { "", "/" })
 	public String index() {
+		return "index/login";
+	}
+	
+	@RequestMapping(path = { "", "/sair" })
+	public String sair() {
+		Funcionario funcionario = this.funcionarioRepository.findByLogadoTrue();
+		funcionario.setLogado(false);
+		this.funcionarioRepository.saveAndFlush(funcionario);
 		return "index/login";
 	}
 	

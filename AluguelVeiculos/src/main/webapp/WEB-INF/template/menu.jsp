@@ -75,7 +75,7 @@
 							key="devolucao" /></a></li>
 				<li></li>
 				<li></li>
-				<li class="btn-trial sair"><a href="<c:url value="/"/>"><fmt:message
+				<li class="btn-trial sair"><a href="<c:url value="/sair"/>"><fmt:message
 							key="sair" /></a></li>
 			</ul>
 		</div>

@@ -55,7 +55,8 @@ public class FuncionarioService {
 				return false;
 			}else {
 				if(funcionarioLogando.getSenha().contentEquals(senha)){
-					Util.funcionarioLogado = funcionarioLogando; 
+					funcionarioLogando.setLogado(true);
+					dao.saveAndFlush(funcionarioLogando);
 					return true;
 				}
 			}
