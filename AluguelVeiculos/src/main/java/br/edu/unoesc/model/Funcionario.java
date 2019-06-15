@@ -13,6 +13,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.edu.unoesc.util.Util;
+
 @Entity
 @Table(name = "Funcionario")
 @PrimaryKeyJoinColumn(name = "codigo")
@@ -26,6 +28,8 @@ public class Funcionario extends Pessoa {
 	private Date dataAdmissao;
 	
 	private Date dataDemissao;
+	
+	private boolean logado;
 	
 	@ManyToOne
 	private Filial filial = new Filial();
@@ -85,6 +89,14 @@ public class Funcionario extends Pessoa {
 
 	public void setFilial(Filial filial) {
 		this.filial = filial;
+	}
+
+	public boolean isLogado() {
+		return logado;
+	}
+
+	public void setLogado(boolean logado) {
+		this.logado = logado;
 	}
 
 
