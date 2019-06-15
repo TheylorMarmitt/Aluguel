@@ -31,8 +31,7 @@
 			<fmt:message key="tela.aluguel.cadastro" />
 		</h1>
 	</div>
-	<frm:form modelAtributte="aluguel" class="well form-horizontal"
-		action="enviar" method="post" enctype="multipart/form-data">
+	<frm:form modelAtributte="aluguel" class="well form-horizontal" method="post" >
 		<fieldset>
 			<spring:hasBindErrors name="aluguel">
 				<c:forEach var="error" items="${errors.allErrors}">
@@ -42,13 +41,15 @@
 				</c:forEach>
 			</spring:hasBindErrors>
 			<div class="form-group">
-				<label class="col-md-3 control-label"><fmt:message key="aluguel.data" /></label>
+				<label class="col-md-3 control-label">
+					<fmt:message key="aluguel.data" />
+				</label>
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group">
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-calendar"></i>
 							</span>
-						<input id="dataAluguel"name="dataAluguel" placeholder="Data" class="form-control"required="required" value="" type="date">
+						<input id="dataAluguel" name="dataAluguel" placeholder="Data" class="form-control"required="required" type="date">
 					</div>
 				</div>
 			</div>
@@ -61,7 +62,7 @@
 						<span class="input-group-addon">
 							<i class="fa fa-car"></i>
 						</span> 
-						<select class="browser-default custom-select form-control" id="carro" name="codigo">
+						<select class="browser-default custom-select form-control" id="carro" name="carro.codigo">
 							<c:if test="${empty carros or not empty carro}">
 								<option value="${carro.codigo }">${carro.placa} - ${carro.modelo}</option>
 							</c:if>
@@ -80,7 +81,7 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 						</span>
-						<input id="cpfCliente" name="aluguel.cliente.cpf" placeholder="123.123.123-12"
+						<input id="cpfCliente" name="cliente.cpf" placeholder="123.123.123-12"
 							class="form-control" required="required" type="text">
 					</div>
 				</div>

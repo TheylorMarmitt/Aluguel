@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,12 +35,7 @@ public class AluguelController {
 	@Autowired
 	private CarroDao carroDao;
 	@Autowired
-	private ClienteDao clienteDao;
-	@Autowired
-	private AluguelService serviceDao;
-	
-	@Autowired 
-	private FuncionarioDao funcionarioDao;
+	private AluguelService service;
 
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
@@ -47,7 +43,7 @@ public class AluguelController {
 		List<Carro> carros = this.carroDao.findByDisponivelTrue();
 		
 		model.addAttribute("carros", carros);
-		model.addAttribute("valoresTaxas", serviceDao.calculaValorTaxaEPorKm(carros.get(0)));
+		model.addAttribute("valoresTaxas", service.calculaValorTaxaEPorKm(carros.get(0)));
 		
 		return "aluguel/cadastro";
 		
@@ -59,33 +55,20 @@ public class AluguelController {
 		Carro carroBanco = this.carroDao.findByCodigo(carro.getCodigo());
 
 		model.addAttribute("carro", carroBanco);
-		model.addAttribute("valoresTaxas", serviceDao.calculaValorTaxaEPorKm(carro));
+		model.addAttribute("valoresTaxas", service.calculaValorTaxaEPorKm(carro));
 
 		return "aluguel/cadastro";
 
 	}
 
-	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastrar(@Valid Aluguel aluguel, String clienteCPF, Errors erro, Model model) {
-		Carro carroAlugando = this.carroDao.findByCodigo(aluguel.getCarro().getCodigo()); 
-
-		aluguel.setCarro(carroAlugando);
-		aluguel.setCliente(this.clienteDao.findByCpf(clienteCPF));	
-		
+	@RequestMapping(path = "/cadastrar/{codigo}", method = RequestMethod.POST)
+	public String cadastrar(@Valid @ModelAttribute("aluguel") Aluguel aluguel, Errors erro, Model model) {
+	
 		if (erro.hasErrors()) {
 			return "aluguel/cadastro";
 		}
 		
-		carroAlugando.setDisponivel(false);
-		this.carroDao.saveAndFlush(carroAlugando);
-		
-		Funcionario funcionario = this.funcionarioDao.findByLogadoTrue();
-		if(funcionario == null) {
-			return "aluguel/cadastro";
-		}
-			
-		aluguel.setFuncionario(funcionario);
-		this.serviceDao.adiciona(aluguel);
+		service.adiciona(aluguel);
 		
 		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
 		return "aluguel/ativos";
@@ -112,7 +95,7 @@ public class AluguelController {
 		
 		Gson json = new Gson();
 
-		return json.toJson(serviceDao.calculaValorTaxaEPorKm(carro));
+		return json.toJson(service.calculaValorTaxaEPorKm(carro));
 
 	}
 
