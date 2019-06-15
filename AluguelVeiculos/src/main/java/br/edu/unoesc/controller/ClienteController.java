@@ -24,13 +24,13 @@ public class ClienteController {
 		return "cliente/cadastro";
 	}
 	
-	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
+	@RequestMapping(path = "/cadastro", method = RequestMethod.POST)
 	public String lista(@Valid Cliente cliente, Errors erro,  Model model){
 		if(erro.hasErrors()) {
 			return "cliente/cadastro";
 		}
 		this.clienteDao.saveAndFlush(cliente);
-		return "index/login";
+		return "dashboard/dashboard";
 	}
 	
 	@RequestMapping(path = "/atualizar")
