@@ -41,7 +41,7 @@
 		</form>
 	</div>
 	<frm:form modelAtributte="funcionario" class="well form-horizontal"
-		action="atualizar/{codigo}" method="post" enctype="multipart/form-data">
+		action=  "atualizar" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<spring:hasBindErrors name="funcionario">
 				<c:forEach var="error" items="${errors.allErrors}">
