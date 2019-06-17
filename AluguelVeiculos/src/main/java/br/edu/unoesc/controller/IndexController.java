@@ -27,8 +27,13 @@ public class IndexController {
 	private FuncionarioDao funcionarioRepository;
 	
 	@RequestMapping(path = { "", "/" })
-	public String index() {
-		return "index/login";
+	public ModelAndView index() {
+		Funcionario f = this.funcionarioRepository.findByLogadoTrue();
+		if(f == null) {
+			return new ModelAndView("index/login");
+		}else {
+			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
+		}
 	}
 	
 	@RequestMapping(path = { "", "/sair" })
@@ -46,14 +51,10 @@ public class IndexController {
 	
 	@RequestMapping(path = "/entrar", method = RequestMethod.POST)
 	public ModelAndView entrar(@Param(value = "email") String email, @Param(value = "senha") String senha) {
-		if(this.funcionarioRepository.findByLogadoTrue() != null) {
-			return new ModelAndView("index/login");
+		if(service.verificaLogin(email, senha)) {
+			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
 		}else {
-			if(service.verificaLogin(email, senha)) {
-				return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
-			}else {
-				return new ModelAndView("index/login");
-			}
+			return new ModelAndView("index/login");
 		}
 	}
 	
