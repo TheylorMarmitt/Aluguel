@@ -44,14 +44,14 @@
 					<th><fmt:message key="tela.alugueis.codigo" /></th>
 					<th><fmt:message key="tela.alugueis.placa" /></th>
 					<th><fmt:message key="tabela.ativos.dataAluguel" /></th>
-					<th><fmt:message key="cliente" /></th>
+					<th><fmt:message key="aluguel.kmSaida" /></th>
 				</tr>
 				<c:forEach var="a" items="${alugueis}">
 					<tr>
 						<td>${a.codigo}</td>
 						<td>${a.carro.placa}</td>
 						<td>${a.converteData()}</td>
-						<td>${a.cliente.nome}</td>
+						<td>${a.kmSaida}</td>
 					</tr>
 				</c:forEach>
 			</table>

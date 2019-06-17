@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,9 +21,7 @@ import br.edu.unoesc.dao.ClienteDao;
 import br.edu.unoesc.dao.FuncionarioDao;
 import br.edu.unoesc.model.Aluguel;
 import br.edu.unoesc.model.Carro;
-import br.edu.unoesc.model.Funcionario;
 import br.edu.unoesc.service.AluguelService;
-import br.edu.unoesc.util.Util;
 
 @Controller
 @RequestMapping("/aluguel")
@@ -34,8 +31,14 @@ public class AluguelController {
 	private AluguelDao aluguelDao;
 	@Autowired
 	private CarroDao carroDao;
+	
+	@Autowired
+	private ClienteDao clienteDao;
 	@Autowired
 	private AluguelService service;
+	
+	@Autowired
+	private FuncionarioDao funDao;
 
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
@@ -63,7 +66,6 @@ public class AluguelController {
 
 	@RequestMapping(path = "/cadastrar/{codigo}", method = RequestMethod.POST)
 	public String cadastrar(@Valid @ModelAttribute("aluguel") Aluguel aluguel, Errors erro, Model model) {
-	
 		if (erro.hasErrors()) {
 			return "aluguel/cadastro";
 		}
@@ -74,6 +76,23 @@ public class AluguelController {
 		return "aluguel/ativos";
 
 	}
+	
+//	Adicionar action cadastrar em form
+//	@RequestMapping(path = "/cadastrar", method = RequestMethod.POST)
+//	public String alugar(@Valid @ModelAttribute("aluguel") Aluguel aluguel, Errors erro, Model model) {
+//		aluguel.setFuncionario(funDao.findByLogadoTrue());
+//		aluguel.setCliente(clienteDao.findByCpf(aluguel.getCliente().getCpf()));
+//		System.out.println("------------------------------"+ aluguel.toString());
+//		if (erro.hasErrors()) {
+//			return "aluguel/cadastro";
+//		}
+//		
+//		service.adiciona(aluguel);
+//		
+//		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
+//		return "aluguel/ativos";
+//
+//	}
 
 	@RequestMapping(path = "/ativos")
 	public String ativos(Model model) {
