@@ -39,8 +39,10 @@ public class IndexController {
 	@RequestMapping(path = { "", "/sair" })
 	public String sair() {
 		Funcionario funcionario = this.funcionarioRepository.findByLogadoTrue();
-		funcionario.setLogado(false);
-		this.funcionarioRepository.saveAndFlush(funcionario);
+		if(funcionario != null) {
+			funcionario.setLogado(false);
+			this.funcionarioRepository.saveAndFlush(funcionario);
+		}
 		return "index/login";
 	}
 	

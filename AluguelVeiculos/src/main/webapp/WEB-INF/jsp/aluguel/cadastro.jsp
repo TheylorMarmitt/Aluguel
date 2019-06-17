@@ -140,8 +140,6 @@
 		jQuery(function($) {
 			$("#cpfCliente").mask("999.999.999-99");
 			$("#cpfFuncionario").mask("999.999.999-99");
-			$('#taxa').mask('#.##0.00', {reverse: true});
-			$('#valor').mask('#.##0.00', {reverse: true});
 		});
 	</script>
 </body>

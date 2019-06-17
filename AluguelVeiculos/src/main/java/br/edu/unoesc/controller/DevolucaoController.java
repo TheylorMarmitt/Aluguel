@@ -59,9 +59,4 @@ public class DevolucaoController {
 		return "devolucao/devolvido";
 	}
 	
-	// somente para teste
-	@RequestMapping(path = "/devolvido")
-	public String teste() {
-		return "devolucao/devolvido";
-	}
 }
