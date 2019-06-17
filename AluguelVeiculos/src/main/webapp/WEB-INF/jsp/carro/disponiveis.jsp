@@ -36,7 +36,7 @@
 	<div class= "container-fluid">
 			<c:forEach var="c" items="${carros}">
 				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 fixed-width">
-					<a class="link" href = "<c:url value = "/aluguel/cadastrar/${c.codigo}"/>"> 
+					<a class="link" href = "<c:url value = "/aluguel/cadastro"/>"> 
 					<div class="conteudo ">
 						<div class="imagem">
 								<c:if test="${empty c.imagem}">

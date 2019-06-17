@@ -24,6 +24,7 @@
 	</div>
 	<div class= "container-fluid">
 		<h3>Carro devolvido: <c:out value="${devolucao.aluguel.carro.placa}"/></h3>
+		<h3>Cliente: <c:out value="${devolucao.aluguel.cliente.nome} ${devolucao.aluguel.cliente.sobrenome}"/></h3>
 		<h3>Taxa: <c:out value="${devolucao.aluguel.taxa}"/></h3>
 		<h3>Valor: <c:out value="${devolucao.aluguel.valor}"/></h3>
 		<h3>Km Saida: <c:out value="${devolucao.aluguel.kmSaida}"/></h3>

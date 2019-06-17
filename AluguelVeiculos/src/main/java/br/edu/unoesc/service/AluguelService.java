@@ -27,13 +27,20 @@ public class AluguelService {
 	@Autowired
 	private ConfiguracoesDao configuracoesDao;
 
+//	public void adiciona(Aluguel aluguel) {
+//		
+//		Aluguel novoAluguel = ajustaReferencias(aluguel);
+//		
+//		dao.save(novoAluguel);
+//		carroService.setIndisponivel(novoAluguel.getCarro());
+//		
+//	}
+	
 	public void adiciona(Aluguel aluguel) {
-		
-		Aluguel novoAluguel = ajustaReferencias(aluguel);
-		
-		dao.save(novoAluguel);
-		carroService.setIndisponivel(novoAluguel.getCarro());
-		
+		if(!aluguel.isAtivo()) {
+			aluguel.setAtivo(true);
+		}
+		this.dao.save(aluguel);
 	}
 
 	private Aluguel ajustaReferencias(Aluguel aluguel) {

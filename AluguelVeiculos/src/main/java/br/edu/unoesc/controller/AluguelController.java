@@ -21,6 +21,7 @@ import br.edu.unoesc.dao.ClienteDao;
 import br.edu.unoesc.dao.FuncionarioDao;
 import br.edu.unoesc.model.Aluguel;
 import br.edu.unoesc.model.Carro;
+import br.edu.unoesc.model.Funcionario;
 import br.edu.unoesc.service.AluguelService;
 
 @Controller
@@ -38,7 +39,7 @@ public class AluguelController {
 	private AluguelService service;
 	
 	@Autowired
-	private FuncionarioDao funDao;
+	private FuncionarioDao funcionarioDao;
 
 	@RequestMapping(path = "/cadastro")
 	public String novo(Model model) {
@@ -77,22 +78,31 @@ public class AluguelController {
 
 	}
 	
-//	Adicionar action cadastrar em form
-//	@RequestMapping(path = "/cadastrar", method = RequestMethod.POST)
-//	public String alugar(@Valid @ModelAttribute("aluguel") Aluguel aluguel, Errors erro, Model model) {
-//		aluguel.setFuncionario(funDao.findByLogadoTrue());
-//		aluguel.setCliente(clienteDao.findByCpf(aluguel.getCliente().getCpf()));
-//		System.out.println("------------------------------"+ aluguel.toString());
-//		if (erro.hasErrors()) {
-//			return "aluguel/cadastro";
-//		}
-//		
-//		service.adiciona(aluguel);
-//		
-//		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
-//		return "aluguel/ativos";
-//
-//	}
+	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
+	public String cadastrar(@Valid Aluguel aluguel, String carroId, String clienteCPF, Errors erro, Model model) {
+		Carro carroAlugando = this.carroDao.findByCodigo(Long.parseLong(carroId)); 
+
+		aluguel.setCarro(carroAlugando);
+		aluguel.setCliente(this.clienteDao.findByCpf(clienteCPF));	
+		
+		if (erro.hasErrors()) {
+			return "aluguel/cadastro";
+		}
+		
+		carroAlugando.setDisponivel(false);
+		this.carroDao.saveAndFlush(carroAlugando);
+		Funcionario funcionario = this.funcionarioDao.findByLogadoTrue();
+		if(funcionario == null) {
+			return "aluguel/cadastro";
+		}
+			
+		aluguel.setFuncionario(funcionario);
+		this.service.adiciona(aluguel);
+		
+		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
+		return "aluguel/ativos";
+
+	}
 
 	@RequestMapping(path = "/ativos")
 	public String ativos(Model model) {
