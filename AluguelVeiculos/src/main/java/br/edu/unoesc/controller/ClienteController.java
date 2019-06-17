@@ -15,7 +15,7 @@ import br.edu.unoesc.model.Cliente;
 @Controller
 @RequestMapping("/cliente")
 public class ClienteController {
-	
+
 	@Autowired
 	private ClienteDao clienteDao;
 
@@ -23,25 +23,25 @@ public class ClienteController {
 	public String novo() {
 		return "cliente/cadastro";
 	}
-	
-	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String lista(@Valid Cliente cliente, Errors erro,  Model model){
-		if(erro.hasErrors()) {
+
+	@RequestMapping(path = "/cadastro", method = RequestMethod.POST)
+	public String lista(@Valid Cliente cliente, Errors erro, Model model) {
+		if (erro.hasErrors()) {
 			return "cliente/cadastro";
 		}
 		this.clienteDao.saveAndFlush(cliente);
-		return "index/login";
+		return "dashboard/dashboard";
 	}
-	
+
 	@RequestMapping(path = "/atualizar")
 	public String atualizar(String filtroCPF, Model model) {
 		model.addAttribute("cliente", this.clienteDao.findByCpf(filtroCPF));
 		return "cliente/atualizar";
 	}
-	
+
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
 	public String editar(@Valid Cliente cliente, Errors erro, Model model, String filtroCPF) {
-		if(erro.hasErrors()) {
+		if (erro.hasErrors()) {
 			model.addAttribute("cliente", this.clienteDao.findByCpf(filtroCPF));
 			return "cliente/atualizar";
 		}

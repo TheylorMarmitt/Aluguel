@@ -88,7 +88,7 @@
 									key="carro.ano" /></label>
 						          <select class="form-control" name="anoSelect" id="ano"> </select>
 						        </div>
-						        
+						    	<input type="hidden" name="codigo" value="${carro.codigo}"/>
 						        <br>
 						        <div class="modal-footer">
 						          <button type="button" id="fechar" class="btn btn-default" data-dismiss="modal">Fechar</button>

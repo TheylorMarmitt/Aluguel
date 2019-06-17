@@ -20,5 +20,13 @@ public class CarroService {
 		}
 		dao.saveAndFlush(carro);
 	}
+	
+	public void setIndisponivel(Carro carro) {
+		
+		carro.setDisponivel(false);
+		dao.save(carro);
+	
+	}
+	
 }
 

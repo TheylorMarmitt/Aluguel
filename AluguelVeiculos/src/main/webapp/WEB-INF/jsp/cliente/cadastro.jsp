@@ -30,8 +30,7 @@
 			<fmt:message key="tela.cliente.cadastro" />
 		</h1>
 	</div>
-	<frm:form modelAtributte="cliente" class="well form-horizontal"
-		action="enviar" method="post" enctype="multipart/form-data">
+	<frm:form modelAtributte="cliente" class="well form-horizontal" method="post">
 		<fieldset>
 			<spring:hasBindErrors name="cliente">
 				<c:forEach var="error" items="${errors.allErrors}">
