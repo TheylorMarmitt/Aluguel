@@ -46,12 +46,15 @@ public class IndexController {
 	
 	@RequestMapping(path = "/entrar", method = RequestMethod.POST)
 	public ModelAndView entrar(@Param(value = "email") String email, @Param(value = "senha") String senha) {
-		if(service.verificaLogin(email, senha)) {
-			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
-		}else {
+		if(this.funcionarioRepository.findByLogadoTrue() != null) {
 			return new ModelAndView("index/login");
+		}else {
+			if(service.verificaLogin(email, senha)) {
+				return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
+			}else {
+				return new ModelAndView("index/login");
+			}
 		}
-		
 	}
 	
 	@RequestMapping(path = "/recuperar", method = RequestMethod.POST)
