@@ -41,18 +41,14 @@ public class DevolucaoController {
 		}
 		devolucao.setAluguel(this.aluguelDao.findByCarroPlaca(placa));
 		
-		System.out.println(devolucao);
 		devolucao.calculaValor();
-		devolucao.disponibilizaCarro();
-		
-		Aluguel a = devolucao.getAluguel();
-		a.setAtivo(true);
-		this.aluguelDao.saveAndFlush(a);
-		
+		devolucao.disponibiliza();
 		this.devolucaoDao.saveAndFlush(devolucao);
 		
+		Aluguel a = devolucao.getAluguel();
 		Carro c = a.getCarro();
-		c.setDisponivel(true);
+		
+		this.aluguelDao.saveAndFlush(a);
 		this.carroDao.saveAndFlush(c);
 		
 		model.addAttribute("devolucao", devolucao);

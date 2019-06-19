@@ -63,7 +63,8 @@ public class Devolucao {
 	  return (millisegundos/(1000*60*60*24));
 	}
 	
-	public void disponibilizaCarro() {
+	public void disponibiliza() {
+		this.aluguel.setAtivo(false);
 		this.aluguel.getCarro().setDisponivel(true);
 	}
 	
