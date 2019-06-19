@@ -41,12 +41,15 @@ public class AluguelController {
 	public String novo(Model model) {
 
 		List<Carro> carros = this.carroDao.findByDisponivelTrue();
-		
+
 		model.addAttribute("carros", carros);
-		model.addAttribute("valoresTaxas", service.calculaValorTaxaEPorKm(carros.get(0)));
 		
+		if (!carros.isEmpty()) {
+			model.addAttribute("valoresTaxas", service.calculaValorTaxaEPorKm(carros.get(0)));
+		}
+
 		return "aluguel/cadastro";
-		
+
 	}
 
 	@RequestMapping(path = "/cadastrar/{codigo}")
@@ -63,13 +66,13 @@ public class AluguelController {
 
 	@RequestMapping(path = "/cadastrar/{codigo}", method = RequestMethod.POST)
 	public String cadastrar(@Valid @ModelAttribute("aluguel") Aluguel aluguel, Errors erro, Model model) {
-	
+
 		if (erro.hasErrors()) {
 			return "aluguel/cadastro";
 		}
-		
+
 		service.adiciona(aluguel);
-		
+
 		model.addAttribute("alugueis", this.aluguelDao.findByAtivoTrue());
 		return "aluguel/ativos";
 
@@ -89,10 +92,10 @@ public class AluguelController {
 
 	@RequestMapping(path = "/atualizaValores")
 	public @ResponseBody String getValores(Long codCarro) {
-		
+
 		Carro carro = new Carro();
 		carro.setCodigo(codCarro);
-		
+
 		Gson json = new Gson();
 
 		return json.toJson(service.calculaValorTaxaEPorKm(carro));
