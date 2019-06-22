@@ -30,8 +30,7 @@
 						key="nome.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" id="filtro" name="filtro"> <input
-							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
+						<input type="text" name="filtro"> <input class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
 			</div>

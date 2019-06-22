@@ -46,8 +46,8 @@ public class FuncionarioController {
 	}
 
 	@RequestMapping(path = "/filtrar")
-	public String disponiveis(String filtro, Model model) {
-		model.addAttribute("funcionarios", dao.findByNome(filtro));
+	public String filtra(String filtro, Model model) {
+		model.addAttribute("funcionarios", dao.filtraByNome(filtro));
 		return "funcionario/lista";
 	}
 
