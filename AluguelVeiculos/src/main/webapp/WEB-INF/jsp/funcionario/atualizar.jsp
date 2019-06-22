@@ -85,7 +85,7 @@
 							class="glyphicon glyphicon-calendar"></i></span><input
 							id="dataNascimento" name="dataNascimento" placeholder="Data"
 							class="form-control" required="required"
-							value="${funcionario.converteData()}" type="date">
+							value="${funcionario.converteData()}" type="text">
 					</div>
 				</div>
 			</div>
@@ -136,7 +136,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-calendar"></i></span><input id="dataAdmissao"
 							name="dataAdmissao" placeholder="Data" class="form-control"
-							value="${funcionario.converteDataAdmissao()}" type="date" />
+							value="${funcionario.converteDataAdmissao()}" type="text" />
 					</div>
 				</div>
 			</div>
