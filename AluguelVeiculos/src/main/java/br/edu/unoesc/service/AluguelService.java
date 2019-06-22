@@ -51,6 +51,7 @@ public class AluguelService {
 		novoAluguel.setValor(aluguel.getValor());
 		novoAluguel.setAtivo(true);
 		novoAluguel.setTaxa(aluguel.getTaxa());
+		novoAluguel.setDataAluguel(aluguel.getDataAluguel());
 		novoAluguel.setKmSaida(aluguel.getKmSaida());
 		
 		Funcionario funcionario = new Funcionario();

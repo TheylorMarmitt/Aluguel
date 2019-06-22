@@ -34,6 +34,7 @@ public class IndexController {
 		}else {
 			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
 		}
+		
 	}
 	
 	@RequestMapping(path = { "", "/sair" })
