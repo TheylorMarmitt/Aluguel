@@ -7,16 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title><fmt:message key="lista"/></title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />"
-	rel="stylesheet">
+
+<%@ include file="/WEB-INF/template/resources.jsp"%>
 <link href="<c:url value="/resources/funcionarioAssets/style.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/menu/style.css" />"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Delius"
-	rel="stylesheet">
-	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>

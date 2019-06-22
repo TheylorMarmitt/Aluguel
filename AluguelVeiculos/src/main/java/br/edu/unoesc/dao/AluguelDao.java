@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import br.edu.unoesc.model.Aluguel;
 import br.edu.unoesc.model.Carro;
-import br.edu.unoesc.model.Cliente;
 import br.edu.unoesc.model.Funcionario;
 
 public interface AluguelDao extends JpaRepository<Aluguel, Long>{
