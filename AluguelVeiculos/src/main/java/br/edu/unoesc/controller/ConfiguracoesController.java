@@ -3,7 +3,6 @@ package br.edu.unoesc.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,17 +40,15 @@ public class ConfiguracoesController {
 	}
 
 	@RequestMapping(path = "/aluguel", method = RequestMethod.POST)
-	public String index(Integer valorKm, Integer taxaDiaria, Long filialId) {		
-		Configuracoes conf = new Configuracoes();
-		conf.setPercentTaxaDiaria(taxaDiaria);
-		conf.setPercentValorKm(valorKm);
-		conf.setFilial(filialDao.findByCodigo(filialId));
+	public String index(Configuracoes configuracoes) {		
 		
-		Filial filialBanco = conf.getFilial();
-		filialBanco.setConfiguracoes(conf);
-//
-		dao.save(conf);
-		filialDao.saveAndFlush(filialBanco);
+		configuracoes.setFilial(filialDao.findByCodigo(configuracoes.getFilial().getCodigo()));
+		
+		Filial filialBanco = configuracoes.getFilial();
+		filialBanco.setConfiguracoes(configuracoes);
+		
+		dao.save(configuracoes);
+		filialDao.save(filialBanco);
 		
 		return "configuracoesAluguel/aluguel";
 	}

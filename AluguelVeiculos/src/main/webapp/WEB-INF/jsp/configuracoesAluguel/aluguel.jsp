@@ -37,8 +37,8 @@
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="valorKm" placeholder="50%" class="form-control" 
-								required="required" value="<c:out value="${aluguel.percentValorKm}"/>" type="text"/>
+								<input name="percentValorKm" placeholder="50%" class="form-control" 
+								required="required" value="<c:out value="${filialConfig.percentValorKm}"/>" type="text"/>
 							</div>
 						</div>
 					</div>
@@ -52,8 +52,8 @@
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="taxaDiaria" placeholder="50%" class="form-control" 
-								required="required" value="<c:out value="${aluguel.percentTaxaDiaria}"/>" type="text"/>
+								<input name="percentTaxaDiaria" placeholder="50%" class="form-control" 
+								required="required" value="<c:out value="${filialConfig.percentTaxaDiaria}"/>" type="text"/>
 							</div>
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 					<div class="input-group col-md-3">
 						<span class="input-group-addon"><i class="fa fa-building"></i></span> <select
 							class="browser-default form-control custom-select" id=carro
-							name="filialId">
+							name="filial.codigo">
 							<c:forEach var="f" items="${filial}">
 								<option value="${f.codigo}">${f.nome}</option>
 							</c:forEach>
@@ -78,8 +78,6 @@
 	</div>
 
 <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-<%-- <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script> --%>
-
 <script>
 
 $(function(){

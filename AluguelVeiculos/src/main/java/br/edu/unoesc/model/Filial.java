@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +28,7 @@ public class Filial {
 	private String email;
 
 	private String endereco;
+	
 	@ManyToOne
 	@JoinColumn(name = "configuracao_id")
 	private Configuracoes configuracoes = new Configuracoes();
