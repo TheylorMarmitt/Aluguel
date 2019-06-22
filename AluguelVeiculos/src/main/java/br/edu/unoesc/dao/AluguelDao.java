@@ -23,5 +23,6 @@ public interface AluguelDao extends JpaRepository<Aluguel, Long>{
 	
 	Aluguel findByCarroCodigo(long codigo);
 	
+	@Query("select a from Aluguel a where carro.placa = ?1")
 	Aluguel findByCarroPlaca(String placa);
 }
