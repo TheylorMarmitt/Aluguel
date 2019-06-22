@@ -1,7 +1,11 @@
 package br.edu.unoesc.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,28 +13,63 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "Pessoa")
+@Table(name = "Pessoa" , uniqueConstraints = {@UniqueConstraint(columnNames={"cpf"})})
 public abstract class Pessoa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigo;
+	private Long codigo;
+	
+	@NotNull(message="O nome é um campo obrigatório")
+	@Size(min = 3, max = 30, message = "Insira um nome válido")
 	private String nome;
+	
+	@NotNull(message="O sobrenome é um campo obrigatório")
+	@Size(min = 3, max = 30, message = "Insira um sobrenome válido")
 	private String sobrenome;
+	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dataNascimento;
+	
 	private String telefone;
+	
+	@CPF(message="Adicione um CPF válido")
+	@NotNull(message="O CPF é um campo obrigatório")
+	@Column(unique=true)
 	private String cpf;
+	
+	@NotNull(message="O e-mail é um campo obrigatório")
 	private String email;
 	
 	
 	public Pessoa() {
 
+	}
+	
+	public String converteData(){
+		SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			if(this.dataNascimento != null) {
+				return out.format(in.parse(Optional.ofNullable(this.dataNascimento.toString()).orElse("")));
+			}
+			else {
+				return "";
+			}
+				
+		} catch (ParseException e) {
+			return "Erro ao pegar data";
+			
+		}  
 	}
 
 	public Pessoa(long codigo, String nome, String sobrenome, Date dataNascimento, String telefone, String cpf,
@@ -43,66 +82,6 @@ public abstract class Pessoa {
 		this.telefone = telefone;
 		this.cpf = cpf;
 		this.email = email;
-	}
-
-
-	/**
-	 * 
-	 * @return true se cpf for valido
-	 */
-	public Boolean validaCpf() {
-		boolean cpfValido = false;
-		int decimaPosicao = 10;
-		int total = 0;
-		char[] chars = this.getCpf().toCharArray();
-		
-		
-		
-		for (int i = 0; i < 9; i++) {
-			int valorCaracterEmPosicao = Integer.valueOf(String.valueOf(chars[i]));
-			total = total + (valorCaracterEmPosicao * decimaPosicao);
-			decimaPosicao--;
-		}
-
-		int validacao1 = total % 11;
-		validacao1 = 11 - validacao1;
-		if (validacao1 > 9) {
-			validacao1 = 0;
-		}
-
-		int valorCaracterEmPosicao9 = Integer.valueOf(String.valueOf(chars[9]));
-
-		if (validacao1 == valorCaracterEmPosicao9) {
-			cpfValido = true;
-		}
-
-		int decimaPrimeiraPosicao = 11;
-		total = 0;
-		for (int i = 0; i < 10; i++) {
-			int valorCaracterEmPosicao = Integer.valueOf(String.valueOf(chars[i]));
-			total = total + (valorCaracterEmPosicao * decimaPrimeiraPosicao);
-			decimaPrimeiraPosicao--;
-		}
-
-		int validacao2 = total % 11;
-		validacao2 = 11 - validacao2;
-
-		if (validacao2 > 9) {
-			validacao2 = 0;
-		}
-
-		int valorCaracterEmPosicao10 = Integer.valueOf(String.valueOf(chars[10]));
-
-		if (validacao2 == valorCaracterEmPosicao10) {
-			cpfValido = true;
-		}
-
-		if (!cpfValido) {
-			return false;
-		} else {
-			return true;
-		}
-
 	}
 
 
@@ -154,6 +133,15 @@ public abstract class Pessoa {
 		this.email = email;
 	}
 
+
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
 
 	@Override
 	public int hashCode() {

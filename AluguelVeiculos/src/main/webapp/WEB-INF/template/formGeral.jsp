@@ -66,3 +66,13 @@
 					</div>
 				</div>
 			</div>
+
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>	
+			
+			<script>
+			jQuery(function($){
+			$("#cpf").mask("999.999.999-99");
+			$("#telefone").mask("(99)99999-9999");
+			});
+			</script>

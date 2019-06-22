@@ -7,14 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title><fmt:message key="tela.carro.titulo" /></title>
+<link href="<c:url value="/resources/carroAssets/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/aluguelAssets/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/menu/style.css" />"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -25,7 +26,7 @@
 				<label class="pull-left control-label  filtro"> <fmt:message key="tela.carro.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtro"> <input
+						<input type="text" id="filtro" name="filtro"> <input
 							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
@@ -34,22 +35,41 @@
 	</div>
 	<div class= "container-fluid">
 			<c:forEach var="c" items="${carros}">
-				<div class="col-md-3"> 
-					<div class="img-responsive">
-						<img src="data:image/jpg;base64,${c.imagem}">
+				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 fixed-width">
+					<a class="link" href = "<c:url value = "/aluguel/cadastro"/>"> 
+					<div class="conteudo ">
+						<div class="imagem">
+								<c:if test="${empty c.imagem}">
+									<img src="<c:url value="/resources/img/imgNotFound.png" />" class="img-responsive center-block" >
+								</c:if>
+								<c:if test="${not empty c.imagem}">
+									<img src="data:image/jpg;base64,${c.imagem}" class="img-responsive center-block">	
+								</c:if>
+						</div>	
+						<div class="inf">
+							<p><fmt:message key="carro.placa"/> <span class="azul">${c.placa}</span> </p>	
+							<p><fmt:message key="carro.marca"/><span class="azul">${c.marca}</span>  </p>
+							<p><fmt:message key="carro.modelo"/><span class="azul">${c.modelo}</span>  </p>
+							<p><fmt:message key="carro.valor"/><span class="azul">${c.valor}</span> </p>	
+							<p><fmt:message key="carro.cor"/><span class="azul">${c.cor}</span> </p>
+						</div>			
 					</div>
-					<div>Placa: ${c.placa}</div>	
-					<div>Marca: ${c.marca}}</div>	
-					<div>Modelo: ${c.modelo}</div>
-					<div>Valor: ${c.valor}</div>	
-					<div>Cor: ${c.cor}</div>		
+					</a>
 				</div>
+
 			</c:forEach>
 	</div>
 
 
-<script src="<c:url value="/resources/js/custom.js"/>"></script>
-<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+
+	<script>
+		jQuery(function($) {
+			$("#filtro").mask("AAA-9999");
+		});
+	</script>
 
 </body>
 </html>

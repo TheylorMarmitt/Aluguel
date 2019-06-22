@@ -1,6 +1,9 @@
 package br.edu.unoesc.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,22 +25,29 @@ public class Aluguel {
 	private long codigo;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAluguel;
+	@NotNull(message="Favor informar Kilometros de saída do veículo")
 	private Double kmSaida;
+	@NotNull(message="Favor imformar taxa para calculos futuros")
 	private Double taxa;
+	@NotNull(message="Favor imformar valor para calculos futuros")
 	private Double valor;
 	private boolean ativo;
 
 	@ManyToOne
 	@JoinColumn(name = "carro_id")
-	private Carro carro;
+//	@NotNull(message="Favor informar veículo")
+	private Carro carro = new Carro();
 
 	@ManyToOne
 	@JoinColumn(name = "funcionario_id")
-	private Funcionario funcionario;
+//	@NotNull(message="Favor informar funcionário")
+	private Funcionario funcionario = new Funcionario();
 
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
-	private Cliente cliente;
+//	@NotNull(message="Favor informar cliente")
+	private Cliente cliente = new Cliente();
+	
 
 	public boolean confirmaAluguel() {
 		if (this.carro.isDisponivel()) {
@@ -143,4 +154,33 @@ public class Aluguel {
 				+ ", carro=" + carro + ", funcionario=" + funcionario + ", cliente=" + cliente + "]";
 	}
 
+	public Double getKmSaida() {
+		return kmSaida;
+	}
+
+	public void setKmSaida(Double kmSaida) {
+		this.kmSaida = kmSaida;
+	}
+
+	public String getNomeCliente() {
+		return this.cliente.getNome() +" "+ this.cliente.getSobrenome();
+	}
+	
+	public String converteData(){
+		SimpleDateFormat in= new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			if(this.dataAluguel != null) {
+				return out.format(in.parse(Optional.ofNullable(this.dataAluguel.toString()).orElse("")));
+			}
+			else {
+				return "";
+			}
+				
+		} catch (ParseException e) {
+			return "Erro ao pegar data";
+			
+		}  
+	}
+	
 }

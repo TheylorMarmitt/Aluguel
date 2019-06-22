@@ -3,15 +3,21 @@ package br.edu.unoesc.controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Base64;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
 import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.model.Carro;
 import br.edu.unoesc.service.CarroService;
+import org.springframework.validation.Errors;
 
 @Controller
 @RequestMapping("/carro")
@@ -19,7 +25,7 @@ public class CarroController {
 
 	@Autowired
 	private CarroDao carroDao;
-
+	
 	@Autowired
 	private CarroService carroService;
 	
@@ -29,7 +35,10 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/enviar", method = RequestMethod.POST)
-	public String cadastro(Carro carro, MultipartFile file,  Model model) throws ParseException {
+	public ModelAndView cadastro(@Valid Carro carro, Errors erro, MultipartFile file,  Model model) {
+		if(erro.hasErrors()) {
+			new ModelAndView("carro/cadastro", "carro", carro);
+		}
 		try {
 			String img = Base64.getEncoder().encodeToString(file.getBytes());
 			carro.setimagem(img);
@@ -38,7 +47,7 @@ public class CarroController {
 		}
 		
 		this.carroService.adiciona(carro);
-		return "index/login";
+		return new ModelAndView("carro/disponiveis", "carros", carroDao.findByDisponivelTrue());
 	}
 	
 	@RequestMapping(path = "/atualizar")
@@ -48,7 +57,7 @@ public class CarroController {
 	}
 	
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
-	public String editar(Carro carro, Model model) throws ParseException {
+	public String editar(Carro carro, Model model) {
 		this.carroDao.saveAndFlush(carro);
 		return "carro/atualizar";
 	}
@@ -64,4 +73,6 @@ public class CarroController {
 		model.addAttribute("carros", this.carroDao.findDisponiveisPlaca(filtro));
 		return "carro/disponiveis";
 	}
+	
 }
+

@@ -15,6 +15,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -22,12 +23,14 @@
 		<h1>Devolvido</h1>
 	</div>
 	<div class= "container-fluid">
-		<h3>Carro devolvido: </h3><h3><c:out value="${devolucao.aluguel.carro.placa}"/></h3>
-		<h3>Cliente: </h3><h3><c:out value="${devolucao.aluguel.cliente.nome}"/></h3>
-		<h3>Funcionario</h3><h3><c:out value="${devolucao.aluguel.funcionario.nome}"/></h3>
-		<h3>Km Chegada</h3><h3><c:out value="${devolucao.quilometroChegada}"/></h3>
-		<h3>Km Percorridos</h3><h3><c:out value="${devolucao.calculaQuilometros()}"/></h3>
-		<h3>Valor Total: </h3><h3><c:out value="${devolucao.valorTotal}"/></h3>
+		<h3>Carro devolvido: <c:out value="${devolucao.aluguel.carro.placa}"/></h3>
+		<h3>Cliente: <c:out value="${devolucao.aluguel.cliente.nome} ${devolucao.aluguel.cliente.sobrenome}"/></h3>
+		<h3>Taxa: <c:out value="${devolucao.aluguel.taxa}"/></h3>
+		<h3>Valor: <c:out value="${devolucao.aluguel.valor}"/></h3>
+		<h3>Km Saida: <c:out value="${devolucao.aluguel.kmSaida}"/></h3>
+		<h3>Km Chegada: <c:out value="${devolucao.kilometroChegada}"/></h3>
+		<h3>Km Percorridos: <c:out value="${devolucao.calculaKms()}"/></h3>
+		<h3>Valor Total: <c:out value="${devolucao.valorTotal}"/></h3>
 	</div>
 </body>
 </html>

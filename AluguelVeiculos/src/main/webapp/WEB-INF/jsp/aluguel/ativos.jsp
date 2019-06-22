@@ -16,6 +16,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Delius"
 	rel="stylesheet">
+	<link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
 	<%@ include file="/WEB-INF/template/menu.jsp"%>
@@ -29,7 +30,7 @@
 						key="tela.alugueis.busca" /></label>
 				<div class="inputGroupContainer">
 					<div class="input-group">
-						<input type="text" name="filtro"> <input
+						<input type="text" id="filtro" name="filtro"> <input
 							class="btn btn-default btn-filtro" type="submit" value="filtrar" />
 					</div>
 				</div>
@@ -43,14 +44,14 @@
 					<th><fmt:message key="tela.alugueis.codigo" /></th>
 					<th><fmt:message key="tela.alugueis.placa" /></th>
 					<th><fmt:message key="tabela.ativos.dataAluguel" /></th>
-					<th><fmt:message key="cliente" /></th>
+					<th><fmt:message key="aluguel.kmSaida" /></th>
 				</tr>
 				<c:forEach var="a" items="${alugueis}">
 					<tr>
 						<td>${a.codigo}</td>
 						<td>${a.carro.placa}</td>
-						<td>${a.dataAluguel}</td>
-						<td>${a.cliente.nome}</td>
+						<td>${a.converteData()}</td>
+						<td>${a.kmSaida}</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -60,5 +61,14 @@
 
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.js" />"></script>
+
+	<script>
+		jQuery(function($) {
+			$("#filtro").mask("AAA-9999");
+		});
+	</script>
+	
+	
 </body>
 </html>
