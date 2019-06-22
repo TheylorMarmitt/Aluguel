@@ -37,7 +37,7 @@
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="percentValorKm" placeholder="50%" class="form-control" 
+								<input name="percentValorKm" placeholder="50%" class="form-control" id="valorKm"
 								required="required" value="<c:out value="${filialConfig.percentValorKm}"/>" type="text"/>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 								<span class="input-group-addon">
 									<i class="fa fa-percent"></i>
 								</span>
-								<input name="percentTaxaDiaria" placeholder="50%" class="form-control" 
+								<input name="percentTaxaDiaria" placeholder="50%" class="form-control" id="taxaDiaria"
 								required="required" value="<c:out value="${filialConfig.percentTaxaDiaria}"/>" type="text"/>
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 				<div class="col-md-9 inputGroupContainer">
 					<div class="input-group col-md-3">
 						<span class="input-group-addon"><i class="fa fa-building"></i></span> <select
-							class="browser-default form-control custom-select" id=carro
+							class="browser-default form-control custom-select" id="filial"
 							name="filial.codigo">
 							<c:forEach var="f" items="${filial}">
 								<option value="${f.codigo}">${f.nome}</option>
@@ -78,13 +78,7 @@
 	</div>
 
 <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-<script>
-
-$(function(){
-    $('#taxa').tooltip();
-    $("#km").tooltip();
-});
-</script>
+<script src="<c:url value="/resources/configuracoesAssets/configuracoes.js"/>"></script>
 
 </body>
 </html>
