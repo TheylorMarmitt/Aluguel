@@ -29,7 +29,7 @@
 							<fmt:message key="filial.nome" />
 						</label>
 						<div class="col-md-9 inputGroupContainer">
-							<div class="col-md-3 input-group">
+							<div class="col-md-4 input-group">
 								<span class="input-group-addon">
 									<i class="fa fa-building"></i>
 								</span>
@@ -43,7 +43,7 @@
 							<fmt:message key="filial.cpnj" />
 						</label>
 						<div class="col-md-9 inputGroupContainer">
-							<div class="input-group col-md-3">
+							<div class="input-group col-md-4">
 								<span class="input-group-addon">
 									<i class="fa fa-building"></i>
 								</span>
@@ -57,7 +57,7 @@
 							<fmt:message key="filial.endereco" />
 						</label>
 						<div class="col-md-9 inputGroupContainer">
-							<div class="input-group col-md-3">
+							<div class="input-group col-md-4">
 								<span class="input-group-addon">
 									<i class="glyphicon glyphicon-road"></i>
 								</span>
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 					</div>
-				<button type="submit" class="btn btn-primary">Salvar</button>
+				<button type="submit" class="btn btn-primary col-md-1 col-md-offset-5">Salvar</button>
 			</fieldset>		
 		</form>
 	</div>
