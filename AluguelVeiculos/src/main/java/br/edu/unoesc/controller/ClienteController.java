@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.edu.unoesc.dao.CarroDao;
 import br.edu.unoesc.dao.ClienteDao;
 import br.edu.unoesc.model.Cliente;
 
@@ -18,6 +19,9 @@ public class ClienteController {
 
 	@Autowired
 	private ClienteDao clienteDao;
+	
+	@Autowired
+	CarroDao carroDao;
 
 	@RequestMapping(path = "/cadastro")
 	public String novo() {
@@ -30,6 +34,7 @@ public class ClienteController {
 			return "cliente/cadastro";
 		}
 		this.clienteDao.saveAndFlush(cliente);
+		model.addAttribute("carros", carroDao.findTodosApropriados());
 		return "dashboard/dashboard";
 	}
 
