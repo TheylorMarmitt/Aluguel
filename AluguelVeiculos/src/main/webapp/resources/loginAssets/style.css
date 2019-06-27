@@ -6,3 +6,20 @@ body {
 h2 {
 	margin-bottom: 50px;
 }
+
+.conteudo{
+	margin-top:10%;
+}
+
+.marca{
+	
+	color: #207dd4;
+	font-family: 'Dosis', sans-serif !important;
+    font-weight: 1000;
+    text-transform: uppercase;
+    font-size: 60px;
+}
+
+.marca span{
+	font-weight: 100 !important;
+}

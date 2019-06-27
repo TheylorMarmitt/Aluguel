@@ -32,7 +32,7 @@ public class IndexController {
 		if(f == null) {
 			return new ModelAndView("index/login");
 		}else {
-			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
+			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findTodosApropriados());
 		}
 		
 	}
@@ -55,7 +55,7 @@ public class IndexController {
 	@RequestMapping(path = "/entrar", method = RequestMethod.POST)
 	public ModelAndView entrar(@Param(value = "email") String email, @Param(value = "senha") String senha) {
 		if(service.verificaLogin(email, senha)) {
-			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findAll());
+			return new ModelAndView("dashboard/dashboard", "carros", carroDao.findTodosApropriados());
 		}else {
 			return new ModelAndView("index/login");
 		}

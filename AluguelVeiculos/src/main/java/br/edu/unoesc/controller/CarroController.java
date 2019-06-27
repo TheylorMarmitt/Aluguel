@@ -1,7 +1,6 @@
 package br.edu.unoesc.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Base64;
 
 import javax.validation.Valid;
@@ -9,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,7 +52,7 @@ public class CarroController {
 	
 	@RequestMapping(path = "/atualizar")
 	public String atualizar(String filtroPlaca, Model model) {
-		model.addAttribute("carro", this.carroDao.findByPlaca(filtroPlaca));
+		model.addAttribute("carro", this.carroDao.findByPlacaApropriado(filtroPlaca));
 		return "carro/atualizar";
 	}
 	
@@ -71,6 +71,14 @@ public class CarroController {
 	@RequestMapping(path = "/filtrarDisponivel")
 	public String disponiveis(String filtro, Model model) {
 		model.addAttribute("carros", this.carroDao.findDisponiveisPlaca(filtro));
+		return "carro/disponiveis";
+	}
+	
+	@RequestMapping(path = { "/desapropriar", "/desapropriar/{codigo}" }, method = RequestMethod.GET)
+	public String demitir(@PathVariable("codigo") Long codigo, Model model) {
+		Carro c = this.carroDao.findByCodigo(codigo);
+		carroService.desapropriar(c);
+		model.addAttribute("carros", carroDao.findByDisponivelTrue());
 		return "carro/disponiveis";
 	}
 	

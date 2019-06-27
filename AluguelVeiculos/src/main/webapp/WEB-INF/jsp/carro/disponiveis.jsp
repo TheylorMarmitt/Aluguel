@@ -48,6 +48,7 @@
 							<p><fmt:message key="carro.modelo"/><span class="azul">${c.modelo}</span>  </p>
 							<p><fmt:message key="carro.valor"/><span class="azul">${c.valor}</span> </p>	
 							<p><fmt:message key="carro.cor"/><span class="azul">${c.cor}</span> </p>
+							<a class="desapropriar btn btn-sm btn-danger" href= <c:url value='desapropriar/${c.codigo}'></c:url>>Desapropriar</a>
 						</div>			
 					</div>
 					</a>
