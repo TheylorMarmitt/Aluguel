@@ -21,7 +21,7 @@ body {
 
 
 .conteudo{
-	height: 380px;
+	height: 400px;
 	margin-bottom:10px;
 	border: 2px ;
 	border-style: solid;
@@ -77,5 +77,10 @@ img{
 .modal-footer{
 	margin-top:20px;
 	background-color:#207dd4;
+}
+
+.desapropriar{
+	width:100%;
+	margin-botton:0%;
 }
 

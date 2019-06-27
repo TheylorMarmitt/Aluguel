@@ -16,16 +16,21 @@ public class CarroService {
 	
 	public void adiciona(Carro carro) {
 		if(carro.getDataDeAquisicao() == null) {
-			carro.setDataDeAquisicao(new Date());;
+			carro.setDataDeAquisicao(new Date());
 		}
 		dao.saveAndFlush(carro);
 	}
 	
 	public void setIndisponivel(Carro carro) {
-		
 		carro.setDisponivel(false);
 		dao.save(carro);
 	
+	}
+	
+	public void desapropriar(Carro carro) {
+		carro.setDataDeDesapropriacao(new Date());
+		carro.setDisponivel(false);
+		dao.saveAndFlush(carro);
 	}
 	
 }
