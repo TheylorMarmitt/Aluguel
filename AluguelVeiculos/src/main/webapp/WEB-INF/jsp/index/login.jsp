@@ -14,7 +14,10 @@
  <link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid conteudo">
+<div class="marca text-center">
+<h1>Aluga<span>Car</span></h1>
+</div>
 	<h2 class="text-center">Digite seu login e senha</h2>
 	<c:if test="${login == true}">
 		<div >

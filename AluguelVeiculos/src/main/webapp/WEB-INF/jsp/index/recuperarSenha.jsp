@@ -14,7 +14,11 @@
  <link rel="icon" href="<c:url value="/resources/img/favicon.ico" />">
 </head>
 <body>
-<div class="container-fluid">
+
+<div class="marca text-center">
+	<h1>Aluga<span>Car</span></h1>
+</div>
+<div class="container-fluid conteudo">
 	<h2 class="text-center">Digite seu e-mail para recuperar senha</h2>
 	<form action="recuperar" method="post">
 		<fieldset>
